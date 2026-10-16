@@ -1,0 +1,69 @@
+{
+  "runtime": {
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5"
+  },
+  "data_audit": {
+    "source": "course-data/feathers (not distributed; see README)",
+    "rows": 1643,
+    "symbols": [
+      "603950.SH",
+      "002230.SZ"
+    ],
+    "first_date": "2020-01-02",
+    "last_date": "2026-10-16",
+    "reference_factors": {
+      "603950.SH": 1.0,
+      "002230.SZ": 13.4298
+    },
+    "missing_values": {
+      "open": 93,
+      "high": 93,
+      "low": 93,
+      "close": 93,
+      "amt": 93,
+      "num_trades": 95,
+      "cumadj": 93
+    },
+    "first_valid_close": {
+      "603950.SH": "2020-05-26",
+      "002230.SZ": "2020-01-02"
+    }
+  },
+  "config": {
+    "initial_cash": 1000000,
+    "lot_size": 100,
+    "limit_mode": "conservative",
+    "trading_days_per_year": 252
+  },
+  "fees": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5,
+    "slippage_bps": 5
+  },
+  "accounting": "adjusted_units_with_fixed_factor_reference",
+  "strategy": "PeriodicEqualWeight",
+  "timing": "close signal -> next trading open; last signal never filled inside range",
+  "limit_mode": "conservative",
+  "limit_sources_used": [
+    "proxy_5pct_inward_1tick"
+  ],
+  "notes": [
+    "持仓采用复权单位；raw_equivalent_qty 为模型等价股数，不是实际登记股数。",
+    "cumadj 无法区分现金分红、送股、配股；不生成虚构分红现金或声称精确再投资。",
+    "conservative 使用因子还原的参考价与向内一分钱的 5% 保护；可能过度拒单，也不能证明精确识别所有历史涨停。",
+    "strict 缺少对应日期和证券的外部精确涨跌停资料时拒绝交易。",
+    "开盘定价使用当日 open、cumadj 和盘前涨跌停资料；全天成交额非正或缺失仅用于事后否决不可能的成交，不用于盘前选股或估计容量。",
+    "当日 cumadj 假设在盘前已知；真实实盘应使用当时已经公布的公司行为资料。",
+    "仅模拟开盘成交；没有盘口排队、成交量容量、盘中撮合及真实分红到账日。",
+    "缺失收盘持仓采用最后有效估值并标记 stale；退市后不会虚构清仓，相关结果须单独复核。",
+    "默认每笔买入按 100 等价股取整，适用于本次主板教学示例，未完整实现各板块申报规则。",
+    "卖方印花税按 2023-08-28 前后两档；不含过户费等全部真实费用。年化假设每年 252 个交易日，无风险利率为零。",
+    "最后一天不强制清仓，期末资产按持仓收盘估值；未扣除假设清仓费用。"
+  ],
+  "strategy_parameters": {
+    "rebalance_every": 20,
+    "invested_weight": 0.98
+  }
+}

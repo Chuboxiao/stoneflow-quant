@@ -1,0 +1,2 @@
+﻿order_id,signal_date,execution_date,symbol,side,requested_raw_equivalent_qty,filled_raw_equivalent_qty,filled_adjusted_units,raw_execution_price,adjusted_execution_price,notional,commission,stamp_tax,status,reason,limit_source
+1,2020-07-01,2020-07-02,603950.SH,BUY,20718.81606765328,20700.0,20700.0,23.67,23.67,489969.00000000006,146.99,0.0,PARTIAL,CASH_OR_LOT_ROUNDING,proxy_5pct_inward_1tick

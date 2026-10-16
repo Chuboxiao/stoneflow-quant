@@ -1,0 +1,19 @@
+{
+  "start": "2020-07-01",
+  "end": "2026-10-16",
+  "trading_days": 1526,
+  "initial_cash": 500000.0,
+  "final_equity": 1381743.7212,
+  "total_return": 1.7634874424000002,
+  "annualized_return": 0.18277255270444437,
+  "annualized_volatility": 0.49403621010157805,
+  "sharpe_zero_risk_free": 0.5849043921529514,
+  "max_drawdown": -0.586295175318024,
+  "total_fees": 146.99,
+  "filled_orders": 1,
+  "rejected_orders": 0,
+  "partial_orders": 1,
+  "stale_valuation_days": 0,
+  "unexecuted_final_signal": false,
+  "rejection_reasons": {}
+}

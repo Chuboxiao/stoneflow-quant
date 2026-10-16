@@ -1,0 +1,80 @@
+# 穿石 Stoneflow
+
+**沿时间回放交易，让每一笔决策都有据可查。**
+
+量化交易系统第四讲作业：日频事件驱动回测系统与趋势突破研究。本机网页直接调用Python引擎，使用课程Feather数据，不是静态结果模型。
+
+![Stoneflow工作台](docs/stoneflow-dashboard.jpg)
+
+## 两项任务
+
+- **任务一**：模拟时钟、可编程策略接口、模拟券商、目标持仓、现金/持仓/订单记录、费用和滑点、T+1、cumadj复权、涨跌停限制、旧估值标记、本机网页、运行历史和报告导出。
+- **任务二**：长源东谷603950.SH与科大讯飞002230.SZ，分别运行普通20日突破、成交额确认突破、买入并持有。两只股票各占一半初始资金，独立记账，不互相挪用现金。
+
+[研究报告](REPORT.md) · [逐笔与记账说明](docs/ENGINE.md) · [拟提交评论（待审核）](SUBMISSION_COMMENT.md)
+
+## 运行网页
+
+Python 3.10+，推荐3.12。在仓库目录执行：
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python web_server.py --data-dir /你的路径/feathers
+```
+
+打开 http://127.0.0.1:8765 。只绑定本机，不上传行情、不连接券商，也不发送真实订单。
+
+课程数据从[第四讲issue](https://github.com/aslan9/pku_quantllm/issues/8)下载。也可以将七个文件放入`data/feathers/`，再直接`python web_server.py`。本机已有的`local_config.json`可记录数据路径，此文件及原始Feather不进入Git。完成依赖安装后，macOS也可双击`Start.command`启动。
+
+网页可选择三组研究或等权流程演示、调整区间/资金/费用/滑点、导入精确涨跌停CSV、切换成交模式、查看净值/回撤、分股比较、成交/拒单/持仓、运行历史并导出报告。
+
+## 重跑研究与测试
+
+```bash
+python research.py --data-dir /你的路径/feathers
+python run_demo.py --data-dir /你的路径/feathers
+python -m unittest discover -s tests -v
+python validate_results.py
+```
+
+默认研究共同区间：2020-07-01至2026-10-16，共1526个交易日；此前行情仅用于指标预热。输出为`results/research/`；六个独立子账户保存在其`subaccounts/`内。`validate_results.py`检查已保存账本，因此运行前保留或重建演示与严格模式结果。41项测试不需要下载课程数据，使用合成小样本。
+
+## 策略是代码，不限于参数模板
+
+引擎接收独立Python对象的`on_close(context)`。策略可以保存内部状态、结合多个行情字段、检查真实模拟持仓、实现任意条件和返回目标仓位；不需要改动引擎。突破策略在持仓时只判断退出条件，未触发时保持原持仓，不每日重置权重；订单失败后按照实际持仓继续判断。
+
+```python
+class MyStrategy:
+    def on_close(self, context):
+        history = context.history('close', lookback=21, adjusted=True)
+        # 在这里编写状态、组合条件或自己的模型。
+        return None   # 保持原持仓
+        # return {}   # 下一次开盘尝试清仓
+        # return {'603950.SH': 0.5}  # 下一次开盘尝试达到目标权重
+```
+
+`None`表示不下新指令；权重映射表示新目标，省略的证券目标为0。历史接口只返回截至当前日期的副本。当前通用范围是日频目标仓位策略；没有盘中事件、限价单撤改、做空、保证金或完整实盘订单生命周期。复杂策略逻辑可扩展，不等于已实现全部交易机制。
+
+## 两个必须披露的边界
+
+**复权单位账户。** 价格比较使用原价×cumadj/固定基准因子，成交检查保留原价。累计因子无法还原每次现金分红、送股、配股与到账日，所以持仓输出为复权单位和模型等价股数，不能当作券商登记股数；没有虚构现金分红账本。
+
+**涨跌停资料不足。** `strict`模式需要外部精确涨跌停资料；缺资料拒单。资料齐全时涨停拒买、跌停拒卖。`conservative`模式按因子近似还原参考前收，以向内一分钱的5%边界保守保护，可能过度拒单，也不能证明识别所有历史涨停。网页与报告持续标明代理；本文绩效均为代理下的教学结果，不能宣称精确成交复现。
+
+另外，全天成交额非正或缺失的日期，会**事后否决成交**。全天零成交额是执行不可行性的证明，属于日线执行检查，不作为盘前可获知的选股信息；未使用当日高低收盘价回头决定开盘成交。严格的逐事件实盘验证仍需盘前停牌资料与更细粒度数据。
+
+费用：佣金万三、最低5元、滑点5bps；卖方印花税在2023-08-28前后分别千分之一/万分之五。暂未覆盖全部过户等收费。每个子账户98%目标投资比例；期末不强制清仓。
+
+## 文件结构
+
+- `backtest/`：数据、时钟、策略接口、突破策略、券商、撮合限制、统计与导出。
+- `research.py`：六个独立子账户和三组研究汇总。
+- `web_server.py`、`web/dist/`：本机API与暖纸色网页。
+- `tests/`：引擎、状态型策略、日线零成交额、网页异步任务等41项测试。
+- `results/research/`：研究指标、每日资产、订单、持仓、信号和子账户记录。
+- `examples/daily_limits_TEMPLATE.csv`：精确资料模板，`date,symbol,upper_limit,lower_limit,no_limit,suspended`。
+- `.github/workflows/tests.yml`：GitHub Actions测试；不依赖未上传的课程行情。
+
+原始数据、虚拟环境、本机路径配置、临时网页运行历史均已忽略。仓库提供代码与派生研究记录，源数据请使用课程官方下载链接。

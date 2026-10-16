@@ -1,0 +1,22 @@
+{
+  "start": "2020-05-26",
+  "end": "2026-10-16",
+  "trading_days": 1550,
+  "initial_cash": 1000000,
+  "final_equity": 1000000.0,
+  "total_return": 0.0,
+  "annualized_return": 0.0,
+  "annualized_volatility": 0.0,
+  "sharpe_zero_risk_free": null,
+  "max_drawdown": 0.0,
+  "total_fees": 0.0,
+  "filled_orders": 0,
+  "rejected_orders": 156,
+  "partial_orders": 0,
+  "stale_valuation_days": 0,
+  "unexecuted_final_signal": false,
+  "rejection_reasons": {
+    "MISSING_PRICE_LIMITS": 155,
+    "ZERO_OR_MISSING_DAILY_AMOUNT": 1
+  }
+}
