@@ -8,3 +8,7 @@
 4. **边界披露**：已有cumadj，采用复权单位教学账户。原数据未直接提供历史涨跌停价，展示结果使用明确标注的保守代理；严格模式缺少精确资料时拒单，提供资料后在涨停价拒绝买入、跌停价拒绝卖出。全天成交额非正会事后否决成交。结果为全样本教学实验，不是精确实盘复现。
 
 仓库包含运行说明、研究报告、网页截图、完整运行记录和自动化测试；不上传原始Feather数据。克隆后按README放置课程数据即可重跑。
+
+实际运行后的网页工作台截图：
+
+![穿石 Stoneflow 回测工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-dashboard.jpg)
