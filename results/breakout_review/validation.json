@@ -1,0 +1,142 @@
+{
+  "passed": true,
+  "runs_checked": 15,
+  "checks": 191615,
+  "runs": [
+    {
+      "run": "diagnostic/half_exposure",
+      "passed": true,
+      "checks": 13612,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/base",
+      "passed": true,
+      "checks": 13861,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/confirmed",
+      "passed": true,
+      "checks": 13831,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/defensive",
+      "passed": true,
+      "checks": 16201,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 2.3283064365386963e-10
+    },
+    {
+      "run": "evaluation/liquid",
+      "passed": true,
+      "checks": 13620,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/trend",
+      "passed": true,
+      "checks": 13759,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/double_cost/base",
+      "passed": true,
+      "checks": 13796,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/double_cost/defensive",
+      "passed": true,
+      "checks": 16565,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 3.4924596548080444e-10
+    },
+    {
+      "run": "stress/tight_capacity/base",
+      "passed": true,
+      "checks": 13826,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/tight_capacity/defensive",
+      "passed": true,
+      "checks": 16201,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "training/base",
+      "passed": true,
+      "checks": 9324,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 2.3283064365386963e-10
+    },
+    {
+      "run": "training/confirmed",
+      "passed": true,
+      "checks": 9059,
+      "errors": [],
+      "max_cash_error": 1.4551915228366852e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 1.1641532182693481e-10
+    },
+    {
+      "run": "training/defensive",
+      "passed": true,
+      "checks": 9972,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 2.3283064365386963e-10
+    },
+    {
+      "run": "training/liquid",
+      "passed": true,
+      "checks": 9111,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 1.1641532182693481e-10
+    },
+    {
+      "run": "training/trend",
+      "passed": true,
+      "checks": 8877,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 1.1641532182693481e-10
+    }
+  ]
+}

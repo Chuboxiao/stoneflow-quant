@@ -7,3 +7,4 @@ local_config.json
 *.feather
 data/
 results/web/
+work/

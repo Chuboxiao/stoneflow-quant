@@ -1,0 +1,30 @@
+{
+  "start": "2024-01-02",
+  "end": "2024-12-31",
+  "trading_days": 242,
+  "initial_cash": 1000000,
+  "final_equity": 454137.29,
+  "total_return": -0.54586271,
+  "annualized_return": -0.5604367817793527,
+  "max_drawdown": -0.6730817646540839,
+  "sharpe_zero_risk_free": -1.7570194012467224,
+  "total_fees": 6060.530000000001,
+  "dividend_tax": 1285.3899999999999,
+  "filled_orders": 446,
+  "rejected_orders": 59,
+  "turnover_one_way": 9.964129379852178,
+  "average_exposure": 0.8854050455467273,
+  "stale_valuation_days": 0,
+  "ending_impaired_positions": 0,
+  "missing_actions": [],
+  "event_reference_discrepancies": [],
+  "rejection_reasons": {
+    "SLIPPAGE_OUTSIDE_OBSERVED_RANGE": 22,
+    "LIMIT_UP_CANNOT_BUY": 21,
+    "CASH_LOT_CAPACITY_OR_DELIVERY_LOCK": 10,
+    "LIMIT_DOWN_CANNOT_SELL": 3,
+    "SLIPPAGE_OUTSIDE_BOUNDS": 1,
+    "CORPORATE_ACTION_CANCEL_REPLAN_AT_CLOSE": 1,
+    "SLIPPAGE_AT_LIMIT_UP": 1
+  }
+}

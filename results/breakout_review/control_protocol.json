@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-10-17T20:31:56+0800",
+  "spec": {
+    "key": "half_exposure",
+    "title": "普通突破 · 固定半仓参照",
+    "entry_days": 20,
+    "exit_days": 10,
+    "max_positions": 20,
+    "max_weight": 0.475,
+    "amount_multiplier": 0,
+    "min_amount": 0,
+    "min_price": 0,
+    "trend_filter": false,
+    "atr_risk": 0,
+    "atr_stop": 0
+  },
+  "purpose": "Descriptive attribution: is defensive improvement more than simply lower exposure?",
+  "timing": "Added after provisional candidate results were observed; not part of model selection, not a blind test."
+}

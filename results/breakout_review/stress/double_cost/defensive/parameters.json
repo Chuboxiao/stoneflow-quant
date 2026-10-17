@@ -1,0 +1,28 @@
+{
+  "spec": {
+    "key": "defensive",
+    "title": "趋势 + ATR仓位与退出",
+    "entry_days": 20,
+    "exit_days": 10,
+    "max_positions": 20,
+    "max_weight": 0.95,
+    "amount_multiplier": 1.5,
+    "min_amount": 20000000,
+    "min_price": 3,
+    "trend_filter": true,
+    "atr_risk": 0.001,
+    "atr_stop": 3
+  },
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0006,
+    "min_commission": 10,
+    "stamp": 0.001,
+    "transfer": 2e-05,
+    "slippage_bps": 10,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  }
+}

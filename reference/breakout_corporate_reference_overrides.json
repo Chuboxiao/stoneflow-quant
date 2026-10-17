@@ -1,0 +1,35 @@
+[
+  {
+    "symbol": "300822.SZ",
+    "ex_date": "2024-06-07",
+    "announced_at": "2024-05-31",
+    "reference_cash_per_share": 0.0993423,
+    "reference_share_ratio": 0.2980269,
+    "actual_cash_per_share": 0.1,
+    "actual_share_ratio": 0.3,
+    "reason": "Treasury shares excluded from actual distribution. Use issuer-disclosed diluted ratios only for exchange reference-price validation.",
+    "source": "https://disc.static.szse.cn/disc/disk03/finalpage/2024-05-31/81ad32a4-8371-4dfb-bdb2-4e66338e40af.PDF"
+  },
+  {
+    "symbol": "301379.SZ",
+    "ex_date": "2026-06-05",
+    "announced_at": "2026-05-28",
+    "reference_cash_per_share": 0.1973427,
+    "reference_share_ratio": 0.3946855,
+    "actual_cash_per_share": 0.2,
+    "actual_share_ratio": 0.4,
+    "reason": "Treasury shares excluded; use the issuer's truncated company-wide reference ratios for reference validation only.",
+    "source": "https://static.cninfo.com.cn/finalpage/2026-05-28/1225333668.PDF"
+  },
+  {
+    "symbol": "688388.SH",
+    "ex_date": "2026-06-17",
+    "announced_at": "2026-06-10",
+    "reference_cash_per_share": 0.0448,
+    "reference_share_ratio": 0.4482,
+    "actual_cash_per_share": 0.045,
+    "actual_share_ratio": 0.45,
+    "reason": "Treasury shares excluded; issuer publishes virtual cash and share ratios rounded to four decimal places.",
+    "source": "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-6/2026-06-10/12382204.PDF"
+  }
+]
