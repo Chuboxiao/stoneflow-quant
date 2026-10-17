@@ -1,0 +1,28 @@
+{
+  "spec": {
+    "key": "liquid_high",
+    "title": "2024成交额较高",
+    "entry_days": 20,
+    "exit_days": 10,
+    "max_positions": 20,
+    "max_weight": 0.95,
+    "amount_multiplier": 0,
+    "min_amount": 0,
+    "min_price": 0,
+    "trend_filter": false,
+    "atr_risk": 0,
+    "atr_stop": 0
+  },
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0003,
+    "min_commission": 5,
+    "stamp": 0.0005,
+    "transfer": 1e-05,
+    "slippage_bps": 5,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  }
+}

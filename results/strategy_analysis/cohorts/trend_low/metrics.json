@@ -1,0 +1,28 @@
+{
+  "start": "2025-01-02",
+  "end": "2026-09-30",
+  "trading_days": 424,
+  "initial_cash": 1000000,
+  "final_equity": 801481.7299999995,
+  "total_return": -0.19851827000000044,
+  "annualized_return": -0.12324111737767918,
+  "max_drawdown": -0.35362198028265923,
+  "sharpe_zero_risk_free": -0.18986111820565282,
+  "total_fees": 14813.939999999999,
+  "dividend_tax": 1002.6,
+  "filled_orders": 679,
+  "rejected_orders": 232,
+  "turnover_one_way": 14.284069231753238,
+  "average_exposure": 0.9006646681802333,
+  "stale_valuation_days": 0,
+  "ending_impaired_positions": 0,
+  "missing_actions": [],
+  "event_reference_discrepancies": [],
+  "rejection_reasons": {
+    "CASH_LOT_CAPACITY_OR_DELIVERY_LOCK": 139,
+    "SLIPPAGE_OUTSIDE_OBSERVED_RANGE": 46,
+    "LIMIT_UP_CANNOT_BUY": 42,
+    "CORPORATE_ACTION_CANCEL_REPLAN_AT_CLOSE": 4,
+    "SUSPENDED": 1
+  }
+}

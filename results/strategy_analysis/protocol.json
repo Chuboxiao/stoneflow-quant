@@ -1,0 +1,67 @@
+{
+  "created_at": "2026-10-17T23:16:41+0800",
+  "retrospective": true,
+  "disclosure": "All prior 2025/2026 study results have been seen. New analyses are retrospective explanations, not blind confirmations.",
+  "freeze_date": "2024-12-31",
+  "feature_period": "2024 only, warm-up before2024",
+  "minimum_valid_days_2024": 180,
+  "thresholds": {
+    "efficiency60_2024": 0.1370237881908215,
+    "volatility20_2024": 0.031277292279663,
+    "mean_amount_2024": 109964934.19541323
+  },
+  "groups": [
+    {
+      "key": "frozen_all",
+      "title": "2024可观察全组",
+      "members": 4930
+    },
+    {
+      "key": "trend_high",
+      "title": "2024趋势效率较高",
+      "members": 2465
+    },
+    {
+      "key": "trend_low",
+      "title": "2024趋势效率较低",
+      "members": 2465
+    },
+    {
+      "key": "vol_low",
+      "title": "2024波动较低",
+      "members": 2465
+    },
+    {
+      "key": "vol_high",
+      "title": "2024波动较高",
+      "members": 2465
+    },
+    {
+      "key": "trend_calm",
+      "title": "2024高趋势效率＋低波动",
+      "members": 1276
+    },
+    {
+      "key": "liquid_high",
+      "title": "2024成交额较高",
+      "members": 2465
+    }
+  ],
+  "selection_2025": "Among predefined groups with positive2025return, maximize annualized_return/(abs(drawdown)+0.05); ties by key; else cash.",
+  "evaluation": "2025-01-02..2026-09-30; all7 groups plus double-cost; separate fresh2026 accounts for selected group, frozen all and full course pool.",
+  "signals": "Common liquid non-ST pool; lowest5DR20 vs strongest20-day breakouts20 vs all breakouts vs same-day pool; next open to open after1/5/20 sessions, gross quote study, not account returns. Paired fiveDR-minus-breakout is a descriptive signal spread, not a shortable portfolio.",
+  "bootstrap": "1500 circular20-session blocks over dates; seed20261017; overlapping horizons, descriptive unadjusted intervals, no multiple-testing correction.",
+  "group_membership_sha256": "2c13a51ae051eacc3209b6cdb9492e3db7a4966774b9faa9541bdb0d425b2864",
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0003,
+    "min_commission": 5,
+    "stamp": 0.0005,
+    "transfer": 1e-05,
+    "slippage_bps": 5,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  }
+}

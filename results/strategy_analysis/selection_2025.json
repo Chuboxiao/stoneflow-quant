@@ -1,0 +1,70 @@
+{
+  "selected_key": "vol_high",
+  "training": [
+    {
+      "key": "frozen_all",
+      "period": "2025",
+      "total_return": 0.05532979999999976,
+      "max_drawdown": -0.23374450000000013,
+      "trading_days": 243,
+      "annualized_return": 0.0574368272128678,
+      "score": 0.20242446007893644
+    },
+    {
+      "key": "trend_high",
+      "period": "2025",
+      "total_return": -0.38656511000000016,
+      "max_drawdown": -0.3995288204046552,
+      "trading_days": 243,
+      "annualized_return": -0.3975679807213508,
+      "score": -0.8844104374964646
+    },
+    {
+      "key": "trend_low",
+      "period": "2025",
+      "total_return": 0.02078213999999967,
+      "max_drawdown": -0.2677737000000001,
+      "trading_days": 243,
+      "annualized_return": 0.02156008844128543,
+      "score": 0.0678473027858675
+    },
+    {
+      "key": "vol_low",
+      "period": "2025",
+      "total_return": -0.21859835000000027,
+      "max_drawdown": -0.350166089984684,
+      "trading_days": 243,
+      "annualized_return": -0.22570455162634007,
+      "score": -0.564027180901257
+    },
+    {
+      "key": "vol_high",
+      "period": "2025",
+      "total_return": 0.12660539999999987,
+      "max_drawdown": -0.3106401127272458,
+      "trading_days": 243,
+      "annualized_return": 0.1315905283874581,
+      "score": 0.36488045490097987
+    },
+    {
+      "key": "trend_calm",
+      "period": "2025",
+      "total_return": -0.28538872000000004,
+      "max_drawdown": -0.37528992777623926,
+      "trading_days": 243,
+      "annualized_return": -0.29422698791547297,
+      "score": -0.6918268425822599
+    },
+    {
+      "key": "liquid_high",
+      "period": "2025",
+      "total_return": -0.11961183000000009,
+      "max_drawdown": -0.40196754676667823,
+      "trading_days": 243,
+      "annualized_return": -0.12375592488183551,
+      "score": -0.2738159537497119
+    }
+  ],
+  "rule": "Among predefined groups with positive2025return, maximize annualized_return/(abs(drawdown)+0.05); ties by key; else cash.",
+  "retrospective": true
+}

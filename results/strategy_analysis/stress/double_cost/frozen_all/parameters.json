@@ -1,0 +1,28 @@
+{
+  "spec": {
+    "key": "frozen_all",
+    "title": "2024可观察全组",
+    "entry_days": 20,
+    "exit_days": 10,
+    "max_positions": 20,
+    "max_weight": 0.95,
+    "amount_multiplier": 0,
+    "min_amount": 0,
+    "min_price": 0,
+    "trend_filter": false,
+    "atr_risk": 0,
+    "atr_stop": 0
+  },
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0006,
+    "min_commission": 10,
+    "stamp": 0.001,
+    "transfer": 2e-05,
+    "slippage_bps": 10,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  }
+}

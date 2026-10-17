@@ -10,7 +10,9 @@
 
 [总审核入口](REVIEW_LECTURE4.md) · [5DR报告](REVIEW_5DR.md) · [全池突破报告](REVIEW_BREAKOUT.md) · [拟提交评论](SUBMISSION_LECTURE4_DRAFT.md)
 
-启动服务后访问 **http://127.0.0.1:8765/5dr** 与 **http://127.0.0.1:8765/breakout**；`/`保留原个股实验。新引擎使用原始股份、现金、股利应收及股份锁定，并独立重放账本。65项单元测试和39组已保存账户的账本重放通过。这次改动尚未推送或重新提交课程issue，等待审核。
+新增[收益来源与适用股票研究](ANALYSIS_STRATEGIES.md)：对账归因、共同股票池的后续报价、2024固定特征子集、2025选组后2026重新建账。高波动固定组在本样本盈利，但跨期重新建账优势很弱；不把事后盈利股票当作永久适用名单。
+
+启动服务后访问 **http://127.0.0.1:8765/5dr** 与 **http://127.0.0.1:8765/breakout**；`/`保留原个股实验。新引擎使用原始股份、现金、股利应收及股份锁定，并独立重放账本。当前71项单元测试通过；主研究39组及补充研究17组账户分别通过账本重放。这次改动尚未推送或重新提交课程issue，等待审核。
 
 [5DR复现与精度边界](docs/PRECISION_5DR.md) · [突破复现与精度边界](docs/PRECISION_BREAKOUT.md)
 
@@ -51,7 +53,7 @@ python -m unittest discover -s tests -v
 python validate_results.py
 ```
 
-上述命令重跑的是原突破实验，共同区间2020-07-01至2026-10-16，共1526个交易日；此前行情仅用于指标预热。输出为`results/research/`；六个独立子账户保存在其`subaccounts/`内。`validate_results.py`检查已保存账本，因此运行前保留或重建演示与严格模式结果。当前65项单元测试不需要下载课程数据，使用合成小样本。新的5DR与全池突破实验见各自复现指南。
+上述命令重跑的是原突破实验，共同区间2020-07-01至2026-10-16，共1526个交易日；此前行情仅用于指标预热。输出为`results/research/`；六个独立子账户保存在其`subaccounts/`内。`validate_results.py`检查已保存账本，因此运行前保留或重建演示与严格模式结果。当前71项单元测试不需要下载课程数据，使用合成小样本。新的5DR与全池突破实验见各自复现指南。
 
 ## 策略是代码，不限于参数模板
 
@@ -87,7 +89,7 @@ class MyStrategy:
 - `research.py`：六个独立子账户和三组研究汇总。
 - `web_server.py`、`web/dist/`：本机API与暖纸色网页。
 - `research_5dr.py`、`research_breakout.py`：同区间全池反转与突破研究，2024选型、评价、压力情景及归因诊断。
-- `tests/`：65项测试，涵盖两个引擎、状态型策略、复权、分红、送转锁股、因果性和网页任务。
+- `tests/`：71项测试，涵盖两个引擎、状态型策略、复权、分红、送转锁股、因果性和网页任务。
 - `results/5dr_review/`、`results/breakout_review/`：本次审核用真实派生结果、逐笔账本、独立HTML报告与校验。
 - `results/research/`：研究指标、每日资产、订单、持仓、信号和子账户记录。
 - `examples/daily_limits_TEMPLATE.csv`：精确资料模板，`date,symbol,upper_limit,lower_limit,no_limit,suspended`。

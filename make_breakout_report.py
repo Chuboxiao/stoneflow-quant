@@ -147,12 +147,15 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
 
 ## 校验与复现
 
-**{test_count}项单元测试通过。** 本次突破{v['runs_checked']}组运行通过独立CSV账本重放，{v['checks']:,}个记账断言；与原5DR的{v5['runs_checked']}组共{v['runs_checked']+v5['runs_checked']}组。独立脚本不调用撮合引擎，检查现金、原始股数、股利应收、权益、费用、ST买单与成交边界。断言数量不是单元测试数量，也不等于真实市场成交已经得到证明。
+**主研究当时保存的{test_count}项单元测试通过。** 本次突破{v['runs_checked']}组运行通过独立CSV账本重放，{v['checks']:,}个记账断言；与原5DR的{v5['runs_checked']}组共{v['runs_checked']+v5['runs_checked']}组。扩展研究的新增账户与当前测试数量另列在扩展章节。独立脚本不调用撮合引擎，检查现金、原始股数、股利应收、权益、费用、ST买单与成交边界。断言数量不是单元测试数量，也不等于真实市场成交已经得到证明。
 
 完整重跑步骤见docs/PRECISION_BREAKOUT.md。结果保存在results/breakout_review，5DR结果保持原目录；两组均保存参数、来源哈希与实际逐日账本。课程Feather和辅助源缓存不上传，本次只有代码、报告与派生结果。
 
 当前等待你审核，再决定是否推送和更新课程评论。
 """
+    analysis_path=ROOT/'results/strategy_analysis/report_fragment.md'
+    if analysis_path.exists():
+        report=report.replace('## 账户精度与来源',analysis_path.read_text()+'\n\n## 账户精度与来源')
     (ROOT/"REVIEW_BREAKOUT.md").write_text(report)
     series=[]
     for key,color,title in (("base","#93a485","普通突破"),(s["selected_key"],"#b56b45","2024冻结方案")):
@@ -167,6 +170,10 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
     chart+='<text x="45" y="285">2025-01-02</text><text x="980" y="285" text-anchor="end">2026-09-30</text></svg>'
     chart+='<p>'+''.join(f'<span style="color:{c};margin-right:20px">━ {t}</span>' for _,c,t in series)+'</p>'
     body=render_markdown(report).replace('<h2>老师指定区间的实际结果</h2>','<h2>老师指定区间的实际结果</h2>'+chart)
+    body=body.replace('<h2>策略差异与适用股票：扩展研究</h2>','<h2 id="strategy-analysis">策略差异与适用股票：扩展研究</h2>')
+    group_chart=ROOT/'results/strategy_analysis/group_chart.svg'
+    if group_chart.exists():
+        body=body.replace('<h3>三、是否适用于部分股票：用2024资料固定子集</h3>','<h3>三、是否适用于部分股票：用2024资料固定子集</h3>'+group_chart.read_text())
     css="body{max-width:1080px;margin:40px auto;padding:0 25px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2{font-family:'Songti SC',serif}h1{font-size:30px}h2{margin-top:35px;font-size:23px}blockquote{border-left:3px solid #b56b45;background:#e8ecde;padding:12px 18px}a{color:#567c67}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}td,th{padding:10px 12px;border-bottom:1px solid #dce1d1;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}svg{width:100%;height:auto}svg text{font:12px sans-serif;fill:#7a8575}.item{margin-left:15px}code{background:#e5e9dc;padding:2px 4px}"
     (RESULTS/"report.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 全池突破审核</title><style>'+css+'</style><body>'+body+'</body></html>')
     combined=f"""# 穿石 Stoneflow：第四讲作业总审核
@@ -201,6 +208,12 @@ ST公告时点、真实盘口、官方逐日限价、个税和特殊公司行为
 
 **状态：等待你审核；未推送本次更新，未发布新评论。**
 """
+    if analysis_path.exists():
+        combined=combined.replace('## 审核入口','## 新增：策略差异与适用股票\n\n已补充实际账户损益归因、共同股票池信号检验、2024固定特征分组、2025选组后2026重新建账，以及正负贡献股票。\n\n[扩展研究全文](ANALYSIS_STRATEGIES.md)；原主研究39组与新增17组账户分开校验。新增分析为回顾研究，不包装成盲测。\n\n## 审核入口')
+        combined=combined.replace(f'{test_count}项单元测试通过，',f'主研究当时保存的{test_count}项单元测试通过，')
+        analysis_tests=(ROOT/'results/strategy_analysis/unit_tests.txt').read_text()
+        current_tests=int(re.search(r'Ran (\d+) tests',analysis_tests).group(1))
+        combined=combined.replace('原始数据不上传。',f'原始数据不上传。扩展研究后，全仓库{current_tests}项测试通过，新增17组账户账本重放另行保存。')
     (ROOT/"REVIEW_LECTURE4.md").write_text(combined)
     comment=f"""第四讲作业更新：**穿石 Stoneflow — 全股票池5DR与趋势突破研究**
 
@@ -218,7 +231,9 @@ ST公告时点、真实盘口、官方逐日限价、个税和特殊公司行为
 
 ![穿石全池突破研究工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-breakout-review.jpg)
 """
-    (ROOT/"SUBMISSION_LECTURE4_DRAFT.md").write_text(comment)
+    # The user may edit their submission draft between report builds.
+    comment_path=ROOT/"SUBMISSION_LECTURE4_DRAFT.md"
+    if not comment_path.exists():comment_path.write_text(comment)
 
 
 if __name__=="__main__":main()
