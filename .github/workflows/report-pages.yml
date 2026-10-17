@@ -1,0 +1,42 @@
+name: Publish read-only research reports
+
+# Publication is deliberately manual. Review the reports before running this
+# workflow on main; configure Settings > Pages > Source as GitHub Actions first.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: report-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build saved reports (no raw data or third-party Python packages)
+        run: python3 build_report_site.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: report_site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy report site
+        id: deployment
+        uses: actions/deploy-pages@v4

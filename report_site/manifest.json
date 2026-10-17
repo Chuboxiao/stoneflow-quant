@@ -1,0 +1,10 @@
+{
+  "format": 1,
+  "kind": "read-only-saved-reports",
+  "sources": {
+    "results/5dr_review/report.html": "c4c9e9d1efb14cb2d463506a73ab2cd0afde05d06886fc38c8f80ff087a4042d",
+    "results/breakout_review/report.html": "f1a0011a49e19dc1d0e77ce04b52b3246157c7274a5d09904194b3e2651aeb07",
+    "results/strategy_analysis/report.html": "8b311113d09d28c3258d8a8c1ac52f3131a6ce7d95a4a521d4b1b11edda58abf",
+    "REVIEW_LECTURE4.md": "30f3ac810b41abe2802fb5d9059ac3e03ff813ded82c98613ff6d0778ebe799d"
+  }
+}

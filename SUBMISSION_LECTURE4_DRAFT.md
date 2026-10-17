@@ -2,6 +2,16 @@
 
 仓库：https://github.com/Chuboxiao/stoneflow-quant
 
+> 审核说明（正式发布前移除）：以下Pages链接是预定地址，尚未部署。须在更新推送、Pages部署成功且逐页验证后，再发布本评论；Markdown入口也须在推送后复核。
+
+**报告入口（网页版可直接查看图表、表格和全文，无需安装Python或下载课程行情）：**
+
+- **[5DR报告 · 网页版](https://chuboxiao.github.io/stoneflow-quant/5dr.html)** ｜ [GitHub文字全文](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
+- **[20日突破报告 · 网页版](https://chuboxiao.github.io/stoneflow-quant/breakout.html)** ｜ [GitHub文字全文](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_BREAKOUT.md)
+- **[完整报告 · 网页版](https://chuboxiao.github.io/stoneflow-quant/full.html)**（总览＋5DR全文＋突破全文，含机制与适用股票研究）｜ [GitHub总览](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_LECTURE4.md)
+
+[网页报告首页](https://chuboxiao.github.io/stoneflow-quant/)；网页版为已保存结果的只读报告，可修改参数并重新运行的回测系统及代码在仓库中提供。
+
 按照指定区间 **2025-01-02至2026-09-30（424日）**，对课程5,451列证券动态筛选，排除历史ST／*ST和未知状态新买入。cumadj统一信号口径，收盘固定股数、次日执行，涨停拒买、跌停拒卖；原始股份、现金、分红应收、送转锁股分别记账。
 
 5DR比较基础与4个改进，仅用2024选出流动性版：评价期收益37.55%、最大回撤-47.17%；基础版2.76%、-56.50%。冻结方案2026年前三季度亏损20.71%，双倍税费滑点后全期仅0.73%。
@@ -12,7 +22,7 @@
 
 71项单元测试通过，主研究39组与新增研究17组分别完成独立账本重放。研究属于回顾性的时间隔离，日线成交、ST生效时点、个税与特殊公司行为有明确限制，不声称精确实盘复现。课程和辅助源数据不上传。
 
-[机制与股票子集研究](https://github.com/Chuboxiao/stoneflow-quant/blob/main/ANALYSIS_STRATEGIES.md) · [总审核报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_LECTURE4.md) · [突破报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_BREAKOUT.md) · [5DR报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
+[机制与股票子集研究 · 网页专页](https://chuboxiao.github.io/stoneflow-quant/analysis.html) · [GitHub文字全文](https://github.com/Chuboxiao/stoneflow-quant/blob/main/ANALYSIS_STRATEGIES.md)
 
 ![穿石全池突破研究工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-breakout-review.jpg)
 

@@ -2,13 +2,25 @@
 
 **沿时间回放交易，让每一笔决策都有据可查。**
 
-量化交易系统第四讲作业：日频事件驱动回测系统、5DR反转研究与趋势突破对照。本机网页直接调用Python引擎，使用课程Feather数据，不是静态结果模型。
+量化交易系统第四讲作业：日频事件驱动回测系统、5DR反转研究与趋势突破对照。仓库同时提供**无需原始数据的网页研究报告**和**读取课程Feather、可重新运行回测的本机系统**。
+
+## 作业阅读入口
+
+| 内容 | 网页版（Pages发布后生效） | GitHub文字版 |
+| --- | --- | --- |
+| **5DR报告**：基础策略、4个改进、分年及成本压力检验 | [阅读5DR](https://chuboxiao.github.io/stoneflow-quant/5dr.html) | [5DR全文](REVIEW_5DR.md) |
+| **突破报告**：全池20日突破、风险控制、收益来源与适用股票 | [阅读20日突破](https://chuboxiao.github.io/stoneflow-quant/breakout.html) | [突破全文](REVIEW_BREAKOUT.md) |
+| **完整报告**：总览＋两份报告全文＋机制与股票子集分析 | [阅读完整报告](https://chuboxiao.github.io/stoneflow-quant/full.html) | [总览](REVIEW_LECTURE4.md) · [5DR](REVIEW_5DR.md) · [突破](REVIEW_BREAKOUT.md) |
+
+[网页报告首页](https://chuboxiao.github.io/stoneflow-quant/) · [机制与股票子集专页](ANALYSIS_STRATEGIES.md) · [拟提交评论（待审核）](SUBMISSION_LECTURE4_DRAFT.md)
+
+**本次审核状态：代码和网页已在本机准备；尚未推送、启用Pages或发布新评论。上表在线地址是预定入口，发布并验证后才可访问。** 仓库内`.html`文件的GitHub预览不等于已托管网页。现在可下载仓库后，直接在浏览器打开[`report_site/index.html`](report_site/index.html)，无需Python和原始行情，也无需启动服务。完整报告包含可阅读的图表、表格和说明，不限于截图或Markdown。
+
+在线报告为只读研究结果；修改参数、运行自定义策略及重新回测，需要下文的本机系统。[网页打包与发布说明](docs/REPORT_SITE.md)。
 
 ## 本次更新：全股票池5DR与20日突破
 
 评价区间固定为老师指定的 **2025-01-02 至 2026-09-30（424个交易日）**。在课程5,451列证券中按逐日历史ST状态筛选，完成5DR的5个方案，并扩展20日突破的5个方案与固定半仓诊断。两个策略家族各自用2024年选型，评价期不重新选冠军。这是回顾性时间隔离研究，不是真正盲测。
-
-[总审核入口](REVIEW_LECTURE4.md) · [5DR报告](REVIEW_5DR.md) · [全池突破报告](REVIEW_BREAKOUT.md) · [拟提交评论](SUBMISSION_LECTURE4_DRAFT.md)
 
 新增[收益来源与适用股票研究](ANALYSIS_STRATEGIES.md)：对账归因、共同股票池的后续报价、2024固定特征子集、2025选组后2026重新建账。高波动固定组在本样本盈利，但跨期重新建账优势很弱；不把事后盈利股票当作永久适用名单。
 
@@ -18,7 +30,7 @@
 
 原始课程数据和辅助历史数据缓存均不上传；仓库内派生结果可以直接阅读，完整重跑需按指南下载辅助数据。
 
-![Stoneflow全池突破审核页](docs/stoneflow-breakout-review.jpg)
+![穿石网页报告首页：5DR、20日突破与完整研究三个入口](docs/stoneflow-report-hub.jpg)
 
 ## 原始两项任务（保留）
 
@@ -88,11 +100,14 @@ class MyStrategy:
 - `backtest/`：数据、时钟、策略接口、突破策略、券商、撮合限制、统计与导出。
 - `research.py`：六个独立子账户和三组研究汇总。
 - `web_server.py`、`web/dist/`：本机API与暖纸色网页。
+- `report_site/`：无需服务的网页报告首页、5DR、突破、完整报告和机制分析；本机打开或由Pages托管均可。
+- `build_report_site.py`：仅用Python标准库，从已保存报告打包上述站点，不重新回测。
 - `research_5dr.py`、`research_breakout.py`：同区间全池反转与突破研究，2024选型、评价、压力情景及归因诊断。
 - `tests/`：71项测试，涵盖两个引擎、状态型策略、复权、分红、送转锁股、因果性和网页任务。
 - `results/5dr_review/`、`results/breakout_review/`：本次审核用真实派生结果、逐笔账本、独立HTML报告与校验。
 - `results/research/`：研究指标、每日资产、订单、持仓、信号和子账户记录。
 - `examples/daily_limits_TEMPLATE.csv`：精确资料模板，`date,symbol,upper_limit,lower_limit,no_limit,suspended`。
 - `.github/workflows/tests.yml`：GitHub Actions测试；不依赖未上传的课程行情。
+- `.github/workflows/report-pages.yml`：审核后手动发布只读报告的Pages工作流，不随push自动发布。
 
 原始数据、虚拟环境、本机路径配置、临时网页运行历史均已忽略。仓库提供代码与派生研究记录，源数据请使用课程官方下载链接。
