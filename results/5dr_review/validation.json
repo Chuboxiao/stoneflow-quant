@@ -1,0 +1,223 @@
+{
+  "passed": true,
+  "runs_checked": 24,
+  "checks": 2645229,
+  "runs": [
+    {
+      "run": "evaluation/base",
+      "passed": true,
+      "checks": 186554,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/buffer",
+      "passed": true,
+      "checks": 149174,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/liquid",
+      "passed": true,
+      "checks": 183363,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 6.984919309616089e-10
+    },
+    {
+      "run": "evaluation/risk",
+      "passed": true,
+      "checks": 148921,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "evaluation/weekly",
+      "passed": true,
+      "checks": 66127,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "focus/002230.SZ/breakout",
+      "passed": true,
+      "checks": 3132,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 5.820766091346741e-11
+    },
+    {
+      "run": "focus/002230.SZ/confirmed",
+      "passed": true,
+      "checks": 3132,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 5.820766091346741e-11
+    },
+    {
+      "run": "focus/002230.SZ/hold",
+      "passed": true,
+      "checks": 2991,
+      "errors": [],
+      "max_cash_error": 0.0,
+      "max_shares_error": 0.0,
+      "max_equity_error": 5.820766091346741e-11
+    },
+    {
+      "run": "focus/603950.SH/breakout",
+      "passed": true,
+      "checks": 3259,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 5.820766091346741e-11
+    },
+    {
+      "run": "focus/603950.SH/confirmed",
+      "passed": true,
+      "checks": 3227,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 5.820766091346741e-11
+    },
+    {
+      "run": "focus/603950.SH/hold",
+      "passed": true,
+      "checks": 2992,
+      "errors": [],
+      "max_cash_error": 0.0,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/carry_stale/base",
+      "passed": true,
+      "checks": 183850,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/carry_stale/liquid",
+      "passed": true,
+      "checks": 183363,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 6.984919309616089e-10
+    },
+    {
+      "run": "stress/double_cost/base",
+      "passed": true,
+      "checks": 182779,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/double_cost/liquid",
+      "passed": true,
+      "checks": 180043,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/gross_dividend/base",
+      "passed": true,
+      "checks": 186628,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/gross_dividend/liquid",
+      "passed": true,
+      "checks": 183343,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/tight_capacity/base",
+      "passed": true,
+      "checks": 188042,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "stress/tight_capacity/liquid",
+      "passed": true,
+      "checks": 184257,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 6.984919309616089e-10
+    },
+    {
+      "run": "training/base",
+      "passed": true,
+      "checks": 109046,
+      "errors": [],
+      "max_cash_error": 1.4551915228366852e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "training/buffer",
+      "passed": true,
+      "checks": 86167,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "training/liquid",
+      "passed": true,
+      "checks": 106646,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "training/risk",
+      "passed": true,
+      "checks": 85977,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 2.3283064365386963e-10
+    },
+    {
+      "run": "training/weekly",
+      "passed": true,
+      "checks": 32216,
+      "errors": [],
+      "max_cash_error": 1.4551915228366852e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 2.3283064365386963e-10
+    }
+  ]
+}

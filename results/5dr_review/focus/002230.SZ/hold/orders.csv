@@ -1,0 +1,2 @@
+﻿order_id,signal_date,execution_date,symbol,side,requested_qty,planned_qty,sizing_reference_close,filled_qty,raw_execution_price,notional,commission,stamp_tax,transfer_fee,status,reason,cash_after,lower_limit,upper_limit,signal_is_st,execution_is_st,historical_preclose,lagged_mean_amount20,raw_open
+1,2024-12-31,2025-01-02,002230.SZ,BUY,9800.0,9800,48.32,9800,48.05,470890.0,141.27,0.0,4.71,FILLED,FILLED,28964.02000000002,43.49,53.15,0.0,0.0,48.32,3318444804.6955004,48.02

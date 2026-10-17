@@ -206,6 +206,28 @@ def make_handler(application):
         def do_GET(self):
             route = urlparse(self.path).path
             try:
+                if route == "/api/5dr-review":
+                    directory=ROOT/"results/5dr_review"
+                    status=json.loads((directory/"run_status.json").read_text())
+                    if status.get("status")!="COMPLETE":raise ValueError("正式研究尚未完成："+status.get("status","UNKNOWN"))
+                    summary=json.loads((directory/"summary.json").read_text())
+                    series={}
+                    for item in summary["comparison"]:
+                        key=item["key"]
+                        frame=pd.read_csv(directory/"evaluation"/key/"equity.csv")
+                        series[key]=records(frame)
+                    orders=pd.read_csv(directory/"evaluation"/summary["selected_key"]/"orders.csv")
+                    positions=pd.read_csv(directory/"evaluation"/summary["selected_key"]/"positions.csv")
+                    final_date=summary["performance_end"]
+                    audit_path=directory/"validation.json"
+                    return self.json_response({"summary":summary,"equity":series,
+                        "orders":records(orders.tail(100)),"positions":records(positions[positions.date==final_date]),
+                        "validation":json.loads(audit_path.read_text()) if audit_path.exists() else None})
+                if route.startswith("/review-files/"):
+                    name=route.rsplit("/",1)[-1]
+                    if name not in {"report.html","comparison.csv","summary.json","validation.json","protocol.json","data_audit.json","precision_audit.json"}:
+                        raise FileNotFoundError("文件不存在")
+                    return self.send_file(ROOT/"results/5dr_review"/name,attachment=name!="report.html")
                 if route == "/api/bootstrap": return self.json_response(application.bootstrap())
                 if route == "/api/runs": return self.json_response(application.list_runs())
                 if route.startswith("/api/jobs/"):
@@ -221,7 +243,8 @@ def make_handler(application):
                     path = application.run_directory(parts[2])/parts[3]
                     if not path.is_file(): raise FileNotFoundError("文件不存在")
                     return self.send_file(path,attachment=parts[3]!="report.html")
-                assets = {"/":"index.html","/index.html":"index.html","/style.css":"style.css","/art.css":"art.css","/app.js":"app.js"}
+                assets = {"/":"index.html","/index.html":"index.html","/style.css":"style.css","/art.css":"art.css","/app.js":"app.js",
+                          "/5dr":"5dr.html","/5dr.css":"5dr.css","/5dr.js":"5dr.js"}
                 if route not in assets: raise FileNotFoundError("页面不存在")
                 return self.send_file(ROOT/"web/dist"/assets[route])
             except FileNotFoundError as exc: self.json_response({"error":str(exc)},404)

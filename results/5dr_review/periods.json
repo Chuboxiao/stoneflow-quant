@@ -1,0 +1,142 @@
+[
+  {
+    "key": "base",
+    "period": "2025",
+    "total_return": 0.574344159999993,
+    "max_drawdown": -0.23096388460340833,
+    "trading_days": 243
+  },
+  {
+    "key": "base",
+    "period": "2026年前三季度",
+    "total_return": -0.34729080457224204,
+    "max_drawdown": -0.5649919571503753,
+    "trading_days": 181
+  },
+  {
+    "key": "base",
+    "period": "2025上半年",
+    "total_return": 0.2801889799999946,
+    "max_drawdown": -0.23096388460340833,
+    "trading_days": 117
+  },
+  {
+    "key": "base",
+    "period": "2025下半年",
+    "total_return": 0.22977481027840096,
+    "max_drawdown": -0.08295292679038146,
+    "trading_days": 126
+  },
+  {
+    "key": "liquid",
+    "period": "2025",
+    "total_return": 0.7346276199999935,
+    "max_drawdown": -0.23171257184171412,
+    "trading_days": 243
+  },
+  {
+    "key": "liquid",
+    "period": "2026年前三季度",
+    "total_return": -0.20705488939465344,
+    "max_drawdown": -0.4716944979748001,
+    "trading_days": 181
+  },
+  {
+    "key": "liquid",
+    "period": "2025上半年",
+    "total_return": 0.3601211599999963,
+    "max_drawdown": -0.23171257184171412,
+    "trading_days": 117
+  },
+  {
+    "key": "liquid",
+    "period": "2025下半年",
+    "total_return": 0.27534786680327694,
+    "max_drawdown": -0.09263914637141357,
+    "trading_days": 126
+  },
+  {
+    "key": "buffer",
+    "period": "2025",
+    "total_return": 0.569517409999994,
+    "max_drawdown": -0.21281163305547057,
+    "trading_days": 243
+  },
+  {
+    "key": "buffer",
+    "period": "2026年前三季度",
+    "total_return": -0.25559070415154495,
+    "max_drawdown": -0.5041277835539729,
+    "trading_days": 181
+  },
+  {
+    "key": "buffer",
+    "period": "2025上半年",
+    "total_return": 0.30311519999999836,
+    "max_drawdown": -0.21281163305547057,
+    "trading_days": 117
+  },
+  {
+    "key": "buffer",
+    "period": "2025下半年",
+    "total_return": 0.20443488802831555,
+    "max_drawdown": -0.1008348712483369,
+    "trading_days": 126
+  },
+  {
+    "key": "weekly",
+    "period": "2025",
+    "total_return": 0.2161735600000001,
+    "max_drawdown": -0.23818892900243216,
+    "trading_days": 243
+  },
+  {
+    "key": "weekly",
+    "period": "2026年前三季度",
+    "total_return": -0.4052733558851588,
+    "max_drawdown": -0.5458939324118672,
+    "trading_days": 181
+  },
+  {
+    "key": "weekly",
+    "period": "2025上半年",
+    "total_return": 0.07224832000000081,
+    "max_drawdown": -0.23818892900243216,
+    "trading_days": 117
+  },
+  {
+    "key": "weekly",
+    "period": "2025下半年",
+    "total_return": 0.1342275266982924,
+    "max_drawdown": -0.0753488884856498,
+    "trading_days": 126
+  },
+  {
+    "key": "risk",
+    "period": "2025",
+    "total_return": 0.5588682099999946,
+    "max_drawdown": -0.21281163305547057,
+    "trading_days": 243
+  },
+  {
+    "key": "risk",
+    "period": "2026年前三季度",
+    "total_return": -0.2372122528561973,
+    "max_drawdown": -0.4902397145544962,
+    "trading_days": 181
+  },
+  {
+    "key": "risk",
+    "period": "2025上半年",
+    "total_return": 0.30208963999999816,
+    "max_drawdown": -0.21281163305547057,
+    "trading_days": 117
+  },
+  {
+    "key": "risk",
+    "period": "2025下半年",
+    "total_return": 0.1972049865937009,
+    "max_drawdown": -0.10078392467139896,
+    "trading_days": 126
+  }
+]

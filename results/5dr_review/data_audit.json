@@ -1,0 +1,14 @@
+{
+  "provider": "BaoStock 0.9.4",
+  "fields": [
+    "isST",
+    "tradestatus",
+    "preclose"
+  ],
+  "raw_close_compared": 3834677,
+  "raw_close_mismatched": 0,
+  "missing_files": [],
+  "read_failures": [],
+  "reference_downloaded_at": "2026-10-17T18:35:36+0800",
+  "reference_manifest_sha256": "4fdf0fb76e05ccd8f5088111de991db817ec8ea58bc907fddbaaae922bcec248"
+}

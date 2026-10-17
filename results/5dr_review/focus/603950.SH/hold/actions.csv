@@ -1,0 +1,4 @@
+﻿date,symbol,type,cash_delta,shares_delta,receivable_delta,gross_dividend,dividend_tax,cash_pay_date,stock_release_date,stock_date_assumed,cash_per_share,bonus_per_share,reserve_per_share,reference_error,reference_cash_per_share,reference_share_ratio,reference_override_source
+2025-02-20,603950.SH,EX_DIVIDEND_OR_BONUS,2001.36,0,0,2501.7,500.3399999999999,2025-02-20,2025-02-20,False,0.093,0.0,0.0,0.0030000000000001137,0.093,0.0,
+2025-05-22,603950.SH,EX_DIVIDEND_OR_BONUS,2646.96,0,0,3308.7,661.7399999999998,2025-05-22,2025-05-22,False,0.123,0.0,0.0,0.0030000000000001137,0.123,0.0,
+2026-06-03,603950.SH,EX_DIVIDEND_OR_BONUS,2797.6,0,0,3497.0,699.4000000000001,2026-06-03,2026-06-03,False,0.13,0.0,0.0,0.0,0.13,0.0,

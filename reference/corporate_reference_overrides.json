@@ -1,0 +1,46 @@
+[
+  {
+    "symbol": "301030.SZ",
+    "ex_date": "2024-05-28",
+    "announced_at": "2024-05-21",
+    "reference_cash_per_share": 0.2991988,
+    "reference_share_ratio": 0.3989318,
+    "actual_cash_per_share": 0.3,
+    "actual_share_ratio": 0.4,
+    "reason": "Treasury shares excluded from distribution; market reference uses diluted company-wide ratios.",
+    "source": "https://static.cninfo.com.cn/finalpage/2024-05-21/1220121664.PDF"
+  },
+  {
+    "symbol": "300845.SZ",
+    "ex_date": "2025-05-28",
+    "announced_at": "2025-05-20",
+    "reference_cash_per_share": 0.3462760,
+    "reference_share_ratio": 0.3957439,
+    "actual_cash_per_share": 0.35,
+    "actual_share_ratio": 0.4,
+    "reason": "Treasury shares excluded from distribution; market reference uses diluted company-wide ratios.",
+    "source": "https://static.cninfo.com.cn/finalpage/2025-05-20/1223609061.PDF"
+  },
+  {
+    "symbol": "301070.SZ",
+    "ex_date": "2025-06-10",
+    "announced_at": "2025-05-30",
+    "reference_cash_per_share": 0,
+    "reference_share_ratio": 0.3977160,
+    "actual_cash_per_share": 0,
+    "actual_share_ratio": 0.4,
+    "reason": "Treasury shares 368600 excluded; issuer discloses 3.977160 per 10 shares, hence 0.3977160 per share.",
+    "source": "https://storage.kalefans.com/uploads/20250603/2025-034%20%E5%BC%80%E5%8B%92%E8%82%A1%E4%BB%BD%EF%BC%9A2024%E5%B9%B4%E5%B9%B4%E5%BA%A6%E6%9D%83%E7%9B%8A%E5%88%86%E6%B4%BE%E5%AE%9E%E6%96%BD%E5%85%AC%E5%91%8A.pdf"
+  },
+  {
+    "symbol": "301310.SZ",
+    "ex_date": "2026-05-19",
+    "announced_at": "2026-05-13",
+    "reference_cash_per_share": 0.2490049,
+    "reference_share_ratio": 0.3984079,
+    "actual_cash_per_share": 0.25,
+    "actual_share_ratio": 0.4,
+    "reason": "Treasury shares excluded from distribution; market reference uses diluted company-wide ratios.",
+    "source": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-05-13/be86e959-b7d9-4a20-94cb-47d547845a91.PDF"
+  }
+]

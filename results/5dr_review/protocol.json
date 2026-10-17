@@ -1,0 +1,99 @@
+{
+  "registered_before_evaluation": true,
+  "performance_start": "2025-01-02",
+  "performance_end": "2026-09-30",
+  "training_start": "2024-01-02",
+  "training_end": "2024-12-31",
+  "universe": "all course matrix columns, daily historical eligibility",
+  "initial_cash": 1000000,
+  "candidates": [
+    {
+      "key": "base",
+      "title": "基础 5DR · 每日最低20只",
+      "top_n": 20,
+      "every": 1,
+      "min_amount": 0,
+      "min_price": 0,
+      "keep_rank": 20,
+      "recent_risk_days": false,
+      "trend_filter": false,
+      "weight": 0.95
+    },
+    {
+      "key": "liquid",
+      "title": "5DR + 流动性",
+      "top_n": 20,
+      "every": 1,
+      "min_amount": 20000000,
+      "min_price": 3,
+      "keep_rank": 20,
+      "recent_risk_days": false,
+      "trend_filter": false,
+      "weight": 0.95
+    },
+    {
+      "key": "buffer",
+      "title": "5DR + 流动性 + 排名缓冲",
+      "top_n": 20,
+      "every": 1,
+      "min_amount": 20000000,
+      "min_price": 3,
+      "keep_rank": 60,
+      "recent_risk_days": false,
+      "trend_filter": false,
+      "weight": 0.95
+    },
+    {
+      "key": "weekly",
+      "title": "5DR + 缓冲 + 每5日调仓",
+      "top_n": 20,
+      "every": 5,
+      "min_amount": 20000000,
+      "min_price": 3,
+      "keep_rank": 60,
+      "recent_risk_days": false,
+      "trend_filter": false,
+      "weight": 0.95
+    },
+    {
+      "key": "risk",
+      "title": "5DR + 缓冲 + 60日风险冷静期",
+      "top_n": 20,
+      "every": 1,
+      "min_amount": 20000000,
+      "min_price": 3,
+      "keep_rank": 60,
+      "recent_risk_days": true,
+      "trend_filter": false,
+      "weight": 0.95
+    }
+  ],
+  "selection": "max 2024 annualized_return / (abs(max_drawdown)+0.05); tie by key",
+  "primary_comparison": "2024-selected model versus baseline in 2025-2026",
+  "evaluation_variants": "All five retained and marked descriptive; no reselection on evaluation period",
+  "st_policy": "isST == 0 at signal and execution; missing state excluded; new ST positions seek exit",
+  "pricing": "raw cash/share account; adjusted close * cumadj for 5-session returns",
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0003,
+    "min_commission": 5,
+    "stamp": 0.0005,
+    "transfer": 1e-05,
+    "slippage_bps": 5,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  },
+  "corporate_actions": "Cash dividends net of fixed 20% tax; receivable until payable; stock delivery lock; unsupported events stop final run",
+  "endpoint": "close valuation, no forced liquidation; final signals excluded",
+  "known_limits": [
+    "historical isST has effective dates, not publication timestamps",
+    "provider preclose + board rule is not official limit-price file",
+    "opening prints are execution proxies, daily volume cannot prove order queue fills",
+    "no free access to full official delisting/corporate-event ledger; no claim of exact live account replication",
+    "fractional bonus allocations rounded down; missing stock delivery date assumed ex-date and counted",
+    "cash-dividend 20% deduction is conservative, not individualized holding-period taxation"
+  ],
+  "created_at": "2026-10-17T18:06:47+0800"
+}

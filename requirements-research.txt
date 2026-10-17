@@ -1,0 +1,2 @@
+-r requirements.txt
+baostock==0.9.4

@@ -1,0 +1,26 @@
+{
+  "spec": {
+    "key": "base",
+    "title": "基础 5DR · 每日最低20只",
+    "top_n": 20,
+    "every": 1,
+    "min_amount": 0,
+    "min_price": 0,
+    "keep_rank": 20,
+    "recent_risk_days": false,
+    "trend_filter": false,
+    "weight": 0.95
+  },
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0003,
+    "min_commission": 5,
+    "stamp": 0.0005,
+    "transfer": 1e-05,
+    "slippage_bps": 5,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 100000,
+    "allow_missing_actions": false
+  }
+}
