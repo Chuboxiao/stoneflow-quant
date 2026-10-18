@@ -50,9 +50,8 @@ def main():
     half_verdict=("冻结方案同时取得更低回撤和较高收益" if chosen["max_drawdown"]>control["max_drawdown"] and chosen["total_return"]>control["total_return"] else
                   "固定半仓参照反而同时取得更高收益和更低回撤，本次无法证明ATR组合优于简单减仓" if control["max_drawdown"]>chosen["max_drawdown"] and control["total_return"]>chosen["total_return"] else
                   "冻结方案没有同时在收益和回撤上胜过固定半仓参照")
-    report=f"""# 穿石 Stoneflow：全股票池突破策略审核稿
+    report=f"""# 穿石 Stoneflow：全股票池突破策略研究报告
 
-> 当前为本机审核版本，未推送本次改动，未向课程issue发送新评论。
 
 ## 研究问题与结论
 
@@ -66,7 +65,7 @@ def main():
 
 ## 从两只股票到全股票池
 
-原研究让长源东谷603950.SH、科大讯飞002230.SZ各用独立子账户。本次用一个100万元组合账户研究同一规则在课程全池中的表现，补充组合容量、信号排序、退出重试和现金管理。原两股同区间对照继续保存在5DR审核报告，不用它们推断全池结论。
+原研究让长源东谷603950.SH、科大讯飞002230.SZ各用独立子账户。本次用一个100万元组合账户研究同一规则在课程全池中的表现，补充组合容量、信号排序、退出重试和现金管理。原两股同区间对照继续保存在5DR研究报告，不用它们推断全池结论。
 
 - 入场：今日复权收盘价严格高于此前20日最高复权high，窗口不含今天。
 - 退出：今日复权收盘价严格低于此前10日最低复权low，窗口不含今天。
@@ -151,7 +150,6 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
 
 完整重跑步骤见docs/PRECISION_BREAKOUT.md。结果保存在results/breakout_review，5DR结果保持原目录；两组均保存参数、来源哈希与实际逐日账本。课程Feather和辅助源缓存不上传，本次只有代码、报告与派生结果。
 
-当前等待你审核，再决定是否推送和更新课程评论。
 """
     analysis_path=ROOT/'results/strategy_analysis/report_fragment.md'
     if analysis_path.exists():
@@ -176,7 +174,7 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
         body=body.replace('<h3>三、是否适用于部分股票：用2024资料固定子集</h3>','<h3>三、是否适用于部分股票：用2024资料固定子集</h3>'+group_chart.read_text())
     css="body{max-width:1080px;margin:40px auto;padding:0 25px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2{font-family:'Songti SC',serif}h1{font-size:30px}h2{margin-top:35px;font-size:23px}blockquote{border-left:3px solid #b56b45;background:#e8ecde;padding:12px 18px}a{color:#567c67}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}td,th{padding:10px 12px;border-bottom:1px solid #dce1d1;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}svg{width:100%;height:auto}svg text{font:12px sans-serif;fill:#7a8575}.item{margin-left:15px}code{background:#e5e9dc;padding:2px 4px}"
     (RESULTS/"report.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 全池突破审核</title><style>'+css+'</style><body>'+body+'</body></html>')
-    combined=f"""# 穿石 Stoneflow：第四讲作业总审核
+    combined=f"""# 穿石 Stoneflow：全股票池策略研究总览
 
 本次范围：**2025-01-02 → 2026-09-30（424个交易日）**；课程5,451列证券的逐日可用股票池，历史ST／*ST及未知状态不新买。所有价格信号使用cumadj，次日执行，涨停拒买、跌停拒卖，原始股份和现金分别记账。
 
@@ -188,7 +186,7 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
 
 突破防守版减少基础版的损失和回撤，但仍亏损。其平均仓位{percent(chosen['average_exposure'])}，固定半仓普通突破的收益{percent(control['total_return'])}、回撤{percent(control['max_drawdown'])}；{half_verdict}。本作业保留失败与限制，没有把评价期冠军重新包装成样本外方案。
 
-## 审核入口
+## 报告入口
 
 - [5DR完整报告](REVIEW_5DR.md)
 - [全池20日突破完整报告](REVIEW_BREAKOUT.md)
@@ -206,10 +204,9 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
 
 ST公告时点、真实盘口、官方逐日限价、个税和特殊公司行为仍有数据与模型限制。规则在2026年回顾整理，2024选型只是时间隔离，不能称为真实前瞻预注册。原始个股旧实验保持可读，不与新账户结果拼接。
 
-**状态：等待你审核；未推送本次更新，未发布新评论。**
 """
     if analysis_path.exists():
-        combined=combined.replace('## 审核入口','## 新增：策略差异与适用股票\n\n已补充实际账户损益归因、共同股票池信号检验、2024固定特征分组、2025选组后2026重新建账，以及正负贡献股票。\n\n[扩展研究全文](ANALYSIS_STRATEGIES.md)；原主研究39组与新增17组账户分开校验。新增分析为回顾研究，不包装成盲测。\n\n## 审核入口')
+        combined=combined.replace('## 报告入口','## 新增：策略差异与适用股票\n\n已补充实际账户损益归因、共同股票池信号检验、2024固定特征分组、2025选组后2026重新建账，以及正负贡献股票。\n\n[扩展研究全文](ANALYSIS_STRATEGIES.md)；原主研究39组与新增17组账户分开校验。新增分析为回顾研究，不包装成盲测。\n\n## 报告入口')
         combined=combined.replace(f'{test_count}项单元测试通过，',f'主研究当时保存的{test_count}项单元测试通过，')
         analysis_tests=(ROOT/'results/strategy_analysis/unit_tests.txt').read_text()
         current_tests=int(re.search(r'Ran (\d+) tests',analysis_tests).group(1))

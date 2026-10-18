@@ -86,9 +86,8 @@ def main():
     period_table=md_table(["区间","基础5DR收益","冻结方案收益","冻结方案回撤"],[[title,percent(rows["base"]["total_return"]),percent(rows[s["selected_key"]]["total_return"]),percent(rows[s["selected_key"]]["max_drawdown"])] for title,rows in periods.items()])
     stress_table=md_table(["额外假设","冻结方案累计收益","最大回撤"],[[names[x["scenario"]],percent(x["total_return"]),percent(x["max_drawdown"])] for x in stress])
     focus_table=md_table(["股票","方案","累计收益","最大回撤"],[[x["symbol"],x["strategy"],percent(x["total_return"]),percent(x["max_drawdown"])] for x in s.get("focus_stocks",[])])
-    report=f"""# 穿石 Stoneflow：5DR 反转策略作业审核稿
+    report=f"""# 穿石 Stoneflow：5DR 反转策略研究报告
 
-> 本机审核版；尚未推送 GitHub，未修改原课程 issue 评论。
 
 老师指定的评价区间为 **2025-01-02 至 2026-09-30，共 424 个交易日**。2024 年仅用于历史热身和候选方案选型；2026-10 月行情不进入这次评价。研究使用课程给定的 5,451 列证券，按当日可用信息构造股票池；不能据此证明包内名单覆盖了完整历史市场。
 
@@ -179,7 +178,7 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
 
 代码和派生结果可公开；课程 Feather、辅助源数据缓存和本机配置不上传。每次正式运行记录输入哈希、源码哈希和软件版本；数据服务以后可能修订历史，复现时应对照 manifest。
 
-## 复现和审核入口
+## 复现与研究记录
 
 网页：启动 web_server.py 后访问 `/5dr`，可切换基础与冻结方案指标，查看比较、分年、压力情景和最近订单。原 `/` 页面与旧突破实验保留。
 
@@ -201,7 +200,6 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
 - [开勒股份官网公告入口，2025-034](https://www.kalefans.com/investment/1.html)
 - [鑫宏业2026年实施公告：实际与摊薄比例](https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-05-13/be86e959-b7d9-4a20-94cb-47d547845a91.PDF)
 
-当前状态：等待你审核；未推送这次改动，未向课程issue发送新评论。
 """
     (ROOT/"REVIEW_5DR.md").write_text(report,encoding="utf-8")
     base_eq=pd.read_csv(RESULTS/"evaluation/base/equity.csv")
@@ -222,7 +220,7 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
     body=render_markdown(report)
     body=body.replace('<h2>老师指定区间的比较</h2>','<h2>老师指定区间的比较</h2>'+chart)
     (RESULTS/"report.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 5DR作业审核报告</title><style>'+css+'</style><body>'+body+'</body></html>',encoding="utf-8")
-    comment=f"""第四讲作业更新审核稿：**穿石 Stoneflow — 5DR反转策略与回测精度研究**
+    comment=f"""第四讲研究记录：**穿石 Stoneflow — 5DR反转策略与回测精度研究**
 
 仓库：https://github.com/Chuboxiao/stoneflow-quant
 
@@ -234,7 +232,7 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
 
 {test_count}项单元测试通过，{validation['runs_checked']}组运行完成独立现金／股份／权益账本重放。历史ST按生效日处理，未复原公告发布时间；规则重建限价与开盘成交仍为代理，现金股利个税、零股分配及特殊公司行为有简化，不声称精确实盘复现。原始课程和辅助源数据不上传。
 
-[审核报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
+[研究报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
 
 ![穿石5DR研究工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-5dr-review.jpg)
 """

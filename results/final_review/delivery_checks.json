@@ -21,11 +21,11 @@
   "note": "Public Pages URLs require approved push, deployment and live verification. Local file mapping is not proof that an online URL is live.",
   "review_file_sha256": {
     "README.md": "43bd2bee75e2cd3cc178a97a339105dff70e5aee43a8d50827804195038daa24",
-    "FINAL_REVIEW.md": "06e55141db54ca9be3a9bef3bb9c775c12ce00bba232cd7ff1d06eb78c75a4ee",
-    "SUBMISSION_LECTURE4_DRAFT.md": "9a66742277583d71d36fa30c7f18a9675f662c61496d276821929ed0cdade432",
-    "docs/REPORT_SITE.md": "397ec33767563e954b5b916c35a63dca46f6475f5d1b88dcb8d1fe2d5e6bfe38",
+    "FINAL_REVIEW.md": "3e7cacb450193d2ee5338fa14805aab580618cd5e6f8d386e5721a0773dcb271",
+    "SUBMISSION_LECTURE4_DRAFT.md": "32829671dfaaa0bc339571f74fd6fd7d1a134bf2b470d2d3ae81560aa6f5b0a7",
+    "docs/REPORT_SITE.md": "8a04b369946183462b3c90ae73d7bd48f8860c69cc2c938c1df2162668b9d43a",
     "REPORT.md": "87dc7f73282628bdc974f1dcc2708d655d3cc2ff10ddac438757df9d4b71009e",
-    "push_to_github.sh": "e711087e89e9ba39658c60393f9fefa7110169a37f316a3d621cc4461ac6760f"
+    "push_to_github.sh": "a1d5a26dc5e5109b88b82eb831c6fcbe08a1877d499ec1991cb23a5c06045abf"
   },
   "readme_presentation": {
     "style": "Stoneflow backtest laboratory and strategy research",
@@ -33,5 +33,9 @@
     "review_and_submission_links_in_readme": false,
     "course_requirements_mapping_preserved": true,
     "markdown_tables_checked": 6
-  }
+  },
+  "reader_draft_labels_removed": true,
+  "report_numeric_content_and_svg_preserved": true,
+  "research_source_hashes_current": true,
+  "content_confirmed_by_user": true
 }

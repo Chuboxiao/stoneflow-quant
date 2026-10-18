@@ -1,5 +1,5 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 5DR作业审核报告</title><style>body{max-width:1050px;margin:45px auto;padding:0 30px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2,h3{font-family:'Songti SC',serif}h1{font-size:30px;border-bottom:1px solid #d1d8c6;padding-bottom:22px}h2{font-size:22px;margin-top:40px}p{margin:12px 0}a{color:#567c67}blockquote{background:#e8ecde;border-left:3px solid #b56b45;padding:10px 18px;margin:15px 0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;background:#faf9f1;white-space:nowrap}td,th{border-bottom:1px solid #dce1d1;padding:9px 12px;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}code{background:#e5e9dc;padding:2px 4px;border-radius:3px}.item{margin:5px 0 5px 15px}svg{width:100%;height:auto;margin:20px 0}</style><body><h1>穿石 Stoneflow：5DR 反转策略作业审核稿</h1>
-<blockquote>本机审核版；尚未推送 GitHub，未修改原课程 issue 评论。</blockquote>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 5DR作业审核报告</title><style>body{max-width:1050px;margin:45px auto;padding:0 30px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2,h3{font-family:'Songti SC',serif}h1{font-size:30px;border-bottom:1px solid #d1d8c6;padding-bottom:22px}h2{font-size:22px;margin-top:40px}p{margin:12px 0}a{color:#567c67}blockquote{background:#e8ecde;border-left:3px solid #b56b45;padding:10px 18px;margin:15px 0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;background:#faf9f1;white-space:nowrap}td,th{border-bottom:1px solid #dce1d1;padding:9px 12px;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}code{background:#e5e9dc;padding:2px 4px;border-radius:3px}.item{margin:5px 0 5px 15px}svg{width:100%;height:auto;margin:20px 0}</style><body><h1>穿石 Stoneflow：5DR 反转策略研究报告</h1>
+
 <p>老师指定的评价区间为 <strong>2025-01-02 至 2026-09-30，共 424 个交易日</strong>。2024 年仅用于历史热身和候选方案选型；2026-10 月行情不进入这次评价。研究使用课程给定的 5,451 列证券，按当日可用信息构造股票池；不能据此证明包内名单覆盖了完整历史市场。</p>
 <p>你提到的“sd 股票”，本稿按ST／*ST风险警示股票处理；5DR按过去5个交易日收益率从低到高选股处理。未指定的持仓数、资金与费用采用下文明确列出的教学设定。</p>
 <h2>先看结论</h2>
@@ -43,7 +43,7 @@
 <p>历史 isST 是事后取得的生效日数据，假设生效日前盘前可知，没有逐条复原当时公告发布时间和数据修订版本。数据源的前收与板块规则不是交易所逐日官方涨跌停价文件；也未取得完整盘口和开盘量。因此精度较旧5%统一代理有改进，仍不能称为精确实盘复现。</p>
 <p>独立校验脚本不调用撮合引擎，只读取已保存CSV，重放现金、股份、股利应收和每日权益，核对费用、整数股份、ST买单、上下限、信号先于成交等。<strong>24 组运行、2,645,229 个账本断言，全部通过</strong>。另有 <strong>58 项单元测试通过</strong>，覆盖因果性前缀不变、历史副本、首日信号、除权、锁股及缺价；完整日志保存在 unit_tests.txt。</p>
 <p>代码和派生结果可公开；课程 Feather、辅助源数据缓存和本机配置不上传。每次正式运行记录输入哈希、源码哈希和软件版本；数据服务以后可能修订历史，复现时应对照 manifest。</p>
-<h2>复现和审核入口</h2>
+<h2>复现与研究记录</h2>
 <p>网页：启动 web_server.py 后访问 <code>/5dr</code>，可切换基础与冻结方案指标，查看比较、分年、压力情景和最近订单。原 <code>/</code> 页面与旧突破实验保留。</p>
 <p>核心文件：backtest/precision.py；research_5dr.py；validate_5dr.py；tools/fetch_reference.py；tools/fetch_actions.py。新精度引擎仍接受任意实现 on_close(context) 的 Python 策略，提供截止当日的 history 与 states 副本；可以保存状态和组合函数，并非只能修改预设策略参数。</p>
 <p>新环境先安装 requirements-research.txt；下载辅助历史数据；用 --provisional 只发现所需公司行为，fetch_actions.py 补齐后再次发现，直到 needed_actions.json 为空；再运行不带该标志的正式回测和 validate_5dr.py。临时发现结果不作为提交成绩，正式结果不允许合成股份兜底。详见 docs/PRECISION_5DR.md。</p>
@@ -59,4 +59,4 @@
 <p class="item">• <a href="https://static.cninfo.com.cn/finalpage/2025-05-20/1223609061.PDF">捷安高科2025年实施公告：差异化分红送转</a></p>
 <p class="item">• <a href="https://www.kalefans.com/investment/1.html">开勒股份官网公告入口，2025-034</a></p>
 <p class="item">• <a href="https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-05-13/be86e959-b7d9-4a20-94cb-47d547845a91.PDF">鑫宏业2026年实施公告：实际与摊薄比例</a></p>
-<p>当前状态：等待你审核；未推送这次改动，未向课程issue发送新评论。</p></body></html>
+</body></html>

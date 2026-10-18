@@ -2,8 +2,6 @@
 
 仓库：[Chuboxiao/stoneflow-quant](https://github.com/Chuboxiao/stoneflow-quant)
 
-> 审核稿：Pages尚未部署。发布前核验网页、文字版及截图链接，并移除此说明。
-
 报告入口：
 
 - **[5DR报告](https://chuboxiao.github.io/stoneflow-quant/5dr.html)** · [文字版](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)

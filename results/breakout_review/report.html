@@ -1,12 +1,12 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 全池突破审核</title><style>body{max-width:1080px;margin:40px auto;padding:0 25px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2{font-family:'Songti SC',serif}h1{font-size:30px}h2{margin-top:35px;font-size:23px}blockquote{border-left:3px solid #b56b45;background:#e8ecde;padding:12px 18px}a{color:#567c67}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}td,th{padding:10px 12px;border-bottom:1px solid #dce1d1;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}svg{width:100%;height:auto}svg text{font:12px sans-serif;fill:#7a8575}.item{margin-left:15px}code{background:#e5e9dc;padding:2px 4px}</style><body><h1>穿石 Stoneflow：全股票池突破策略审核稿</h1>
-<blockquote>当前为本机审核版本，未推送本次改动，未向课程issue发送新评论。</blockquote>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 全池突破审核</title><style>body{max-width:1080px;margin:40px auto;padding:0 25px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2{font-family:'Songti SC',serif}h1{font-size:30px}h2{margin-top:35px;font-size:23px}blockquote{border-left:3px solid #b56b45;background:#e8ecde;padding:12px 18px}a{color:#567c67}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}td,th{padding:10px 12px;border-bottom:1px solid #dce1d1;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}svg{width:100%;height:auto}svg text{font:12px sans-serif;fill:#7a8575}.item{margin-left:15px}code{background:#e5e9dc;padding:2px 4px}</style><body><h1>穿石 Stoneflow：全股票池突破策略研究报告</h1>
+
 <h2>研究问题与结论</h2>
 <p>在老师指定的 <strong>2025-01-02至2026-09-30，424个交易日</strong>，延续20日突破，研究成交额确认、流动性与趋势过滤、ATR仓位和退出能否改善表现。股票池使用课程5,451列证券，每日按历史状态和已有行情判断资格，排除ST／*ST和未知状态的新买入。它不是经证明完整的历史A股全市场名单。</p>
 <p>2024年冻结的方案为 <strong>趋势 + ATR仓位与退出</strong>。评价期累计收益 <strong>-11.71%</strong>、最大回撤 <strong>-22.75%</strong>；普通突破为 <strong>-23.19%</strong>、<strong>-43.87%</strong>。减少回撤的同时，冻结方案仍然亏损，不能把风险下降写成已经找到盈利策略。</p>
 <p>冻结方案平均仓位为 <strong>42.08%</strong>，普通突破为 <strong>90.37%</strong>。因此补做固定半仓参照：其收益 <strong>3.14%</strong>、回撤 <strong>-19.02%</strong>。<strong>固定半仓参照反而同时取得更高收益和更低回撤，本次无法证明ATR组合优于简单减仓</strong>，不能把少持仓带来的风险下降全归功于更好的选股或止损。</p>
 <p>本次是2026年10月整理的回顾性研究，已经看过此前5DR、个股及突破试跑结果。虽然正式候选仅用2024选型，2025—2026不再选冠军，仍不能称为真正盲测或2024年实际预注册。固定半仓诊断是在观察试跑后追加的，明确不参与选型。</p>
 <h2>从两只股票到全股票池</h2>
-<p>原研究让长源东谷603950.SH、科大讯飞002230.SZ各用独立子账户。本次用一个100万元组合账户研究同一规则在课程全池中的表现，补充组合容量、信号排序、退出重试和现金管理。原两股同区间对照继续保存在5DR审核报告，不用它们推断全池结论。</p>
+<p>原研究让长源东谷603950.SH、科大讯飞002230.SZ各用独立子账户。本次用一个100万元组合账户研究同一规则在课程全池中的表现，补充组合容量、信号排序、退出重试和现金管理。原两股同区间对照继续保存在5DR研究报告，不用它们推断全池结论。</p>
 <p class="item">• 入场：今日复权收盘价严格高于此前20日最高复权high，窗口不含今天。</p>
 <p class="item">• 退出：今日复权收盘价严格低于此前10日最低复权low，窗口不含今天。</p>
 <p class="item">• high、low、close均乘对应日期cumadj；amt是成交额，不是成交股数。</p>
@@ -97,7 +97,7 @@ python validate_5dr.py --results results/strategy_analysis
 python -m unittest discover -s tests -v &gt; results/strategy_analysis/unit_tests.txt 2&gt;&amp;1
 python make_strategy_analysis_report.py
 python make_breakout_report.py</code></pre>
-<p>新增代码与派生输出保存于results/strategy_analysis，原始行情与辅助源缓存不上传。沿用原报告的ST公告时点、日线成交代理、个税和特殊公司行为限制。当前仍待审核，没有推送或更新课程评论。</p>
+<p>新增代码与派生输出保存于results/strategy_analysis，原始行情与辅助源缓存不上传。沿用原报告的ST公告时点、日线成交代理、个税和特殊公司行为限制。</p>
 <h2>账户精度与来源</h2>
 <p>前一日收盘固定原始订单股数，次日先卖后买，按开盘价加不利滑点、取到分执行。涨停不能买，跌停不能卖；除权日取消旧数量计划。历史非ST主板通常10%，创业板／科创板20%；主板ST卖单的历史比例按2026-07-06的规则变更处理。主板／创业板按100股单位，科创板买入至少200股、其后1股；T+1、送转锁股、最低佣金均纳入。</p>
 <p>现金分红按登记日持股确认，应收款在派息日到账；统一预扣20%是保守教学假设，不是逐笔持有期个税的精确复现。送转新增股份向下取整，冻结方案有0条缺股份上市日而以除权日代替的记录。连续缺价20日减记为零，保留股份与现金账；冻结方案缺价持仓日期0日、期末减记残留0只。</p>
@@ -110,4 +110,4 @@ python make_breakout_report.py</code></pre>
 <h2>校验与复现</h2>
 <p><strong>主研究当时保存的65项单元测试通过。</strong> 本次突破15组运行通过独立CSV账本重放，191,615个记账断言；与原5DR的24组共39组。扩展研究的新增账户与当前测试数量另列在扩展章节。独立脚本不调用撮合引擎，检查现金、原始股数、股利应收、权益、费用、ST买单与成交边界。断言数量不是单元测试数量，也不等于真实市场成交已经得到证明。</p>
 <p>完整重跑步骤见docs/PRECISION_BREAKOUT.md。结果保存在results/breakout_review，5DR结果保持原目录；两组均保存参数、来源哈希与实际逐日账本。课程Feather和辅助源缓存不上传，本次只有代码、报告与派生结果。</p>
-<p>当前等待你审核，再决定是否推送和更新课程评论。</p></body></html>
+</body></html>

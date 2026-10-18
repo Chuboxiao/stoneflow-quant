@@ -1,4 +1,4 @@
-第四讲作业更新审核稿：**穿石 Stoneflow — 5DR反转策略与回测精度研究**
+第四讲研究记录：**穿石 Stoneflow — 5DR反转策略与回测精度研究**
 
 仓库：https://github.com/Chuboxiao/stoneflow-quant
 
@@ -10,6 +10,6 @@
 
 58项单元测试通过，24组运行完成独立现金／股份／权益账本重放。历史ST按生效日处理，未复原公告发布时间；规则重建限价与开盘成交仍为代理，现金股利个税、零股分配及特殊公司行为有简化，不声称精确实盘复现。原始课程和辅助源数据不上传。
 
-[审核报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
+[研究报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
 
 ![穿石5DR研究工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-5dr-review.jpg)

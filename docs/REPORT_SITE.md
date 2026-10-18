@@ -24,7 +24,7 @@ python3 build_report_site.py --check
 
 打包来源为已保存的5DR、突破、机制研究HTML与`REVIEW_LECTURE4.md`。`full.html`包含总览和两份报告的全部内容，突破全文已包含机制与股票子集分析；单独的`analysis.html`方便直接跳转。此过程不运行回测，不改变策略和指标，不读取原始Feather或辅助行情缓存。
 
-`manifest.json`保存源文件SHA-256。生成器仅从阅读副本中去除“未推送／待审核”等对话状态，原始审核文件保留；研究假设、风险边界和数值保持原文。
+`manifest.json`保存源文件SHA-256。打包过程保留研究假设、精度边界、图表与数值，只调整阅读导航和页面展示。
 
 本地HTTP预览（也可直接双击HTML）：
 
@@ -34,14 +34,14 @@ python3 -m http.server 8768 --bind 127.0.0.1 --directory report_site
 
 然后打开 http://127.0.0.1:8768/ 。
 
-## 审核通过后发布
+## 发布流程
 
-当前仅准备文件与工作流，尚未执行以下外部操作。
+代码推送、网页部署与课程评论分别执行。
 
-1. 复核三份报告、README和`SUBMISSION_LECTURE4_DRAFT.md`，获用户审核通过后，在保存审核提交的分支运行`bash push_to_github.sh --publish-reviewed`，把当前HEAD推送至远程`main`。脚本不切换本地分支、不强制覆盖远程；普通运行只显示说明，不发布。
+1. 在保存待发布版本的分支运行`bash push_to_github.sh --publish-reviewed`，把当前HEAD推送至远程`main`。脚本不切换本地分支、不强制覆盖远程；普通运行只显示说明，不发布。
 2. 在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
 3. 在 **Actions → Publish read-only research reports → Run workflow**，选择`main`并手动运行。工作流只上传`report_site/`，不会发布课程数据、辅助缓存或完整仓库。
-4. 等待部署成功，分别验证下列线上地址。确认成功后，将README的“待发布”状态改为实际状态，并移除评论草稿开头的审核说明，再提交课程评论。不要把未部署地址当作已经可访问的网页。
+4. 等待部署成功，分别验证下列线上地址和评论内的截图链接。确认成功后，将README的在线访问说明更新为实际状态，再发布课程评论。未部署的地址不能当作已可访问的网页。
 
 | 报告 | 预定地址 |
 | --- | --- |

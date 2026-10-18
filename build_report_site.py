@@ -78,6 +78,7 @@ def overview() -> str:
     text = (ROOT / INPUTS["overview"]).read_text(encoding="utf-8")
     text = re.sub(r'^\*\*状态：.*$', '', text, flags=re.M)
     text = text.replace('第四讲作业总审核', '第四讲完整研究报告')
+    text = text.replace('全股票池策略研究总览', '完整研究报告')
     text = text.replace('## 审核入口', '## 相关入口')
     text = re.sub(r'^- \[拟提交课程评论\].*\n', '', text, flags=re.M)
     text = re.sub(r'^网页运行后访问.*$', '本页下方包含5DR与突破的报告全文；顶部导航可分别阅读。可编程回测与参数修改见仓库本机运行指南。', text, flags=re.M)

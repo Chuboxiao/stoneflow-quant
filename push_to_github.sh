@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
-# Run only after review. Push the reviewed HEAD; never post the issue comment.
+# Push the current committed HEAD; never post the issue comment.
 set -euo pipefail
 cd "$(dirname "$0")"
 
 case "${1:-}" in
   --check-network|--publish-reviewed) ;;
   '')
-    echo '本脚本仅在审核通过后发布。当前未登录、推送或评论。'
+    echo '本脚本用于推送当前版本。此处仅显示用法，未登录、推送或评论。'
     echo '只检查网络：bash push_to_github.sh --check-network'
-    echo '审核通过后推送当前提交到远程main：bash push_to_github.sh --publish-reviewed'
+    echo '推送当前提交到远程main：bash push_to_github.sh --publish-reviewed'
     echo '本次作业评论草稿：SUBMISSION_LECTURE4_DRAFT.md'
     exit 0 ;;
   *) echo '参数仅支持 --check-network 或 --publish-reviewed'; exit 2 ;;
 esac
 
 if [ "${1:-}" = '--publish-reviewed' ] && [ -n "$(git status --porcelain)" ]; then
-  echo '工作区有未提交改动，请先审核并提交；尚未推送。'
+  echo '工作区有未提交改动，请先保存并提交；尚未推送。'
   exit 1
 fi
 
@@ -76,7 +76,7 @@ if git remote get-url origin >/dev/null 2>&1; then
 else
   git remote add origin "$expected_remote"
 fi
-echo "即将推送当前审核提交：$(git rev-parse --short HEAD) → $repository 的 main（不强制覆盖）。"
+echo "即将推送当前版本：$(git rev-parse --short HEAD) → $repository 的 main（不强制覆盖）。"
 git push origin HEAD:refs/heads/main
 echo "推送完成：https://github.com/$repository"
 echo '本次作业评论：SUBMISSION_LECTURE4_DRAFT.md；SUBMISSION_COMMENT.md为课堂任务原评论存档。'

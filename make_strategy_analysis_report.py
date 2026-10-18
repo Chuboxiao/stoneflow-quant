@@ -160,7 +160,7 @@ python make_strategy_analysis_report.py
 python make_breakout_report.py
 ```
 
-新增代码与派生输出保存于results/strategy_analysis，原始行情与辅助源缓存不上传。沿用原报告的ST公告时点、日线成交代理、个税和特殊公司行为限制。当前仍待审核，没有推送或更新课程评论。
+新增代码与派生输出保存于results/strategy_analysis，原始行情与辅助源缓存不上传。沿用原报告的ST公告时点、日线成交代理、个税和特殊公司行为限制。
 """
     (ROOT/'ANALYSIS_STRATEGIES.md').write_text('# 5DR与20日突破：收益来源及适用股票研究\n\n'+report)
     (RESULTS/'report_fragment.md').write_text(report)
@@ -177,7 +177,7 @@ python make_breakout_report.py
     section+='<details open><summary>哪些股票子集更适合？查看7组同规则实测</summary>'+chart(groups)+'<div class="table-wrap">'+render_markdown(group_table)+'</div><p class="caption">分组仅用2024信息；特征组互有交集。2025选组规则只看2025，追加研究整体仍属回顾分析。</p></details>'
     section+='<details><summary>为什么5DR好于突破？查看持仓段与成本归因</summary><div class="table-wrap">'+render_markdown(spells+'\n\n'+pnl_table)+'</div><p class="caption">费用加回保持原成交路径，只是损益核算，不能当作零成本重跑的收益。期末未平仓段不混入胜率。</p></details>'
     section+='<details><summary>信号本身有优势吗？查看共同股票池的后续报价</summary><div class="table-wrap">'+render_markdown(event_table)+'</div><p class="caption">下一开盘至未来开盘的价格事件研究；日期区块重采样区间未经多重比较校正，不等于可成交账户收益。</p></details>'
-    section+=f'<p class="caption">新增{v["runs_checked"]}组账户账本校验通过；全仓库{test_count}项测试通过。主研究结果保留，补充分析仍待审核。</p>'
+    section+=f'<p class="caption">新增{v["runs_checked"]}组账户账本校验通过；全仓库{test_count}项测试通过。主研究与补充分析分别保存，支持独立复核。</p>'
     section+='<p class="analysis-link"><a href="/breakout-files/report.html#strategy-analysis">阅读全文：归因、分组、跨期验证与具体股票贡献 ↗</a></p></section>'
     (RESULTS/'dashboard_fragment.html').write_text(section)
     page=ROOT/'web/dist/breakout.html';content=page.read_text();start='<!-- STRATEGY_ANALYSIS_START -->';end='<!-- STRATEGY_ANALYSIS_END -->'

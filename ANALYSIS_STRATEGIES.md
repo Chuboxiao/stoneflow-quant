@@ -149,4 +149,4 @@ python make_strategy_analysis_report.py
 python make_breakout_report.py
 ```
 
-新增代码与派生输出保存于results/strategy_analysis，原始行情与辅助源缓存不上传。沿用原报告的ST公告时点、日线成交代理、个税和特殊公司行为限制。当前仍待审核，没有推送或更新课程评论。
+新增代码与派生输出保存于results/strategy_analysis，原始行情与辅助源缓存不上传。沿用原报告的ST公告时点、日线成交代理、个税和特殊公司行为限制。
