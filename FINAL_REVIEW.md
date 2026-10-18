@@ -6,7 +6,7 @@
 
 ## 请先审核这三项
 
-1. **[README](README.md)**：课堂任务与课后作业均保留，包含范围、交易规则、结果、复现命令、报告入口和账户边界；保留你修改的课堂任务标题。
+1. **[README](README.md)**：以“穿石 Stoneflow 回测实验室”的项目介绍、系统能力与策略研究结果为主线。系统建设、个股研究、全池研究及课程要求对应完整保留；审核清单、评论草稿和提交状态不进入README的展示框架。
 2. **[课程评论草稿](SUBMISSION_LECTURE4_DRAFT.md)**：包含5DR、突破、完整作业报告三个网页入口、Markdown备用入口、课堂实验链接及两张研究截图。开头的审核说明会在正式发布前移除。
 3. **[离线报告首页](report_site/index.html)**：下载后用浏览器打开，或在macOS双击[`OpenReports.command`](OpenReports.command)。不依赖预览服务、Python或原始行情。Pages地址现在仍是待部署地址。
 

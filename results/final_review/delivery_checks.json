@@ -1,10 +1,10 @@
 {
   "passed": true,
-  "review_date": "2026-10-18",
+  "review_date": "2026-10-19",
   "timezone": "Asia/Shanghai",
   "html_pages": 5,
   "html_local_links_and_anchors_checked": 36,
-  "markdown_local_links_checked": 45,
+  "markdown_local_links_checked": 43,
   "planned_public_urls_matched_to_local_files": 16,
   "report_build_current": true,
   "classroom_and_homework_readme_preserved": true,
@@ -20,11 +20,18 @@
   "publication_performed": false,
   "note": "Public Pages URLs require approved push, deployment and live verification. Local file mapping is not proof that an online URL is live.",
   "review_file_sha256": {
-    "README.md": "bed1a9909cf0633d2d0718b1d6615f071a4fb6d8c5d02e2184da5c3e123473a3",
-    "FINAL_REVIEW.md": "97090d66ac01c36567acb892b18d0cdadf76f99492db4984da3d2389649119a5",
+    "README.md": "43bd2bee75e2cd3cc178a97a339105dff70e5aee43a8d50827804195038daa24",
+    "FINAL_REVIEW.md": "06e55141db54ca9be3a9bef3bb9c775c12ce00bba232cd7ff1d06eb78c75a4ee",
     "SUBMISSION_LECTURE4_DRAFT.md": "017891529b193ac218cd19221ae8bc1f1e2f23fd42a66bb4abff99ddc3b75f0b",
     "docs/REPORT_SITE.md": "397ec33767563e954b5b916c35a63dca46f6475f5d1b88dcb8d1fe2d5e6bfe38",
     "REPORT.md": "87dc7f73282628bdc974f1dcc2708d655d3cc2ff10ddac438757df9d4b71009e",
     "push_to_github.sh": "e711087e89e9ba39658c60393f9fefa7110169a37f316a3d621cc4461ac6760f"
+  },
+  "readme_presentation": {
+    "style": "Stoneflow backtest laboratory and strategy research",
+    "assignment_based_headings": false,
+    "review_and_submission_links_in_readme": false,
+    "course_requirements_mapping_preserved": true,
+    "markdown_tables_checked": 6
   }
 }
