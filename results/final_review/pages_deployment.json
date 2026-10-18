@@ -1,0 +1,92 @@
+{
+  "status": "live",
+  "pages_run": "https://github.com/Chuboxiao/stoneflow-quant/actions/runs/39147096658",
+  "tests_run": "https://github.com/Chuboxiao/stoneflow-quant/actions/runs/39146986007",
+  "published_commit": "315416c899dcdb409cf4bbd4e8ae66cc70b4779d",
+  "site": "https://chuboxiao.github.io/stoneflow-quant/",
+  "checks": [
+    {
+      "url": "https://chuboxiao.github.io/stoneflow-quant/",
+      "kind": "page",
+      "bytes": 9504,
+      "sha256": "9efb69c12d50afe44c38f6dd97ce26868dd114bd890fd71d8f3ee790774f2764",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://chuboxiao.github.io/stoneflow-quant/5dr.html",
+      "kind": "page",
+      "bytes": 42102,
+      "sha256": "4243c2f63767d62c06222cefc9b08e87e0d7cd660b552d070038f250f9d38330",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://chuboxiao.github.io/stoneflow-quant/breakout.html",
+      "kind": "page",
+      "bytes": 64149,
+      "sha256": "14a7687a2c6722887352602a7076efbcb338fe8c87e26ceedf9762d740b7c939",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://chuboxiao.github.io/stoneflow-quant/full.html",
+      "kind": "page",
+      "bytes": 102388,
+      "sha256": "41725dbf361ffdcf681ea3368035ce531024ab582880d06657bdfce393011a8d",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://chuboxiao.github.io/stoneflow-quant/analysis.html",
+      "kind": "page",
+      "bytes": 26517,
+      "sha256": "171fe4d850e8f9f6d47b6cee3909909149be76435e9b355399e5dd7af2955ead",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-breakout-review.jpg",
+      "kind": "comment-image",
+      "bytes": 1422465,
+      "sha256": "bb45e0eae3b782a5278f1ff93fd036a2ed5f69931b92e5de5aa08a71692ae763",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-strategy-analysis.jpg",
+      "kind": "comment-image",
+      "bytes": 125732,
+      "sha256": "3b8b9885ff823f598ff8105e0ce5fa0dde8df87c0ca12fde4235c0e06c304c22",
+      "verified": true,
+      "matches_local_source": true
+    },
+    {
+      "url": "https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md",
+      "kind": "markdown-link",
+      "bytes": 302071,
+      "sha256": "bf5a8d53d74e6f0223c58e0d7b74d15a4e7c38f9d563fc4b2be4852cc1ead656",
+      "verified": true,
+      "matches_local_source": false
+    },
+    {
+      "url": "https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_BREAKOUT.md",
+      "kind": "markdown-link",
+      "bytes": 383898,
+      "sha256": "f3058819b8ad959ab9bc21e16104d7e736dba6bcad26b92ee1ff0c4b8f880ff5",
+      "verified": true,
+      "matches_local_source": false
+    },
+    {
+      "url": "https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_LECTURE4.md",
+      "kind": "markdown-link",
+      "bytes": 238636,
+      "sha256": "e0db82a042d8fc0da369459addb24178eef82b366e2efc109b4692598148a557",
+      "verified": true,
+      "matches_local_source": false
+    }
+  ],
+  "course_comment_posted": false,
+  "verification_date": "2026-10-19",
+  "timezone": "Asia/Shanghai"
+}

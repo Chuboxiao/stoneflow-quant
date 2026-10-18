@@ -4,8 +4,8 @@
   "timezone": "Asia/Shanghai",
   "html_pages": 5,
   "html_local_links_and_anchors_checked": 36,
-  "markdown_local_links_checked": 44,
-  "planned_public_urls_matched_to_local_files": 14,
+  "markdown_local_links_checked": 45,
+  "planned_public_urls_matched_to_local_files": 15,
   "report_build_current": true,
   "classroom_and_homework_readme_preserved": true,
   "push_script": {
@@ -16,19 +16,20 @@
     "force_push_used": false
   },
   "raw_feather_auxiliary_cache_and_local_config_tracked": false,
-  "public_pages_or_remote_links_verified": false,
-  "publication_performed": false,
-  "note": "Public Pages URLs require approved push, deployment and live verification. Local file mapping is not proof that an online URL is live.",
+  "public_pages_or_remote_links_verified": true,
+  "publication_performed": true,
+  "note": "GitHub Pages deployed successfully. Five report pages match confirmed source files byte-for-byte; Markdown reports and comment images are accessible. Course comment has not been posted.",
   "review_file_sha256": {
-    "README.md": "43bd2bee75e2cd3cc178a97a339105dff70e5aee43a8d50827804195038daa24",
-    "FINAL_REVIEW.md": "56d010169d23d1db638da736afa8e2175a32cd8ac487656c94f1c6b901c13016",
+    "README.md": "87da7d7d176e692bd776ca6fd75056c80f01156ded16b61cc94b5c77f9800312",
+    "FINAL_REVIEW.md": "af19c064f8856b82bf1e478c1a2cb7db9274850ba0d981685e56fae49579479e",
     "SUBMISSION_LECTURE4_DRAFT.md": "32829671dfaaa0bc339571f74fd6fd7d1a134bf2b470d2d3ae81560aa6f5b0a7",
-    "docs/REPORT_SITE.md": "8a04b369946183462b3c90ae73d7bd48f8860c69cc2c938c1df2162668b9d43a",
+    "docs/REPORT_SITE.md": "0e867c9fb8b11b46e5a2258333e871cdf028d349c5531e679807b4800791c444",
     "REPORT.md": "87dc7f73282628bdc974f1dcc2708d655d3cc2ff10ddac438757df9d4b71009e",
-    "push_to_github.sh": "a1d5a26dc5e5109b88b82eb831c6fcbe08a1877d499ec1991cb23a5c06045abf",
+    "push_to_github.sh": "0dffecb5a2afa80118b675d8f35cbc5882fe0991b7b03f9d57537dae222675e4",
     ".github/workflows/tests.yml": "95aebff4a850bca272a69c362ef548fc1c28033d157367e8bf8107e9f14feced",
     "tests/test_strategy_analysis.py": "55d7420f576977aff03101e23117fa1d7d5d9e18d80a3b379ef92771a14d1c56",
-    "results/final_review/ci_compatibility.json": "2779572e3142fe2660a38f9f5bca2342c17ae6413eab7d34caec7c427f2aefb5"
+    "results/final_review/ci_compatibility.json": "e6ccbe0c74026834fa24b967c6b8089ab7b5de3087cd7f59efad5173d9af0830",
+    "results/final_review/pages_deployment.json": "58823cd48b1ed3711de159cd0b560133e5f201c293352f7ad24d84cd609e4e44"
   },
   "readme_presentation": {
     "style": "Stoneflow backtest laboratory and strategy research",
@@ -67,5 +68,7 @@
       "log": "unit_tests_pandas3.txt"
     }
   ],
-  "cloud_fix_verification": "pending next push"
+  "cloud_fix_verification": "passed for both pandas major-version jobs",
+  "pages_deployed": true,
+  "course_comment_posted": false
 }

@@ -40,5 +40,6 @@
     "pandas>=2.2,<3",
     "pandas>=3,<4"
   ],
-  "remote_fix_verification": "pending next push"
+  "remote_fix_verification": "passed for both pandas major-version jobs",
+  "verified_remote_run_url": "https://github.com/Chuboxiao/stoneflow-quant/actions/runs/39146986007"
 }

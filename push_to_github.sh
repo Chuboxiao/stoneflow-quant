@@ -80,4 +80,4 @@ echo "即将推送当前版本：$(git rev-parse --short HEAD) → $repository �
 git push origin HEAD:refs/heads/main
 echo "推送完成：https://github.com/$repository"
 echo '本次作业评论：SUBMISSION_LECTURE4_DRAFT.md；SUBMISSION_COMMENT.md为课堂任务原评论存档。'
-echo 'Pages仍需按docs/REPORT_SITE.md手动部署并验证，再发布评论；本脚本未执行部署或评论。'
+echo '仓库已更新；若修改了网页报告，请按docs/REPORT_SITE.md手动发布Pages。本脚本不部署网页或发布评论。'

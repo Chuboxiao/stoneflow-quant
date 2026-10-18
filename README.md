@@ -72,7 +72,7 @@
 
 ## 研究报告
 
-| 内容 | 网页版（Pages发布后生效） | GitHub文字版 |
+| 内容 | 在线网页版 | GitHub文字版 |
 | --- | --- | --- |
 | **5DR报告**：基础策略、4个改进、分年及成本压力检验 | [阅读5DR](https://chuboxiao.github.io/stoneflow-quant/5dr.html) | [5DR全文](REVIEW_5DR.md) |
 | **突破报告**：全池20日突破、风险控制、收益来源与适用股票 | [阅读20日突破](https://chuboxiao.github.io/stoneflow-quant/breakout.html) | [突破全文](REVIEW_BREAKOUT.md) |
@@ -80,7 +80,7 @@
 
 [网页报告首页](https://chuboxiao.github.io/stoneflow-quant/) · [收益来源与股票子集](ANALYSIS_STRATEGIES.md) · [个股趋势实验](REPORT.md)
 
-网页报告包含图表、表格与研究全文，可直接下载仓库后在浏览器打开[`report_site/index.html`](report_site/index.html)，无需Python和原始行情。**上表在线地址待Pages部署后生效，目前可使用离线页面与Markdown报告。** GitHub仓库中的HTML源文件预览不等于已托管网页。
+**网页报告已上线，点击上表链接即可阅读图表、表格与研究全文，无需Python和原始行情。** 也可下载仓库后，在浏览器打开[`report_site/index.html`](report_site/index.html)离线阅读。GitHub仓库中的HTML文件页用于查看源码，在线阅读请使用上方网页版入口。
 
 在线报告为只读研究结果；修改参数、运行自定义策略及重新回测，需要下文的本机系统。[网页打包与发布说明](docs/REPORT_SITE.md)。
 

@@ -1,6 +1,6 @@
 # 穿石 Stoneflow：发布与交付记录
 
-内容已确认，由用户在终端推送当前版本。在线报告须在Pages部署并验证后用于课程评论。
+当前版本已推送，pandas 2与3两组云端测试通过；网页报告已在GitHub Pages发布，五个页面、三份文字报告和两张截图均验证可访问。课程评论尚未发布。
 
 仓库：`Chuboxiao/stoneflow-quant`。拟在[第四讲issue #8](https://github.com/aslan9/pku_quantllm/issues/8)新增一条作业更新评论，原课堂任务提交保留。本次评论以[`SUBMISSION_LECTURE4_DRAFT.md`](SUBMISSION_LECTURE4_DRAFT.md)为准；`SUBMISSION_COMMENT.md`和`SUBMISSION_5DR_DRAFT.md`是此前阶段的材料，不用于这次提交。
 
@@ -8,7 +8,7 @@
 
 1. **[README](README.md)**：以“穿石 Stoneflow 回测实验室”的项目介绍、系统能力与策略研究结果为主线。系统建设、个股研究、全池研究及课程要求对应完整保留。
 2. **[课程评论文本](SUBMISSION_LECTURE4_DRAFT.md)**：包含5DR、突破、完整报告三个网页入口、Markdown备用入口、个股实验链接及两张研究截图。
-3. **[离线报告首页](report_site/index.html)**：下载后用浏览器打开，或在macOS双击[`OpenReports.command`](OpenReports.command)。不依赖预览服务、Python或原始行情。Pages地址现在仍是待部署地址。
+3. **[在线报告首页](https://chuboxiao.github.io/stoneflow-quant/)**：直接阅读全部网页报告。也可下载后打开[离线首页](report_site/index.html)，或在macOS双击[`OpenReports.command`](OpenReports.command)。
 
 ## 两部分都包含哪些内容
 
@@ -35,9 +35,10 @@
 本次交付同时包含源代码、课堂实验结果、三组作业研究的派生结果及逐笔账本、HTML／Markdown报告、截图和复现说明。课程Feather、辅助历史缓存、本机配置与虚拟环境不进入交付包。
 
 - **71项单元测试通过**：[最终测试日志](results/final_review/unit_tests.txt)。
-- **pandas版本兼容验证**：[验证记录](results/final_review/ci_compatibility.json)。本机pandas 2.2.3、Copy-on-Write模式及pandas 3.0.6／NumPy 2.5.4均通过71项测试；云端修复结果待下一次推送验证。
+- **pandas版本兼容验证**：[验证记录](results/final_review/ci_compatibility.json)。本机pandas 2.2.3、Copy-on-Write模式及pandas 3.0.6／NumPy 2.5.4均通过71项测试；[云端两组测试](https://github.com/Chuboxiao/stoneflow-quant/actions/runs/39146986007)也已通过。
 - **56组精度账户通过3,056,824次检查，另有9组课堂／演示账户通过重放**：[账本重放与源码哈希核对](results/final_review/ledger_replay.json)。
 - [文档、网页导航与发布脚本检查](results/final_review/delivery_checks.json)。
+- [网页部署与公开链接验证](results/final_review/pages_deployment.json)：五个线上页面与确认的报告文件逐字节一致，评论截图和文字报告均可访问。
 
 推送脚本使用**当前提交HEAD到远程main**；普通运行只显示说明，明确传入`--publish-reviewed`才会执行推送。脚本不自动部署Pages、不发布评论，也不强制覆盖远程历史。
 
@@ -49,4 +50,4 @@
 4. 验证首页及5DR、突破、完整报告和截图的公开链接，再把README的在线访问说明更新为实际状态。
 5. 向issue #8发布课程评论，记录仓库、网页和评论的最终链接。
 
-代码推送由用户在终端执行；网页部署和课程评论按上述顺序另行完成。
+本次已完成代码推送、云端测试与网页部署；课程评论文本见`SUBMISSION_LECTURE4_DRAFT.md`，尚未发布。

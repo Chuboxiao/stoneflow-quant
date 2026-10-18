@@ -1,5 +1,7 @@
 # 网页研究报告：阅读、打包与发布
 
+线上首页：https://chuboxiao.github.io/stoneflow-quant/ 。报告已发布，5DR、20日突破、完整报告及机制分析页面均已验证可访问。
+
 ## 两种网页各做什么
 
 | 入口 | 功能 | 是否需要课程行情或Python |
@@ -43,7 +45,7 @@ python3 -m http.server 8768 --bind 127.0.0.1 --directory report_site
 3. 在 **Actions → Publish read-only research reports → Run workflow**，选择`main`并手动运行。工作流只上传`report_site/`，不会发布课程数据、辅助缓存或完整仓库。
 4. 等待部署成功，分别验证下列线上地址和评论内的截图链接。确认成功后，将README的在线访问说明更新为实际状态，再发布课程评论。未部署的地址不能当作已可访问的网页。
 
-| 报告 | 预定地址 |
+| 报告 | 访问地址 |
 | --- | --- |
 | 首页 | https://chuboxiao.github.io/stoneflow-quant/ |
 | 5DR | https://chuboxiao.github.io/stoneflow-quant/5dr.html |
