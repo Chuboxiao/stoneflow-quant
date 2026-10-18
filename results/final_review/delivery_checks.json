@@ -18,18 +18,21 @@
   "raw_feather_auxiliary_cache_and_local_config_tracked": false,
   "public_pages_or_remote_links_verified": true,
   "publication_performed": true,
-  "note": "GitHub Pages deployed successfully. Five report pages match confirmed source files byte-for-byte; Markdown reports and comment images are accessible. Course comment has not been posted.",
+  "note": "GitHub Pages live; report pages, Markdown reports and screenshots verified. Confirmed course comment published as Chuboxiao. Comment drafts removed from the public repository; all research reports retained.",
   "review_file_sha256": {
     "README.md": "87da7d7d176e692bd776ca6fd75056c80f01156ded16b61cc94b5c77f9800312",
-    "FINAL_REVIEW.md": "af19c064f8856b82bf1e478c1a2cb7db9274850ba0d981685e56fae49579479e",
-    "SUBMISSION_LECTURE4_DRAFT.md": "32829671dfaaa0bc339571f74fd6fd7d1a134bf2b470d2d3ae81560aa6f5b0a7",
+    "FINAL_REVIEW.md": "e1c3e36b5e14a7a01af2e74b293b47061fe3d5301b53323c5c2c9d802bb7e839",
     "docs/REPORT_SITE.md": "0e867c9fb8b11b46e5a2258333e871cdf028d349c5531e679807b4800791c444",
     "REPORT.md": "87dc7f73282628bdc974f1dcc2708d655d3cc2ff10ddac438757df9d4b71009e",
-    "push_to_github.sh": "0dffecb5a2afa80118b675d8f35cbc5882fe0991b7b03f9d57537dae222675e4",
+    "push_to_github.sh": "1ba4ce4df0816664ffcb11bdea2b1565d441ef852d0658a1409e8d28be49a86f",
     ".github/workflows/tests.yml": "95aebff4a850bca272a69c362ef548fc1c28033d157367e8bf8107e9f14feced",
     "tests/test_strategy_analysis.py": "55d7420f576977aff03101e23117fa1d7d5d9e18d80a3b379ef92771a14d1c56",
     "results/final_review/ci_compatibility.json": "e6ccbe0c74026834fa24b967c6b8089ab7b5de3087cd7f59efad5173d9af0830",
-    "results/final_review/pages_deployment.json": "58823cd48b1ed3711de159cd0b560133e5f201c293352f7ad24d84cd609e4e44"
+    "results/final_review/pages_deployment.json": "452460c86fbaea95ec8059af1e94bbe1ec46e00ed912cd77b99255870e9e86cd",
+    "REVIEW_LECTURE4.md": "a9f3a9c204508975d5fd067e0ec388069529196a30d79c3174e49dc3b7478b17",
+    "make_5dr_report.py": "7ca6712afcadac543e29265e970c2e82b65826f4d04d322e6b638863115b9e37",
+    "make_breakout_report.py": "4d46a5200eb3d97626f0f5e5574beeb4c735fd41f509430685ba301c5c3b0866",
+    "results/final_review/submission_receipt.json": "5ab178024e66bc35a98057ba4d9bafbbee2e6433f6fcdecfad953d0a0a514587"
   },
   "readme_presentation": {
     "style": "Stoneflow backtest laboratory and strategy research",
@@ -70,5 +73,7 @@
   ],
   "cloud_fix_verification": "passed for both pandas major-version jobs",
   "pages_deployed": true,
-  "course_comment_posted": false
+  "course_comment_posted": true,
+  "course_comment_url": "https://github.com/aslan9/pku_quantllm/issues/8#issuecomment-6252708114",
+  "comment_drafts_removed_from_repository": true
 }

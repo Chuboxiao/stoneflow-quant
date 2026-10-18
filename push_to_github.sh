@@ -9,7 +9,7 @@ case "${1:-}" in
     echo '本脚本用于推送当前版本。此处仅显示用法，未登录、推送或评论。'
     echo '只检查网络：bash push_to_github.sh --check-network'
     echo '推送当前提交到远程main：bash push_to_github.sh --publish-reviewed'
-    echo '本次作业评论草稿：SUBMISSION_LECTURE4_DRAFT.md'
+    echo '在线报告：https://chuboxiao.github.io/stoneflow-quant/'
     exit 0 ;;
   *) echo '参数仅支持 --check-network 或 --publish-reviewed'; exit 2 ;;
 esac
@@ -79,5 +79,5 @@ fi
 echo "即将推送当前版本：$(git rev-parse --short HEAD) → $repository 的 main（不强制覆盖）。"
 git push origin HEAD:refs/heads/main
 echo "推送完成：https://github.com/$repository"
-echo '本次作业评论：SUBMISSION_LECTURE4_DRAFT.md；SUBMISSION_COMMENT.md为课堂任务原评论存档。'
+echo '在线报告：https://chuboxiao.github.io/stoneflow-quant/'
 echo '仓库已更新；若修改了网页报告，请按docs/REPORT_SITE.md手动发布Pages。本脚本不部署网页或发布评论。'

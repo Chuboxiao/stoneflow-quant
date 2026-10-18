@@ -192,7 +192,6 @@ ATR14为截至信号日的14个复权真实波幅的简单平均；单日真实�
 - [全池20日突破完整报告](REVIEW_BREAKOUT.md)
 - [5DR复现与精度说明](docs/PRECISION_5DR.md)
 - [突破复现与精度说明](docs/PRECISION_BREAKOUT.md)
-- [拟提交课程评论](SUBMISSION_LECTURE4_DRAFT.md)
 
 网页运行后访问`/5dr`与`/breakout`；不依赖原始数据阅读的离线页面为`results/5dr_review/report.html`与`results/breakout_review/report.html`。
 
@@ -212,25 +211,6 @@ ST公告时点、真实盘口、官方逐日限价、个税和特殊公司行为
         current_tests=int(re.search(r'Ran (\d+) tests',analysis_tests).group(1))
         combined=combined.replace('原始数据不上传。',f'原始数据不上传。扩展研究后，全仓库{current_tests}项测试通过，新增17组账户账本重放另行保存。')
     (ROOT/"REVIEW_LECTURE4.md").write_text(combined)
-    comment=f"""第四讲作业更新：**穿石 Stoneflow — 全股票池5DR与趋势突破研究**
-
-仓库：https://github.com/Chuboxiao/stoneflow-quant
-
-按老师指定区间 **2025-01-02至2026-09-30（424日）**，对课程5,451列证券动态筛选，排除历史ST／*ST和未知状态新买入。cumadj统一信号口径，收盘固定股数、次日执行，涨停拒买、跌停拒卖；原始股份、现金、分红应收、送转锁股分别记账。
-
-5DR比较基础与4个改进，仅用2024选出流动性版：评价期收益37.55%、最大回撤-47.17%；基础版2.76%、-56.50%。冻结方案2026年前三季度亏损20.71%，双倍税费滑点后全期仅0.73%。
-
-延续20日突破，比较成交额确认、流动性、趋势与ATR控制。2024冻结的**{chosen['strategy']}**评价期收益{percent(chosen['total_return'])}、回撤{percent(chosen['max_drawdown'])}；普通突破为{percent(base['total_return'])}、{percent(base['max_drawdown'])}。同时提供固定半仓参照，避免把减仓效果误认为选股优势；保留全部候选、分年与压力结果。
-
-{test_count}项单元测试、{v['runs_checked']+v5['runs_checked']}组独立账本重放通过。研究属于回顾性的时间隔离，日线成交、ST生效时点、个税与特殊公司行为有明确限制，不声称精确实盘复现。课程和辅助源数据不上传。
-
-[总审核报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_LECTURE4.md) · [突破报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_BREAKOUT.md) · [5DR报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
-
-![穿石全池突破研究工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-breakout-review.jpg)
-"""
-    # The user may edit their submission draft between report builds.
-    comment_path=ROOT/"SUBMISSION_LECTURE4_DRAFT.md"
-    if not comment_path.exists():comment_path.write_text(comment)
 
 
 if __name__=="__main__":main()

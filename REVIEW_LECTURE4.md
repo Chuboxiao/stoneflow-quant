@@ -27,7 +27,6 @@
 - [全池20日突破完整报告](REVIEW_BREAKOUT.md)
 - [5DR复现与精度说明](docs/PRECISION_5DR.md)
 - [突破复现与精度说明](docs/PRECISION_BREAKOUT.md)
-- [拟提交课程评论](SUBMISSION_LECTURE4_DRAFT.md)
 
 网页运行后访问`/5dr`与`/breakout`；不依赖原始数据阅读的离线页面为`results/5dr_review/report.html`与`results/breakout_review/report.html`。
 

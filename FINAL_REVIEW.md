@@ -1,13 +1,13 @@
 # 穿石 Stoneflow：发布与交付记录
 
-当前版本已推送，pandas 2与3两组云端测试通过；网页报告已在GitHub Pages发布，五个页面、三份文字报告和两张截图均验证可访问。课程评论尚未发布。
+当前版本已推送，pandas 2与3两组云端测试通过；网页报告已在GitHub Pages发布，五个页面、三份文字报告和两张截图均验证可访问。课程研究评论已发布。
 
-仓库：`Chuboxiao/stoneflow-quant`。拟在[第四讲issue #8](https://github.com/aslan9/pku_quantllm/issues/8)新增一条作业更新评论，原课堂任务提交保留。本次评论以[`SUBMISSION_LECTURE4_DRAFT.md`](SUBMISSION_LECTURE4_DRAFT.md)为准；`SUBMISSION_COMMENT.md`和`SUBMISSION_5DR_DRAFT.md`是此前阶段的材料，不用于这次提交。
+仓库：`Chuboxiao/stoneflow-quant`。[研究更新评论](https://github.com/aslan9/pku_quantllm/issues/8#issuecomment-6252708114)已发布至第四讲issue #8，[原个股实验评论](https://github.com/aslan9/pku_quantllm/issues/8#issuecomment-6216190740)保留。评论草稿已从公开仓库移除。
 
 ## 交付入口
 
 1. **[README](README.md)**：以“穿石 Stoneflow 回测实验室”的项目介绍、系统能力与策略研究结果为主线。系统建设、个股研究、全池研究及课程要求对应完整保留。
-2. **[课程评论文本](SUBMISSION_LECTURE4_DRAFT.md)**：包含5DR、突破、完整报告三个网页入口、Markdown备用入口、个股实验链接及两张研究截图。
+2. **[已发布研究评论](https://github.com/aslan9/pku_quantllm/issues/8#issuecomment-6252708114)**：包含5DR、突破、完整报告三个网页入口、Markdown备用入口、个股实验链接及两张研究截图。
 3. **[在线报告首页](https://chuboxiao.github.io/stoneflow-quant/)**：直接阅读全部网页报告。也可下载后打开[离线首页](report_site/index.html)，或在macOS双击[`OpenReports.command`](OpenReports.command)。
 
 ## 两部分都包含哪些内容
@@ -50,4 +50,4 @@
 4. 验证首页及5DR、突破、完整报告和截图的公开链接，再把README的在线访问说明更新为实际状态。
 5. 向issue #8发布课程评论，记录仓库、网页和评论的最终链接。
 
-本次已完成代码推送、云端测试与网页部署；课程评论文本见`SUBMISSION_LECTURE4_DRAFT.md`，尚未发布。
+本次已完成代码推送、云端测试、网页部署与[课程评论发布](https://github.com/aslan9/pku_quantllm/issues/8#issuecomment-6252708114)。正文与用户确认版本逐字核对一致，作者为Chuboxiao。

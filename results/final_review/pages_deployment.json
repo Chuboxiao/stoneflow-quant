@@ -86,7 +86,8 @@
       "matches_local_source": false
     }
   ],
-  "course_comment_posted": false,
+  "course_comment_posted": true,
   "verification_date": "2026-10-19",
-  "timezone": "Asia/Shanghai"
+  "timezone": "Asia/Shanghai",
+  "course_comment_url": "https://github.com/aslan9/pku_quantllm/issues/8#issuecomment-6252708114"
 }

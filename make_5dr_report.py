@@ -220,23 +220,6 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
     body=render_markdown(report)
     body=body.replace('<h2>老师指定区间的比较</h2>','<h2>老师指定区间的比较</h2>'+chart)
     (RESULTS/"report.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 5DR作业审核报告</title><style>'+css+'</style><body>'+body+'</body></html>',encoding="utf-8")
-    comment=f"""第四讲研究记录：**穿石 Stoneflow — 5DR反转策略与回测精度研究**
-
-仓库：https://github.com/Chuboxiao/stoneflow-quant
-
-按老师要求评价 **2025-01-02 至 2026-09-30（424日）**；在课程股票池中按逐日历史ST状态筛选，未知状态不新买。用cumadj计算5日收益，在前一日收盘固定订单数量，下一交易日开盘附近执行代理；涨停拒买、跌停拒卖，纳入板块数量单位、费用、现金股利应收与股份锁定。
-
-预设基础5DR及4种改进，仅用2024年选择 **{chosen['strategy']}**。评价期基础版累计收益{percent(base['total_return'])}、最大回撤{percent(base['max_drawdown'])}；冻结方案分别为{percent(chosen['total_return'])}、{percent(chosen['max_drawdown'])}。所有候选、分年表现、双倍成本和容量敏感性均保留，未按评价期重新选冠军。
-
-冻结方案2026年前三季度收益{percent(year2026['total_return'])}；双倍税费与滑点下，整个评价期收益仅{percent(cost_case['total_return'])}。高回撤与成本敏感性仍然明显。
-
-{test_count}项单元测试通过，{validation['runs_checked']}组运行完成独立现金／股份／权益账本重放。历史ST按生效日处理，未复原公告发布时间；规则重建限价与开盘成交仍为代理，现金股利个税、零股分配及特殊公司行为有简化，不声称精确实盘复现。原始课程和辅助源数据不上传。
-
-[研究报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_5DR.md)
-
-![穿石5DR研究工作台](https://raw.githubusercontent.com/Chuboxiao/stoneflow-quant/main/docs/stoneflow-5dr-review.jpg)
-"""
-    (ROOT/"SUBMISSION_5DR_DRAFT.md").write_text(comment,encoding="utf-8")
 
 
 if __name__=="__main__":main()
