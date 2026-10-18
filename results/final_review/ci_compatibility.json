@@ -1,0 +1,44 @@
+{
+  "observed_failure": {
+    "run_url": "https://github.com/Chuboxiao/stoneflow-quant/actions/runs/39146343679",
+    "commit": "b32ac6c97d3a4b23daff0061b2edbc12a019fd8f",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "tests": 71,
+    "errors": 2,
+    "error": "ValueError: assignment destination is read-only"
+  },
+  "cause": "Two scenario tests attempted to mutate NumPy state views returned read-only under pandas Copy-on-Write.",
+  "fix": "The synthetic fixture owns writable copies of the state arrays before the scenarios mutate them. Assertions and production research code are unchanged.",
+  "local_validation": [
+    {
+      "pandas": "2.2.3",
+      "numpy": "2.3.5",
+      "mode": "default",
+      "tests": 71,
+      "passed": true,
+      "log": "unit_tests.txt"
+    },
+    {
+      "pandas": "2.2.3",
+      "numpy": "2.3.5",
+      "mode": "Copy-on-Write",
+      "tests": 71,
+      "passed": true,
+      "log": "unit_tests_copy_on_write.txt"
+    },
+    {
+      "pandas": "3.0.6",
+      "numpy": "2.5.4",
+      "mode": "Copy-on-Write (pandas 3 default)",
+      "tests": 71,
+      "passed": true,
+      "log": "unit_tests_pandas3.txt"
+    }
+  ],
+  "workflow_pandas_ranges": [
+    "pandas>=2.2,<3",
+    "pandas>=3,<4"
+  ],
+  "remote_fix_verification": "pending next push"
+}

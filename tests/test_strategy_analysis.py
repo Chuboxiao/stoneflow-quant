@@ -18,7 +18,11 @@ def panel():
     frames={key:close.copy()*value for key,value in {'open':1,'high':1.02,'low':.98,'close':1,'amt':1e6,'num_trades':1000}.items()}
     frames['cumadj']=close*0+1
     states={key:close*0+value for key,value in {'isST':0,'tradestatus':1,'preclose':20}.items()}
-    return Panel(frames,states)
+    p=Panel(frames,states)
+    # These scenario tests mutate state explicitly. Own the arrays rather than
+    # writing through pandas 3's read-only Copy-on-Write views.
+    p.states={key:value.copy() for key,value in p.states.items()}
+    return p
 
 
 class AnalysisTests(unittest.TestCase):

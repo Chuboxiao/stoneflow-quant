@@ -4,7 +4,7 @@
   "timezone": "Asia/Shanghai",
   "html_pages": 5,
   "html_local_links_and_anchors_checked": 36,
-  "markdown_local_links_checked": 43,
+  "markdown_local_links_checked": 44,
   "planned_public_urls_matched_to_local_files": 14,
   "report_build_current": true,
   "classroom_and_homework_readme_preserved": true,
@@ -21,11 +21,14 @@
   "note": "Public Pages URLs require approved push, deployment and live verification. Local file mapping is not proof that an online URL is live.",
   "review_file_sha256": {
     "README.md": "43bd2bee75e2cd3cc178a97a339105dff70e5aee43a8d50827804195038daa24",
-    "FINAL_REVIEW.md": "3e7cacb450193d2ee5338fa14805aab580618cd5e6f8d386e5721a0773dcb271",
+    "FINAL_REVIEW.md": "56d010169d23d1db638da736afa8e2175a32cd8ac487656c94f1c6b901c13016",
     "SUBMISSION_LECTURE4_DRAFT.md": "32829671dfaaa0bc339571f74fd6fd7d1a134bf2b470d2d3ae81560aa6f5b0a7",
     "docs/REPORT_SITE.md": "8a04b369946183462b3c90ae73d7bd48f8860c69cc2c938c1df2162668b9d43a",
     "REPORT.md": "87dc7f73282628bdc974f1dcc2708d655d3cc2ff10ddac438757df9d4b71009e",
-    "push_to_github.sh": "a1d5a26dc5e5109b88b82eb831c6fcbe08a1877d499ec1991cb23a5c06045abf"
+    "push_to_github.sh": "a1d5a26dc5e5109b88b82eb831c6fcbe08a1877d499ec1991cb23a5c06045abf",
+    ".github/workflows/tests.yml": "95aebff4a850bca272a69c362ef548fc1c28033d157367e8bf8107e9f14feced",
+    "tests/test_strategy_analysis.py": "55d7420f576977aff03101e23117fa1d7d5d9e18d80a3b379ef92771a14d1c56",
+    "results/final_review/ci_compatibility.json": "2779572e3142fe2660a38f9f5bca2342c17ae6413eab7d34caec7c427f2aefb5"
   },
   "readme_presentation": {
     "style": "Stoneflow backtest laboratory and strategy research",
@@ -37,5 +40,32 @@
   "reader_draft_labels_removed": true,
   "report_numeric_content_and_svg_preserved": true,
   "research_source_hashes_current": true,
-  "content_confirmed_by_user": true
+  "content_confirmed_by_user": true,
+  "pandas_compatibility_local_test_runs": [
+    {
+      "pandas": "2.2.3",
+      "numpy": "2.3.5",
+      "mode": "default",
+      "tests": 71,
+      "passed": true,
+      "log": "unit_tests.txt"
+    },
+    {
+      "pandas": "2.2.3",
+      "numpy": "2.3.5",
+      "mode": "Copy-on-Write",
+      "tests": 71,
+      "passed": true,
+      "log": "unit_tests_copy_on_write.txt"
+    },
+    {
+      "pandas": "3.0.6",
+      "numpy": "2.5.4",
+      "mode": "Copy-on-Write (pandas 3 default)",
+      "tests": 71,
+      "passed": true,
+      "log": "unit_tests_pandas3.txt"
+    }
+  ],
+  "cloud_fix_verification": "pending next push"
 }

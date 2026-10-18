@@ -35,6 +35,7 @@
 本次交付同时包含源代码、课堂实验结果、三组作业研究的派生结果及逐笔账本、HTML／Markdown报告、截图和复现说明。课程Feather、辅助历史缓存、本机配置与虚拟环境不进入交付包。
 
 - **71项单元测试通过**：[最终测试日志](results/final_review/unit_tests.txt)。
+- **pandas版本兼容验证**：[验证记录](results/final_review/ci_compatibility.json)。本机pandas 2.2.3、Copy-on-Write模式及pandas 3.0.6／NumPy 2.5.4均通过71项测试；云端修复结果待下一次推送验证。
 - **56组精度账户通过3,056,824次检查，另有9组课堂／演示账户通过重放**：[账本重放与源码哈希核对](results/final_review/ledger_replay.json)。
 - [文档、网页导航与发布脚本检查](results/final_review/delivery_checks.json)。
 

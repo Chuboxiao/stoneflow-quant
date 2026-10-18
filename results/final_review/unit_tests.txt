@@ -71,6 +71,6 @@ test_strategy_requires_two_subaccounts (test_web.WebTests.test_strategy_requires
 test_unknown_symbol_rejected (test_web.WebTests.test_unknown_symbol_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 71 tests in 0.249s
+Ran 71 tests in 0.269s
 
 OK
