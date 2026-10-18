@@ -1,7 +1,23 @@
 #!/usr/bin/env bash
-# Only create/push the homework repository. Does not post the issue comment.
+# Run only after review. Push the reviewed HEAD; never post the issue comment.
 set -euo pipefail
 cd "$(dirname "$0")"
+
+case "${1:-}" in
+  --check-network|--publish-reviewed) ;;
+  '')
+    echo '本脚本仅在审核通过后发布。当前未登录、推送或评论。'
+    echo '只检查网络：bash push_to_github.sh --check-network'
+    echo '审核通过后推送当前提交到远程main：bash push_to_github.sh --publish-reviewed'
+    echo '本次作业评论草稿：SUBMISSION_LECTURE4_DRAFT.md'
+    exit 0 ;;
+  *) echo '参数仅支持 --check-network 或 --publish-reviewed'; exit 2 ;;
+esac
+
+if [ "${1:-}" = '--publish-reviewed' ] && [ -n "$(git status --porcelain)" ]; then
+  echo '工作区有未提交改动，请先审核并提交；尚未推送。'
+  exit 1
+fi
 
 # GitHub CLI / Git do not automatically inherit macOS System Settings proxies.
 # Respect explicit terminal settings; otherwise read the existing HTTPS proxy.
@@ -47,7 +63,8 @@ fi
 gh auth setup-git --hostname github.com
 repository='Chuboxiao/stoneflow-quant'
 if ! gh repo view "$repository" --json name >/dev/null 2>&1; then
-  gh repo create "$repository" --public --description '穿石 Stoneflow：量化回测系统与趋势突破研究'
+  echo '未能读取已有作业仓库；请检查账号和网络，尚未推送。'
+  exit 1
 fi
 expected_remote="https://github.com/$repository.git"
 if git remote get-url origin >/dev/null 2>&1; then
@@ -59,6 +76,8 @@ if git remote get-url origin >/dev/null 2>&1; then
 else
   git remote add origin "$expected_remote"
 fi
-git push -u origin main
+echo "即将推送当前审核提交：$(git rev-parse --short HEAD) → $repository 的 main（不强制覆盖）。"
+git push origin HEAD:refs/heads/main
 echo "推送完成：https://github.com/$repository"
-echo '评论文件已准备：SUBMISSION_COMMENT.md（含网页截图）。'
+echo '本次作业评论：SUBMISSION_LECTURE4_DRAFT.md；SUBMISSION_COMMENT.md为课堂任务原评论存档。'
+echo 'Pages仍需按docs/REPORT_SITE.md手动部署并验证，再发布评论；本脚本未执行部署或评论。'

@@ -2,6 +2,8 @@
 
 仓库：https://github.com/Chuboxiao/stoneflow-quant
 
+提交账号：**Chuboxiao**
+
 > 审核说明（正式发布前移除）：以下Pages链接是预定地址，尚未部署。须在更新推送、Pages部署成功且逐页验证后，再发布本评论；Markdown入口也须在推送后复核。
 
 **报告入口（网页版可直接查看图表、表格和全文，无需安装Python或下载课程行情）：**
@@ -11,6 +13,10 @@
 - **[完整报告 · 网页版](https://chuboxiao.github.io/stoneflow-quant/full.html)**（总览＋5DR全文＋突破全文，含机制与适用股票研究）｜ [GitHub总览](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REVIEW_LECTURE4.md)
 
 [网页报告首页](https://chuboxiao.github.io/stoneflow-quant/)；网页版为已保存结果的只读报告，可修改参数并重新运行的回测系统及代码在仓库中提供。
+
+**课堂任务保留：** 可编程回测系统、模拟时钟与券商，以及长源东谷、科大讯飞的普通突破、成交额确认突破、买入持有实验，均保留在同一仓库和README中。[课堂实验完整报告](https://github.com/Chuboxiao/stoneflow-quant/blob/main/REPORT.md)的区间为2020-07-01至2026-10-16；它采用原版教学账户，与本次课后作业分别说明，不拼接绩效。
+
+**本次课后作业：**
 
 按照指定区间 **2025-01-02至2026-09-30（424日）**，对课程5,451列证券动态筛选，排除历史ST／*ST和未知状态新买入。cumadj统一信号口径，收盘固定股数、次日执行，涨停拒买、跌停拒卖；原始股份、现金、分红应收、送转锁股分别记账。
 
