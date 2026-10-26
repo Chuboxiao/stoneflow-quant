@@ -82,7 +82,7 @@ def main():
     benchmark_text=f"沪深300价格指数同区间参考涨幅为 **{percent(benchmarks[-1]['net_value']-1)}**（以前一交易日收盘归一、未扣费；不是可交易账户，也没有做风格风险调整）。" if benchmarks else "本次未取得完整指数参考，不虚构指数表现。"
     comparison=md_table(["预设方案","累计收益","最大回撤","平均仓位","单边换手","交易费用（元）"],
                         [[x["strategy"]+("【2024冻结】" if x["selected_on_2024"] else ""),percent(x["total_return"]),percent(x["max_drawdown"]),percent(x["average_exposure"]),f"{x['turnover_one_way']:.2f}倍",number(x["total_fees"])] for x in s["comparison"]])
-    train_table=md_table(["候选","2024收益","2024最大回撤","选择分数"],[[x["strategy"],percent(x["total_return"]),percent(x["max_drawdown"]),f"{x['score']:.4f}"] for x in selection["training"]])
+    train_table=md_table(["候选","2024累计收益","2024年化收益（252日）","2024最大回撤","选择分数"],[[x["strategy"],percent(x["total_return"]),percent(x["annualized_return"]),percent(x["max_drawdown"]),f"{x['score']:.4f}"] for x in selection["training"]])
     period_table=md_table(["区间","基础5DR收益","冻结方案收益","冻结方案回撤"],[[title,percent(rows["base"]["total_return"]),percent(rows[s["selected_key"]]["total_return"]),percent(rows[s["selected_key"]]["max_drawdown"])] for title,rows in periods.items()])
     stress_table=md_table(["额外假设","冻结方案累计收益","最大回撤"],[[names[x["scenario"]],percent(x["total_return"]),percent(x["max_drawdown"])] for x in stress])
     focus_table=md_table(["股票","方案","累计收益","最大回撤"],[[x["symbol"],x["strategy"],percent(x["total_return"]),percent(x["max_drawdown"])] for x in s.get("focus_stocks",[])])
@@ -131,6 +131,8 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
 ## 2024 年选型依据
 
 固定选择分数为：2024年化收益 /（|2024最大回撤| + 0.05），取分数最高者，平分按key排序。该分数体现收益和回撤的折中，是研究设定，不是普适最优评价指标。选型、参数和规则摘要保存于 protocol.json 与 selection.json。
+
+本段为2024-01-02至2024-12-31，共242个交易日。年化按`(期末权益/初始资金)^(252/交易日数)−1`换算；流动性版累计29.0448%、年化30.4117%，评分为`0.304117/(0.322850+0.05)=0.8157`。下文2025—2026评价期的累计37.55%是另一个区间，不能混用于本次评分。此分数不是IC或标准Calmar。
 
 {train_table}
 
@@ -201,6 +203,7 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
 - [鑫宏业2026年实施公告：实际与摊薄比例](https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-05-13/be86e959-b7d9-4a20-94cb-47d547845a91.PDF)
 
 """
+    report=report.rstrip()+"\n"
     (ROOT/"REVIEW_5DR.md").write_text(report,encoding="utf-8")
     base_eq=pd.read_csv(RESULTS/"evaluation/base/equity.csv")
     chosen_eq=pd.read_csv(RESULTS/"evaluation"/s["selected_key"]/"equity.csv")
@@ -219,7 +222,7 @@ ST 排除指不把风险警示证券纳入新买股票池。已经持有的股�
     css="body{max-width:1050px;margin:45px auto;padding:0 30px;background:#f4f1e9;color:#2f4438;font:14px/1.9 -apple-system,'PingFang SC',sans-serif}h1,h2,h3{font-family:'Songti SC',serif}h1{font-size:30px;border-bottom:1px solid #d1d8c6;padding-bottom:22px}h2{font-size:22px;margin-top:40px}p{margin:12px 0}a{color:#567c67}blockquote{background:#e8ecde;border-left:3px solid #b56b45;padding:10px 18px;margin:15px 0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;background:#faf9f1;white-space:nowrap}td,th{border-bottom:1px solid #dce1d1;padding:9px 12px;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#e9eddf}code{background:#e5e9dc;padding:2px 4px;border-radius:3px}.item{margin:5px 0 5px 15px}svg{width:100%;height:auto;margin:20px 0}"
     body=render_markdown(report)
     body=body.replace('<h2>老师指定区间的比较</h2>','<h2>老师指定区间的比较</h2>'+chart)
-    (RESULTS/"report.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 5DR作业审核报告</title><style>'+css+'</style><body>'+body+'</body></html>',encoding="utf-8")
+    (RESULTS/"report.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>穿石 · 5DR研究报告</title><style>'+css+'</style><body>'+body+'</body></html>',encoding="utf-8")
 
 
 if __name__=="__main__":main()

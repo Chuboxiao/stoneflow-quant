@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "download": "reversal5_base_ic.csv",
+  "rows": 424,
+  "sha256": "7a90d68572dc1d04b8259237eccfde65ad6787c89d768f53acf799842187190f",
+  "factors_checked": [
+    "reversal5",
+    "momentum20"
+  ],
+  "horizons_checked": [
+    5,
+    20
+  ],
+  "mobile_viewport": 439,
+  "desktop_viewport": 1440,
+  "horizontal_overflow": false,
+  "browser_errors": []
+}

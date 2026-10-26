@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/factors",
+      "status": 200
+    },
+    {
+      "route": "/5dr",
+      "status": 200
+    },
+    {
+      "route": "/reports/factors.html",
+      "status": 200
+    },
+    {
+      "cross_site_post": "rejected_403"
+    },
+    {
+      "factor_job": "reversal5",
+      "status": "completed",
+      "effective_ic_days": 19
+    },
+    {
+      "factor_job": "custom",
+      "status": "completed",
+      "effective_ic_days": 19
+    },
+    {
+      "python_plugin": "reversal10",
+      "status": "loaded_and_calculated"
+    }
+  ],
+  "original_run_directory_unchanged": true
+}

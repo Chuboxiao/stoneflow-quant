@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "checks": 60994,
+  "analyses": 6,
+  "account_parity": [
+    {
+      "account": "reversal5_base_normal",
+      "metrics_exact": true,
+      "byte_identical_ledgers": {
+        "equity.csv": true,
+        "orders.csv": true,
+        "positions.csv": true,
+        "actions.csv": true,
+        "valuation.csv": true
+      }
+    },
+    {
+      "account": "reversal5_base_double_cost",
+      "metrics_exact": true,
+      "byte_identical_ledgers": {
+        "equity.csv": true,
+        "orders.csv": true,
+        "positions.csv": true,
+        "actions.csv": true,
+        "valuation.csv": true
+      }
+    },
+    {
+      "account": "reversal5_liquid_normal",
+      "metrics_exact": true,
+      "byte_identical_ledgers": {
+        "equity.csv": true,
+        "orders.csv": true,
+        "positions.csv": true,
+        "actions.csv": true,
+        "valuation.csv": true
+      }
+    },
+    {
+      "account": "reversal5_liquid_double_cost",
+      "metrics_exact": true,
+      "byte_identical_ledgers": {
+        "equity.csv": true,
+        "orders.csv": true,
+        "positions.csv": true,
+        "actions.csv": true,
+        "valuation.csv": true
+      }
+    }
+  ],
+  "source_hashes_current": true,
+  "original_reports_and_backtest_preserved": true,
+  "note": "Independent checks of saved aggregates and existing economic ledgers; does not establish strategy validity."
+}

@@ -1,13 +1,17 @@
 # 网页研究报告：阅读、打包与发布
 
+[实验室总览](../README.md) · [统一启动指南](START.md) · [因子评价说明](../README_FACTORS.md)
+
 线上首页：https://chuboxiao.github.io/stoneflow-quant/ 。报告已发布，5DR、20日突破、完整报告及机制分析页面均已验证可访问。
+
+因子观测台的独立交互快照为`report_site/factors.html`，可离线阅读；推送后须手动部署Pages，才会更新线上站点。
 
 ## 两种网页各做什么
 
 | 入口 | 功能 | 是否需要课程行情或Python |
 | --- | --- | --- |
-| `report_site/index.html`及GitHub Pages | 阅读已保存的5DR、20日突破和完整报告，含图表、表格、机制与股票子集分析 | 不需要 |
-| `python web_server.py`启动的`127.0.0.1` | 本机研究工作台、参数修改、策略运行、查看与导出结果 | 重新回测需要依赖和行情；全池研究另见精度指南 |
+| `report_site/index.html`及GitHub Pages | 阅读已保存的5DR、20日突破、完整报告和因子评价，含图表、表格、机制与股票子集分析 | 不需要 |
+| `python web_server.py`启动的`127.0.0.1` | 本机研究工作台、参数修改、策略运行、因子评价与CSV导入、查看与导出结果 | 重新回测需要依赖和行情；全池研究另见精度指南 |
 
 老师不能通过自己的电脑打开你电脑上的`127.0.0.1`。GitHub仓库文件页通常展示HTML源文件；使用Pages才能把静态报告按网页提供。Pages托管不运行Python，因此不能代替本机回测服务。
 
@@ -24,7 +28,7 @@ python3 build_report_site.py
 python3 build_report_site.py --check
 ```
 
-打包来源为已保存的5DR、突破、机制研究HTML与`REVIEW_LECTURE4.md`。`full.html`包含总览和两份报告的全部内容，突破全文已包含机制与股票子集分析；单独的`analysis.html`方便直接跳转。此过程不运行回测，不改变策略和指标，不读取原始Feather或辅助行情缓存。
+打包来源为已保存的5DR、突破、机制研究HTML与`REVIEW_LECTURE4.md`，并复制`results/factors/report.html`为独立的因子交互快照。`full.html`包含总览和两份报告的全部内容，突破全文已包含机制与股票子集分析；单独的`analysis.html`方便直接跳转。此过程不运行回测，不改变策略和指标，不读取原始Feather或辅助行情缓存。
 
 `manifest.json`保存源文件SHA-256。打包过程保留研究假设、精度边界、图表与数值，只调整阅读导航和页面展示。
 
@@ -48,6 +52,7 @@ python3 -m http.server 8768 --bind 127.0.0.1 --directory report_site
 | 报告 | 访问地址 |
 | --- | --- |
 | 首页 | https://chuboxiao.github.io/stoneflow-quant/ |
+| 因子观测台 | https://chuboxiao.github.io/stoneflow-quant/factors.html |
 | 5DR | https://chuboxiao.github.io/stoneflow-quant/5dr.html |
 | 20日突破 | https://chuboxiao.github.io/stoneflow-quant/breakout.html |
 | 完整报告 | https://chuboxiao.github.io/stoneflow-quant/full.html |

@@ -2,9 +2,10 @@
   "format": 1,
   "kind": "read-only-saved-reports",
   "sources": {
-    "results/5dr_review/report.html": "ba174dcbefb799178c1da19c26a6a6074f1dd0209b1834f14d346c5e806ecef3",
+    "results/5dr_review/report.html": "699ce25fc8c4bd8a99964d24679a3b877a96cb9ace7bce01775f129ec7fa8674",
     "results/breakout_review/report.html": "f91f66008fbc0570810464f1380943cecce0a846ae5c901762135269e1417fad",
     "results/strategy_analysis/report.html": "a076570ca0b9389ddaefc282b7994ac7691b5eaaad746b5bbc15d137c7e62c22",
-    "REVIEW_LECTURE4.md": "a9f3a9c204508975d5fd067e0ec388069529196a30d79c3174e49dc3b7478b17"
+    "REVIEW_LECTURE4.md": "a9f3a9c204508975d5fd067e0ec388069529196a30d79c3174e49dc3b7478b17",
+    "results/factors/report.html": "324ad02567348e4eb801872ae6f8813714600ad897237facb98aa52dde616346"
   }
 }

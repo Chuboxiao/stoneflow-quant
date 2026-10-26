@@ -1,0 +1,21 @@
+{
+  "spec": {
+    "key": "reversal5_base",
+    "title": "5DR · 五日反转",
+    "top_n": 20,
+    "every": 1,
+    "weight": 0.95
+  },
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0006,
+    "min_commission": 10,
+    "stamp": 0.001,
+    "transfer": 2e-05,
+    "slippage_bps": 10,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  }
+}

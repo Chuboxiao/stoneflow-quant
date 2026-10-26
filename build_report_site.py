@@ -23,7 +23,7 @@ INPUTS = {
 }
 LABELS = {
     "index": "报告首页", "5dr": "5DR 报告", "breakout": "突破报告",
-    "full": "完整报告", "analysis": "机制与股票子集",
+    "full": "完整报告", "analysis": "机制与股票子集", "factors": "因子观测台",
 }
 
 CSS = """
@@ -41,11 +41,11 @@ def nav(current: str) -> str:
     links = "".join(
         f'<a href="{key}.html"' + (' aria-current="page"' if key == current else '')
         + f'>{LABELS[key]}</a>'
-        for key in ("index", "5dr", "breakout", "full")
+        for key in ("index", "5dr", "breakout", "full", "factors")
     )
     return (f'<nav class="site-nav" aria-label="报告导航"><a class="brand" href="index.html">'
             f'穿石 <span>STONEFLOW</span></a><div class="nav-links">{links}'
-            f'<a href="{REPO}">GitHub ↗</a></div></nav>')
+            f'<a href="http://127.0.0.1:8765/">本机回测 ↗</a><a href="{REPO}">GitHub ↗</a></div></nav>')
 
 
 def page(title: str, current: str, body: str, extra_css: str = "") -> str:
@@ -141,8 +141,9 @@ def homepage() -> str:
 <article class="card"><div class="n">01</div><h3>5DR 反转</h3><p>过去5日跌得更多的股票，之后会反弹吗？比较流动性、换手与风险过滤。</p><div class="metric">+37.55%</div><div class="metric-note">冻结流动性版累计收益 · 最大回撤 −47.17%</div><a href="5dr.html">阅读 5DR 报告 →</a></article>
 <article class="card"><div class="n">02</div><h3>20 日突破</h3><p>突破近期高点能否延续？从全股票池的亏损，追问策略适用于哪些股票。</p><div class="metric">−11.71%</div><div class="metric-note">冻结趋势＋ATR版累计收益 · 最大回撤 −22.75%</div><a href="breakout.html">阅读突破报告 →</a></article>
 <article class="card featured"><div class="n">03</div><h3>完整研究</h3><p>总览、两份报告全文与机制分析，放在一起核对收益、风险和回测精度。</p><div class="metric">同口径 · 可追溯</div><div class="metric-note">账户与成交约束 · 分年检验 · 费用压力测试</div><a href="full.html">阅读完整报告 →</a></article></section>
+<aside class="research-note"><div><div class="eyebrow">Factor observatory</div><h3>信号与交易，分别衡量。</h3></div><div><p>新增因子观测台：5DR及其他因子的IC、分组报价、跨期稳定性、覆盖与换手，连接原始股份账户的净交易表现。评价期、累计与年化收益分别标注。</p><a href="factors.html">进入因子观测台 →</a></div></aside>
 <aside class="research-note"><div><div class="eyebrow">A closer look</div><h3>盈利，不等于普遍有效。</h3></div><div><p>5DR流动性版在2026年前三季度亏损20.71%。按2024资料固定的较高波动组，普通突破全期盈利19.38%、最大回撤31.06%；仅用2025选组、2026重新建账后只获利0.36%、最大回撤30.23%。这些差异是需要解释的证据，也划定了结论的边界。</p><a href="analysis.html">查看收益来源与股票子集研究 →</a></div></aside>
-<p class="reading-note">评价区间：2025-01-02 至 2026-09-30。报告属于回顾性研究；2024选型是时间隔离，不能称为真实前瞻盲测。网页可直接阅读图表和表格；策略代码、逐笔记录与本机重跑指南见 <a href="https://github.com/Chuboxiao/stoneflow-quant">GitHub 仓库</a>。</p></main>'''
+<p class="reading-note">本页是只读研究报告。可运行的实验室在本机：双击仓库中的Start.command，再访问 http://127.0.0.1:8765/ 。评价区间：2025-01-02 至 2026-09-30。报告属于回顾性研究；2024选型是时间隔离，不能称为真实前瞻盲测。网页可直接阅读图表和表格；策略代码、逐笔记录与本机重跑指南见 <a href="https://github.com/Chuboxiao/stoneflow-quant">GitHub 仓库</a>。</p></main>'''
 
 
 def build() -> dict[str, bytes]:
@@ -163,8 +164,13 @@ def build() -> dict[str, bytes]:
         parts.append(f'<section class="report-part" id="{anchor}"><h2 class="part-heading">{title}</h2>{body}</section>')
     parts.append('</main>')
     files['full.html'] = page('完整研究报告', 'full', ''.join(parts))
+    factor_report = ROOT / 'results/factors/report.html'
+    if factor_report.exists():
+        files['factors.html'] = factor_report.read_text(encoding='utf-8')
     manifest = {'format': 1, 'kind': 'read-only-saved-reports', 'sources': {
         name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in INPUTS.values()}}
+    if factor_report.exists():
+        manifest['sources']['results/factors/report.html'] = hashlib.sha256(factor_report.read_bytes()).hexdigest()
     files['manifest.json'] = json.dumps(manifest, ensure_ascii=False, indent=2) + '\n'
     files['.nojekyll'] = ''
     return {name: value.encode('utf-8') for name, value in files.items()}

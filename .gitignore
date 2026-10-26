@@ -7,4 +7,5 @@ local_config.json
 *.feather
 data/
 results/web/
+results/factor_runs/
 work/

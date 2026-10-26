@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "runs_checked": 4,
+  "checks": 732739,
+  "runs": [
+    {
+      "run": "reversal5_base/double_cost",
+      "passed": true,
+      "checks": 182779,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "reversal5_base/normal",
+      "passed": true,
+      "checks": 186554,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "reversal5_liquid/double_cost",
+      "passed": true,
+      "checks": 180043,
+      "errors": [],
+      "max_cash_error": 2.9103830456733704e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 4.656612873077393e-10
+    },
+    {
+      "run": "reversal5_liquid/normal",
+      "passed": true,
+      "checks": 183363,
+      "errors": [],
+      "max_cash_error": 5.820766091346741e-11,
+      "max_shares_error": 0.0,
+      "max_equity_error": 6.984919309616089e-10
+    }
+  ]
+}

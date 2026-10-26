@@ -44,6 +44,11 @@ class Application:
         self.jobs, self.lock = {}, threading.Lock()
         self.catalog, self.dates = [], []
         self.data_error = None
+        local_path = ROOT / 'local_config.json'
+        local = json.loads(local_path.read_text()) if local_path.exists() else {}
+        self.reference_dir = Path(local.get('reference_dir', ROOT/'data/reference/baostock-20230901-20260930'))
+        self.factor_directory = ROOT/'results/factors'
+        self.factor_runs_dir = ROOT/'results/factor_runs'
         try:
             with pa.memory_map(str(self.data_dir/"close.feather"),"r") as source:
                 columns = pa.ipc.open_file(source).schema.names
@@ -161,6 +166,77 @@ class Application:
     def update(self, job_key, **fields):
         with self.lock: self.jobs[job_key].update(fields)
 
+    def factor_summary(self):
+        path = self.factor_directory/'summary.json'
+        return json.loads(path.read_text()) if path.exists() else None
+
+    def validate_factor(self, request):
+        from factorlab.core import REGISTRY
+        if self.data_error:
+            raise ValueError('课程数据未连接：'+self.data_error)
+        allowed = {'factors','start','end','pool','horizons','factor_csv_text','direction'}
+        if not isinstance(request, dict) or set(request)-allowed:
+            raise ValueError('请求包含未知因子参数')
+        factors = request.get('factors', ['reversal5'])
+        if (not isinstance(factors, list) or len(factors)>5 or any(not isinstance(x,str) or x not in REGISTRY for x in factors)
+                or len(set(factors)) != len(factors)):
+            raise ValueError('请选择不重复的内置因子；Python插件仅在本机命令行执行')
+        csv_text = request.get('factor_csv_text','')
+        if not isinstance(csv_text,str) or len(csv_text.encode('utf-8')) > 10*1024*1024:
+            raise ValueError('因子CSV为空类型或超过10MB')
+        if not factors and not csv_text.strip():
+            raise ValueError('请选择因子或导入CSV')
+        if not self.reference_dir.is_dir():
+            raise ValueError('未连接历史ST资料；请在local_config.json设置reference_dir，未知状态不会当作非ST')
+        for key in ('start','end'):
+            value = request.get(key)
+            try:
+                if not isinstance(value,str) or len(value)!=10 or pd.Timestamp(value).strftime('%Y-%m-%d')!=value:
+                    raise ValueError()
+            except Exception as exc:
+                raise ValueError('日期格式必须为YYYY-MM-DD') from exc
+        if not max(self.dates[0],'2023-09-01') <= request['start'] < request['end'] <= min(self.dates[-1],'2026-09-30'):
+            raise ValueError('当前历史状态支持的范围为2023-09-01至2026-09-30；开始日期须早于结束日期')
+        horizons=request.get('horizons',[1,5,10,20])
+        if (not isinstance(horizons,list) or not horizons or len(horizons)>4
+                or any(isinstance(h,bool) or not isinstance(h,int) or h not in (1,5,10,20) for h in horizons)
+                or len(set(horizons))!=len(horizons)):
+            raise ValueError('网页预测期限可选1、5、10、20交易日，不可重复')
+        pool=request.get('pool','both')
+        direction=request.get('direction',1)
+        if pool not in ('base','liquid','both') or isinstance(direction,bool) or direction not in (-1,1):
+            raise ValueError('股票池或因子方向无效')
+        return dict(factors=factors,start=request['start'],end=request['end'],pool=pool,
+                    horizons=horizons,factor_csv_text=csv_text,direction=direction)
+
+    def submit_factor(self, payload):
+        clean=self.validate_factor(payload)
+        with self.lock:
+            if any(job['status'] in ('queued','running') for job in self.jobs.values()):
+                raise RuntimeError('已有研究正在运行，请等待完成')
+            run_id=uuid.uuid4().hex[:12]
+            self.jobs[run_id]={'id':run_id,'status':'queued','stage':'准备因子评价'}
+        self.pool.submit(self.execute_factor,run_id,clean)
+        return {'job_id':run_id}
+
+    def execute_factor(self, run_id, params):
+        from factorlab.runner import run
+        directory=self.factor_runs_dir/run_id
+        directory.mkdir(parents=True,exist_ok=True)
+        try:
+            self.update(run_id,status='running')
+            csv_path=None
+            if params['factor_csv_text'].strip():
+                csv_path=directory/'input.csv'
+                csv_path.write_text(params['factor_csv_text'],encoding='utf-8')
+            run(self.data_dir,self.reference_dir,directory,params['start'],params['end'],
+                tuple(params['factors']),tuple(params['horizons']),params['pool'],csv_path,params['direction'],
+                progress=lambda stage:self.update(run_id,stage=stage))
+            self.factor_directory=directory
+            self.update(run_id,status='completed',stage='因子评价完成，已保存本机报告',run_id=run_id)
+        except Exception as exc:
+            self.update(run_id,status='failed',stage='因子评价未完成',error=str(exc))
+
     def execute(self, run_id, params):
         directory = self.results_dir/run_id
         try:
@@ -206,6 +282,23 @@ def make_handler(application):
         def do_GET(self):
             route = urlparse(self.path).path
             try:
+                if route.startswith('/reports/'):
+                    name=route.removeprefix('/reports/')
+                    if name not in {'index.html','5dr.html','breakout.html','full.html','analysis.html','factors.html','manifest.json'}:
+                        raise FileNotFoundError('报告不存在')
+                    return self.send_file(ROOT/'report_site'/name)
+                if route == '/factors':
+                    from factorlab.presentation import render_report
+                    body=render_report(application.factor_summary(),live=True).encode('utf-8')
+                    self.send_response(200)
+                    self.send_header('Content-Type','text/html; charset=utf-8')
+                    self.send_header('Content-Length',str(len(body)))
+                    self.send_header('Cache-Control','no-store')
+                    self.send_header('X-Content-Type-Options','nosniff')
+                    self.end_headers();self.wfile.write(body)
+                    return
+                if route == '/api/factors':
+                    return self.json_response(application.factor_summary())
                 if route in {"/api/5dr-review","/api/breakout-review"}:
                     directory=ROOT/"results"/("breakout_review" if route=="/api/breakout-review" else "5dr_review")
                     status=json.loads((directory/"run_status.json").read_text())
@@ -271,12 +364,16 @@ def make_handler(application):
                 if host not in {f"127.0.0.1:{port}",f"localhost:{port}"}: return self.json_response({"error":"拒绝非本机请求"},403)
                 origin = self.headers.get("Origin")
                 if origin and origin not in allowed_origins: return self.json_response({"error":"拒绝跨站请求"},403)
-                if urlparse(self.path).path != "/api/runs": raise FileNotFoundError("接口不存在")
+                route=urlparse(self.path).path
+                if route not in ("/api/runs","/api/factor-runs"): raise FileNotFoundError("接口不存在")
                 if self.headers.get("Content-Type","").split(";")[0] != "application/json":
                     return self.json_response({"error":"需要 application/json"},415)
                 length = int(self.headers.get("Content-Length","0"))
-                if not 0 < length <= 2_000_000: raise ValueError("请求为空或过大")
+                maximum=15_000_000 if route=='/api/factor-runs' else 2_000_000
+                if not 0 < length <= maximum: raise ValueError("请求为空或过大")
                 payload = json.loads(self.rfile.read(length))
+                if route=='/api/factor-runs':
+                    return self.json_response(application.submit_factor(payload),202)
                 return self.json_response(application.submit(payload),202)
             except FileNotFoundError as exc: self.json_response({"error":str(exc)},404)
             except RuntimeError as exc: self.json_response({"error":str(exc)},409)
@@ -291,6 +388,7 @@ def main():
     parser = argparse.ArgumentParser(description="穿石 Stoneflow 本地回测工作台")
     parser.add_argument("--data-dir",type=Path)
     parser.add_argument("--port",type=int,default=8765)
+    parser.add_argument("--open-browser",action="store_true",help="服务就绪后在默认浏览器打开实验室")
     args = parser.parse_args()
     default = json.loads((ROOT/"examples/demo_config.json").read_text(encoding="utf-8"))
     local_path=ROOT/"local_config.json"
@@ -299,6 +397,9 @@ def main():
     server = ThreadingHTTPServer(("127.0.0.1",args.port),make_handler(app))
     print(f"穿石 Stoneflow 已启动：http://127.0.0.1:{args.port}",flush=True)
     print("仅在本机运行。按 Ctrl+C 停止。",flush=True)
+    if args.open_browser:
+        import webbrowser
+        threading.Thread(target=webbrowser.open,args=(f'http://127.0.0.1:{args.port}/',),daemon=True).start()
     try: server.serve_forever()
     except KeyboardInterrupt: pass
     finally:
