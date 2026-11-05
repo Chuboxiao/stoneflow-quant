@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img">
+<title>9 个新候选，每一次保留和淘汰都有依据</title><desc>接受条件：组合验证 IC 至少增加 0.0001，且搜索 IC 下降不超过 0.005（另需通过质量门槛）</desc>
+<style>text{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif} .num{font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1200" height="1040" rx="4" fill="#f4f1e9"/>
+<text x="48" y="48" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">STONEFLOW / 穿石因子实验室</text>
+<text x="48" y="101" font-size="34" fill="#294137" text-anchor="start" font-weight="400" class="num">9 个新候选，每一次保留和淘汰都有依据</text>
+<text x="48" y="139" font-size="20" fill="#647267" text-anchor="start" font-weight="400" class="num">接受条件：组合验证 IC 至少增加 0.0001，且搜索 IC 下降不超过 0.005（另需通过质量门槛）</text>
+<text x="48" y="198" font-size="20" fill="#647267" text-anchor="start" font-weight="400" class="num">轮次 / 来源</text>
+<text x="214" y="198" font-size="20" fill="#647267" text-anchor="start" font-weight="400" class="num">候选因子</text>
+<text x="735" y="198" font-size="20" fill="#647267" text-anchor="end" font-weight="400" class="num">单因子验证 IC</text>
+<text x="980" y="198" font-size="20" fill="#647267" text-anchor="end" font-weight="400" class="num">组合验证 IC 增量</text>
+<text x="1145" y="198" font-size="20" fill="#647267" text-anchor="end" font-weight="400" class="num">决定</text>
+<path d="M48 218H1152" stroke="#d1d7ca"/>
+<text x="48" y="254" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第1轮</text>
+<text x="48" y="278" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">规则建议</text>
+<text x="214" y="254" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">amount_reversal5</text>
+<text x="214" y="278" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">价量交互</text>
+<text x="735" y="262" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0497</text>
+<text x="980" y="262" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.000243</text>
+<text x="1145" y="262" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 297H1152" stroke="#d1d7ca"/>
+<text x="48" y="323" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第1轮</text>
+<text x="48" y="347" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">规则建议</text>
+<text x="214" y="323" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">range_position20</text>
+<text x="214" y="347" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">价格位置</text>
+<text x="735" y="331" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0356</text>
+<text x="980" y="331" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.009299</text>
+<text x="1145" y="331" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 366H1152" stroke="#d1d7ca"/>
+<text x="48" y="392" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第1轮</text>
+<text x="48" y="416" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">规则建议</text>
+<text x="214" y="392" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">reversal_lowvol_half</text>
+<text x="214" y="416" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">跨家族组合</text>
+<text x="735" y="400" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0738</text>
+<text x="980" y="400" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">+8.34e-08</text>
+<text x="1145" y="400" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 435H1152" stroke="#d1d7ca"/>
+<rect x="36" y="435" width="1128" height="67" rx="4" fill="#e0ead8"/>
+<text x="48" y="461" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第2轮</text>
+<text x="48" y="485" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">Agent 导入</text>
+<text x="214" y="461" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">reversal10</text>
+<text x="214" y="485" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">反转</text>
+<text x="735" y="469" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0615</text>
+<text x="980" y="469" font-size="24" fill="#346a4b" text-anchor="end" font-weight="400" class="num">+0.005169</text>
+<text x="1145" y="469" font-size="22" fill="#346a4b" text-anchor="end" font-weight="600" class="num">保留</text>
+<path d="M48 504H1152" stroke="#d1d7ca"/>
+<text x="48" y="530" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第2轮</text>
+<text x="48" y="554" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">Agent 导入</text>
+<text x="214" y="530" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">lowvol10</text>
+<text x="214" y="554" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">风险</text>
+<text x="735" y="538" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0717</text>
+<text x="980" y="538" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.000086</text>
+<text x="1145" y="538" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 573H1152" stroke="#d1d7ca"/>
+<text x="48" y="599" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第2轮</text>
+<text x="48" y="623" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">Agent 导入</text>
+<text x="214" y="599" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">range_position5</text>
+<text x="214" y="623" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">价格位置</text>
+<text x="735" y="607" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0267</text>
+<text x="980" y="607" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.007885</text>
+<text x="1145" y="607" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 642H1152" stroke="#d1d7ca"/>
+<text x="48" y="668" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第3轮</text>
+<text x="48" y="692" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">Agent 导入</text>
+<text x="214" y="668" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">reversal10_smooth3</text>
+<text x="214" y="692" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">反转</text>
+<text x="735" y="676" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0589</text>
+<text x="980" y="676" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.002666</text>
+<text x="1145" y="676" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 711H1152" stroke="#d1d7ca"/>
+<text x="48" y="737" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第3轮</text>
+<text x="48" y="761" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">Agent 导入</text>
+<text x="214" y="737" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">lowvol40</text>
+<text x="214" y="761" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">风险</text>
+<text x="735" y="745" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0490</text>
+<text x="980" y="745" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.006424</text>
+<text x="1145" y="745" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 780H1152" stroke="#d1d7ca"/>
+<text x="48" y="806" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">第3轮</text>
+<text x="48" y="830" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">Agent 导入</text>
+<text x="214" y="806" font-size="22" fill="#294137" text-anchor="start" font-weight="400" class="num">amount_reversal10</text>
+<text x="214" y="830" font-size="17" fill="#647267" text-anchor="start" font-weight="400" class="num">价量交互</text>
+<text x="735" y="814" font-size="24" fill="#294137" text-anchor="end" font-weight="400" class="num">0.0593</text>
+<text x="980" y="814" font-size="24" fill="#a65c3e" text-anchor="end" font-weight="400" class="num">-0.000847</text>
+<text x="1145" y="814" font-size="22" fill="#a65c3e" text-anchor="end" font-weight="600" class="num">淘汰</text>
+<path d="M48 849H1152" stroke="#d1d7ca"/>
+<text x="48" y="922" font-size="23" fill="#294137" text-anchor="start" font-weight="400" class="num">第2轮：十日反转替换五日反转；第3轮没有候选通过，保留池不变。</text>
+<text x="48" y="958" font-size="18" fill="#647267" text-anchor="start" font-weight="400" class="num">增量均相对该候选提出时的当前因子池；全部原始指标、提出理由和失败记录可在实验报告核查。</text>
+<path d="M48 984H1152" stroke="#d1d7ca"/>
+<text x="48" y="1016" font-size="16" fill="#647267" text-anchor="start" font-weight="400" class="num">数据图 · study a4099ff45a9f · SHA256 6104cfc76611 · 由完整实验记录生成</text>
+</svg>

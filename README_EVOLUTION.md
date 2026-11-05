@@ -4,9 +4,23 @@
 
 **本次结果：**5个起始因子、3轮9个新候选，接受1个。十日反转替换五日反转，与20日低波动组成最终因子池。选择验证段组合Rank IC从0.0738升至0.0789；2026回顾从0.0404升至0.0520。但回顾段Q5−Q1报价收益仍为负，未完成新组合的净交易验证，不能据此宣称更赚钱。
 
-[实验报告](results/evolution_runs/a4099ff45a9f/REPORT.md) · [全部实验记录](results/evolution_runs/a4099ff45a9f/study.json) · [逐候选CSV](results/evolution_runs/a4099ff45a9f/candidates.csv) · [提交文案](SUBMISSION_LECTURE6.md)
+[实验报告](results/evolution_runs/a4099ff45a9f/REPORT.md) · [全部实验记录](results/evolution_runs/a4099ff45a9f/study.json) · [逐候选CSV](results/evolution_runs/a4099ff45a9f/candidates.csv)
 
-![穿石因子改进模块](docs/stoneflow-factor-evolution.png)
+![三轮因子研究的前后对比：验证IC提高、验证正IC月份减少、回顾收益差仍为负](docs/stoneflow-evolution-results.svg)
+
+![9个新候选的单因子验证IC、组合增量及保留淘汰决定](docs/stoneflow-evolution-candidates.svg)
+
+以上为实验记录生成的矢量数据图，点击可放大查看。数据源与指纹保留在图中；运行 `python tools/render_evolution_figures.py` 可重新生成。
+
+<details>
+<summary>查看实际模块页面：因子池与冻结后回顾</summary>
+
+页面截图按原始宽度展示，避免放大模糊。完整候选可在下方的只读交互快照中筛选和展开。
+
+<img src="docs/stoneflow-factor-pool.png" width="464" alt="实际模块的研究指标与冻结因子池">
+<img src="docs/stoneflow-factor-review.png" width="464" alt="实际模块的冻结后回顾，包括初始池、冻结池和5DR基准">
+
+</details>
 
 ## 使用入口
 
