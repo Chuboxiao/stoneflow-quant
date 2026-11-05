@@ -1,0 +1,1386 @@
+{
+  "id": "a4099ff45a9f",
+  "created_at": "2026-11-05T19:28:46+08:00",
+  "updated_at": "2026-11-05T19:39:40+08:00",
+  "status": "frozen",
+  "stage": "冻结后回顾完成；交易账户尚未验证",
+  "config": {
+    "name": "第六讲 · 多样性与组合增量",
+    "pool": "liquid",
+    "horizon": 5,
+    "search_start": "2024-01-02",
+    "search_end": "2024-12-31",
+    "validation_start": "2025-01-02",
+    "validation_end": "2025-12-31",
+    "round_budget": 3,
+    "harness": "H1-diversity",
+    "max_candidates_per_round": 3,
+    "policy": {
+      "version": "diverse-pool-v1",
+      "min_ic": 0.0,
+      "min_positive_months": 0.5,
+      "min_coverage": 0.95,
+      "max_correlation": 0.8,
+      "max_members": 5,
+      "min_validation_gain": 0.0001,
+      "max_search_ic_loss": 0.005,
+      "note": "搜索与选择验证均需正IC、至少半数月份正IC、覆盖95%；同家族或相关>0.8先替换；等权组合验证IC至少增加0.0001，搜索IC最多下降0.005。规则不在实验中修改。"
+    },
+    "review": [
+      "2026-01-01",
+      "2026-09-30"
+    ],
+    "review_note": "2026历史已在此前研究中查看；冻结后回顾，不称新盲测，不用于本次候选选择。",
+    "execution_note": "本模块评价预测能力；报价分组收益未扣交易成本，不是净交易账户。"
+  },
+  "config_hash": "e8c3713bfc0d54f76ab13f2e4d4fc3d2b040ba7601077a750ba6f1af45936171",
+  "rounds_completed": 3,
+  "candidates": {
+    "reversal5": {
+      "spec": {
+        "key": "reversal5",
+        "kind": "reversal",
+        "window": 5,
+        "parent": null,
+        "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+        "family": "reversal",
+        "formula": "-ret(5)",
+        "fingerprint": "326c6ffd39761fa74b3364d3ba003373ec61419aa2c0e327f32e4b6c0f1e0e1b"
+      },
+      "round": 0,
+      "source": "seed",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.048815925612239575,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006779332609152471,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.0507876007767339,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.00378966467107406,
+          "days": 237
+        }
+      },
+      "correlations": {},
+      "accepted": true,
+      "reasons": [
+        "通过质量与组合增量门槛"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:30:26+08:00",
+      "seconds": 2.316,
+      "completed": true,
+      "pool_before": [],
+      "pool_after": [
+        "reversal5"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.048815925612239575,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006779332609152471,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.0507876007767339,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.00378966467107406,
+          "days": 237
+        }
+      }
+    },
+    "momentum20": {
+      "spec": {
+        "key": "momentum20",
+        "kind": "momentum",
+        "window": 20,
+        "parent": null,
+        "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+        "family": "trend",
+        "formula": "ret(20)",
+        "fingerprint": "822bbc76158c6bc5c294edc47f1f7977114edc016366f92892898e60a79d62a9"
+      },
+      "round": 0,
+      "source": "seed",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": -0.07315347749668163,
+          "positive_months": 0.08333333333333333,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": -0.009662878581878538,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": -0.08139504226735754,
+          "positive_months": 0.0,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": -0.005460844767701998,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.41661619839487113
+      },
+      "accepted": false,
+      "reasons": [
+        "搜索段IC不为正",
+        "搜索段正IC月份不足半数",
+        "选择验证段IC不为正",
+        "选择验证段正IC月份不足半数"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:30:29+08:00",
+      "seconds": 1.33,
+      "completed": true,
+      "pool_before": [
+        "reversal5"
+      ],
+      "pool_after": [
+        "reversal5"
+      ]
+    },
+    "breakout20": {
+      "spec": {
+        "key": "breakout20",
+        "kind": "breakout",
+        "window": 20,
+        "parent": null,
+        "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+        "family": "trend",
+        "formula": "C / max(previous_high, 20) - 1",
+        "fingerprint": "740370709684ed3bbba61f889e61807624d415f0a8e5030ef64892f55e72a85a"
+      },
+      "round": 0,
+      "source": "seed",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": -0.011722421158669692,
+          "positive_months": 0.25,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": -0.004546108282718131,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": -0.013994141781657853,
+          "positive_months": 0.5,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": -0.0037005602350678028,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.5487407356152069
+      },
+      "accepted": false,
+      "reasons": [
+        "搜索段IC不为正",
+        "搜索段正IC月份不足半数",
+        "选择验证段IC不为正"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:30:30+08:00",
+      "seconds": 1.52,
+      "completed": true,
+      "pool_before": [
+        "reversal5"
+      ],
+      "pool_after": [
+        "reversal5"
+      ]
+    },
+    "amount20": {
+      "spec": {
+        "key": "amount20",
+        "kind": "amount",
+        "window": 20,
+        "parent": null,
+        "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+        "family": "activity",
+        "formula": "amount / mean(previous_amount, 20) - 1",
+        "fingerprint": "7011710ed681988202f2c6308fa32a1c5305aa48cddcb53f826a468f3428c8ab"
+      },
+      "round": 0,
+      "source": "seed",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": -0.04738196782542876,
+          "positive_months": 0.16666666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": -0.0051111204292491495,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": -0.04911381095710389,
+          "positive_months": 0.08333333333333333,
+          "months": 12,
+          "coverage": 0.9999982878192896,
+          "spread": -0.003054021860656657,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.46623940241271794
+      },
+      "accepted": false,
+      "reasons": [
+        "搜索段IC不为正",
+        "搜索段正IC月份不足半数",
+        "选择验证段IC不为正",
+        "选择验证段正IC月份不足半数"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:30:32+08:00",
+      "seconds": 1.472,
+      "completed": true,
+      "pool_before": [
+        "reversal5"
+      ],
+      "pool_after": [
+        "reversal5"
+      ]
+    },
+    "lowvol20": {
+      "spec": {
+        "key": "lowvol20",
+        "kind": "lowvol",
+        "window": 20,
+        "parent": null,
+        "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+        "family": "risk",
+        "formula": "-std(daily_return, 20)",
+        "fingerprint": "4d7a79c0788f8429eafedd52e28d97e04493374e89924d8fc7b7593ce9da16af"
+      },
+      "round": 0,
+      "source": "seed",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.07278793687662212,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.004149707612612656,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.06297720551348132,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.00012725653006201068,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.20413495374733728
+      },
+      "accepted": true,
+      "reasons": [
+        "通过质量与组合增量门槛"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:30:33+08:00",
+      "seconds": 2.871,
+      "completed": true,
+      "pool_before": [
+        "reversal5"
+      ],
+      "pool_after": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07727286342102911,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006160622076955443,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07377673085612331,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0021417951277129484,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": 0.022989130079389408
+    },
+    "amount_reversal5": {
+      "spec": {
+        "key": "amount_reversal5",
+        "kind": "amount_reversal",
+        "window": 5,
+        "parent": "reversal5",
+        "hypothesis": "按成交额异常调整反转，探索价量交互提供的信息",
+        "family": "price_volume",
+        "formula": "-ret(5) * clip(amount / mean(previous_amount, 20), .25, 4)",
+        "fingerprint": "978c0e61f361e66a750174a742e828eb1f7cf42bd75dad4539b0f69213e8c841"
+      },
+      "round": 1,
+      "source": "rule-baseline",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.050667295516194324,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.007223185434479811,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.0496924018149519,
+          "positive_months": 1.0,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0038727660749229694,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.9541961635627172,
+        "lowvol20": 0.1651727448796004
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:33:34+08:00",
+      "seconds": 3.409,
+      "completed": true,
+      "pool_before": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "pool_after": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07830872600377001,
+          "positive_months": 1.0,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006720189475829186,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07353382499637975,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0021137575835529438,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -0.00024290585974355572
+    },
+    "range_position20": {
+      "spec": {
+        "key": "range_position20",
+        "kind": "range_position",
+        "window": 20,
+        "parent": null,
+        "hypothesis": "以价格区间位置衡量回撤，探索不同于单一收益窗口的信号",
+        "family": "price_location",
+        "formula": "-(C - rolling_low(20)) / (rolling_high(20) - rolling_low(20))",
+        "fingerprint": "e94a1d9abf3919bc9122351ef33083d2311fd8b6438e1202e27e36739117784c"
+      },
+      "round": 1,
+      "source": "rule-baseline",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.043782673096347126,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0064326102722015634,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.03564433867763227,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0018381750213116532,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.6293295803812888,
+        "lowvol20": 0.15795367543222164
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001",
+        "组合搜索IC下降超过0.005"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:33:37+08:00",
+      "seconds": 3.564,
+      "completed": true,
+      "pool_before": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "pool_after": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07169378420491171,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.007388972859570424,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.06447736661161994,
+          "positive_months": 1.0,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0020803502361701927,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -0.009299364244503366
+    },
+    "reversal_lowvol_half": {
+      "spec": {
+        "key": "reversal_lowvol_half",
+        "kind": "rank_mix",
+        "window": 5,
+        "alpha": 0.5,
+        "parent": "reversal5",
+        "hypothesis": "反转和低风险等权秩组合，避免量纲差异",
+        "family": "hybrid",
+        "formula": "0.5 * eligible_rank(-ret(5)) + 0.5 * eligible_rank(-std(return,20))",
+        "fingerprint": "a3de27e37cdb15ee785d833112922a0e020f4798580e4347f47fcb679aa987aa"
+      },
+      "round": 1,
+      "source": "rule-baseline",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.07727286342102911,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006160622076955443,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07377673085612331,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0021417951277129484,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.6761207664549359,
+        "lowvol20": 0.7024317526264978
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:33:41+08:00",
+      "seconds": 3.998,
+      "completed": true,
+      "pool_before": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "pool_after": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07727289776823681,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006160622076955443,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07377681429460488,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0021417951277129484,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": 8.343848156844302e-08
+    },
+    "reversal10": {
+      "spec": {
+        "key": "reversal10",
+        "kind": "reversal",
+        "window": 10,
+        "parent": "reversal5",
+        "hypothesis": "第一轮价量加权与五日反转高度相关，且组合增量为负；改用十日反转检查时间尺度能否提供不同信息。",
+        "family": "reversal",
+        "formula": "-ret(10)",
+        "fingerprint": "9310fe1a863e748fc2b90223d20f0cb757ad1cee075204fd0690f265ef6b1135"
+      },
+      "round": 2,
+      "source": "agent-import",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.048316841293613765,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006187367196560851,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.061505775622783046,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.003982070583568594,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "reversal5": 0.6178671042383204,
+        "lowvol20": 0.2103501732200417
+      },
+      "accepted": true,
+      "reasons": [
+        "通过质量与组合增量门槛"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:36:55+08:00",
+      "seconds": 3.262,
+      "completed": true,
+      "pool_before": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "pool_after": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07740289822783504,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0059116668928948036,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07894552826017259,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0023544886907730504,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": 0.005168797404049283
+    },
+    "lowvol10": {
+      "spec": {
+        "key": "lowvol10",
+        "kind": "lowvol",
+        "window": 10,
+        "parent": "lowvol20",
+        "hypothesis": "既有低波动有效，缩短估计窗口检验风险状态反应速度能否提升组合验证IC。",
+        "family": "risk",
+        "formula": "-std(daily_return, 10)",
+        "fingerprint": "e7e87b371ee388e7fd8257a931ed4696254683b5ca9cb236178793e309be7576"
+      },
+      "round": 2,
+      "source": "agent-import",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.08122717482416994,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.005570394484099732,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07173978250977565,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0010187491579446324,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "lowvol20": 0.8517893299474172,
+        "reversal10": 0.2658981914279485
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:36:58+08:00",
+      "seconds": 3.187,
+      "completed": true,
+      "pool_before": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_after": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07963042525593933,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.007077477437753464,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07885927497231723,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0026343036493685747,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -8.625328785535902e-05
+    },
+    "range_position5": {
+      "spec": {
+        "key": "range_position5",
+        "kind": "range_position",
+        "window": 5,
+        "parent": "range_position20",
+        "hypothesis": "20日价格位置验证IC偏弱；缩短到5日检查区间位置的信息是否集中在近期，保留价格位置这一不同家族。",
+        "family": "price_location",
+        "formula": "-(C - rolling_low(5)) / (rolling_high(5) - rolling_low(5))",
+        "fingerprint": "c9d7c6cccd9b51391078fac57101629e977acc3d14e110c3766f6475bfd2544b"
+      },
+      "round": 2,
+      "source": "agent-import",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.021232196602423866,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0038377630795776883,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.02668425970333085,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0032073210550363535,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "lowvol20": 0.15624444066013585,
+        "reversal10": 0.439257736622764
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001",
+        "组合搜索IC下降超过0.005"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:37:01+08:00",
+      "seconds": 3.592,
+      "completed": true,
+      "pool_before": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_after": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.06212258615247952,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006064057956916087,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07106013224188969,
+          "positive_months": 1.0,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.002966776449445945,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -0.007885396018282906
+    },
+    "reversal10_smooth3": {
+      "spec": {
+        "key": "reversal10_smooth3",
+        "kind": "smooth_reversal",
+        "window": 10,
+        "smooth": 3,
+        "parent": "reversal10",
+        "hypothesis": "十日反转已改善组合验证IC；平滑信号检查能否减少偶然单日变动并保持增量。",
+        "family": "reversal",
+        "formula": "mean(-ret(10), 3)",
+        "fingerprint": "8b2e713d2c6116cfa1c7645ed28ca76c0cccac8be6dae47d2461fad0985ad02d"
+      },
+      "round": 3,
+      "source": "agent-import",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.043616865316672956,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.005800264855842781,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.058858352078748226,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0037922935701653953,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "lowvol20": 0.21937436368773067,
+        "reversal10": 0.9194707717312394
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:38:32+08:00",
+      "seconds": 3.408,
+      "completed": true,
+      "pool_before": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_after": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07612750043538742,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006095588827944593,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07627913620129917,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0020558112634757185,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -0.0026663920588734236
+    },
+    "lowvol40": {
+      "spec": {
+        "key": "lowvol40",
+        "kind": "lowvol",
+        "window": 40,
+        "parent": "lowvol20",
+        "hypothesis": "10日低波动单独IC更高却未改善组合；向较慢风险估计探索，检验与十日反转的互补性。",
+        "family": "risk",
+        "formula": "-std(daily_return, 40)",
+        "fingerprint": "63839ba7b1546ddbc00ce6546fdb133c394df6a778b3b2c1cb769270fe9c9c9e"
+      },
+      "round": 3,
+      "source": "agent-import",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.06968555935675781,
+          "positive_months": 0.6666666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0032644886713644114,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.049010758516573064,
+          "positive_months": 0.6666666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": -0.0011503752739758242,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "lowvol20": 0.8719103332638354,
+        "reversal10": 0.21242226058255198
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:38:35+08:00",
+      "seconds": 3.169,
+      "completed": true,
+      "pool_before": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_after": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.07711396501586415,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.005391512086892062,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07252162013719712,
+          "positive_months": 0.6666666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0019662823163528677,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -0.006423908122975469
+    },
+    "amount_reversal10": {
+      "spec": {
+        "key": "amount_reversal10",
+        "kind": "amount_reversal",
+        "window": 10,
+        "parent": "amount_reversal5",
+        "hypothesis": "五日成交额加权没有组合贡献；在已接受的十日反转时间尺度下再检验价量交互，仍要求真实组合增量。",
+        "family": "price_volume",
+        "formula": "-ret(10) * clip(amount / mean(previous_amount, 20), .25, 4)",
+        "fingerprint": "0d726799444eae5c6019b52314f97d4f2205263af1a657003d107b502eaf1522"
+      },
+      "round": 3,
+      "source": "agent-import",
+      "harness": "H1-diversity",
+      "metrics": {
+        "search": {
+          "rank_ic": 0.05416715317840467,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006956181061958274,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.059343529136630456,
+          "positive_months": 1.0,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.003960618798779022,
+          "days": 237
+        }
+      },
+      "correlations": {
+        "lowvol20": 0.17964103913753102,
+        "reversal10": 0.9487961112390669
+      },
+      "accepted": false,
+      "reasons": [
+        "等权组合选择验证IC增量不足0.0001"
+      ],
+      "prefix_check": true,
+      "created_at": "2026-11-05T19:38:38+08:00",
+      "seconds": 3.192,
+      "completed": true,
+      "pool_before": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_after": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "proposed_pool_metrics": {
+        "search": {
+          "rank_ic": 0.08008715797235394,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006733617816193622,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07809829409921738,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0022828064158409407,
+          "days": 237
+        }
+      },
+      "pool_validation_gain": -0.0008472341609552098
+    }
+  },
+  "pool": [
+    "lowvol20",
+    "reversal10"
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "source": "seed",
+      "feedback": "同一股票池与区间评价5个起始因子，含4个家族",
+      "harness": "H1-diversity",
+      "specs": [
+        {
+          "key": "reversal5",
+          "kind": "reversal",
+          "window": 5,
+          "parent": null,
+          "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+          "family": "reversal",
+          "formula": "-ret(5)",
+          "fingerprint": "326c6ffd39761fa74b3364d3ba003373ec61419aa2c0e327f32e4b6c0f1e0e1b"
+        },
+        {
+          "key": "momentum20",
+          "kind": "momentum",
+          "window": 20,
+          "parent": null,
+          "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+          "family": "trend",
+          "formula": "ret(20)",
+          "fingerprint": "822bbc76158c6bc5c294edc47f1f7977114edc016366f92892898e60a79d62a9"
+        },
+        {
+          "key": "breakout20",
+          "kind": "breakout",
+          "window": 20,
+          "parent": null,
+          "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+          "family": "trend",
+          "formula": "C / max(previous_high, 20) - 1",
+          "fingerprint": "740370709684ed3bbba61f889e61807624d415f0a8e5030ef64892f55e72a85a"
+        },
+        {
+          "key": "amount20",
+          "kind": "amount",
+          "window": 20,
+          "parent": null,
+          "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+          "family": "activity",
+          "formula": "amount / mean(previous_amount, 20) - 1",
+          "fingerprint": "7011710ed681988202f2c6308fa32a1c5305aa48cddcb53f826a468f3428c8ab"
+        },
+        {
+          "key": "lowvol20",
+          "kind": "lowvol",
+          "window": 20,
+          "parent": null,
+          "hypothesis": "预设方向的已有因子，作为同条件研究起点",
+          "family": "risk",
+          "formula": "-std(daily_return, 20)",
+          "fingerprint": "4d7a79c0788f8429eafedd52e28d97e04493374e89924d8fc7b7593ce9da16af"
+        }
+      ],
+      "created_at": "2026-11-05T19:29:24+08:00",
+      "finished_at": "2026-11-05T19:30:34+08:00",
+      "pool": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "pool_metrics": {
+        "search": {
+          "rank_ic": 0.07727286342102911,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006160622076955443,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07377673085612331,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0021417951277129484,
+          "days": 237
+        }
+      }
+    },
+    {
+      "round": 1,
+      "source": "rule-baseline",
+      "feedback": "{\"round\": 0, \"pool\": [\"reversal5\", \"lowvol20\"], \"pool_metrics\": {\"search\": {\"rank_ic\": 0.07727286342102911, \"positive_months\": 0.9166666666666666, \"months\": 12, \"coverage\": 1.0, \"spread\": 0.006160622076955443, \"days\": 236}, \"validation\": {\"rank_ic\": 0.07377673085612331, \"positive_months\": 0.8333333333333334, \"months\": 12, \"coverage\": 1.0, \"spread\": 0.0021417951277129484, \"days\": 237}}, \"observations\": [{\"key\": \"reversal5\", \"family\": \"reversal\", \"accepted\": true, \"reasons\": [\"通过质量与组合增量门槛\"], \"metrics\": {\"search\": {\"rank_ic\": 0.048815925612239575, \"positive_months\": 0.9166666666666666, \"months\": 12, \"coverage\": 1.0, \"spread\": 0.006779332609152471, \"days\": 236}, \"validation\": {\"rank_ic\": 0.0507876007767339, \"positive_months\": 0.9166666666666666, \"months\": 12, \"coverage\": 1.0, \"spread\": 0.00378966467107406, \"days\": 237}}}, {\"key\": \"momentum20\", \"family\": \"trend\", \"accepted\": false, \"reasons\": [\"搜索段IC不为正\", \"搜索段正IC月份不足半数\", \"选择验证段IC不为正\", \"选择验证段正IC月份不足半数\"], \"metrics\": {\"search\": {\"rank_ic\": -0.07315347749668163, \"positive_months\": 0.08333333333333333, \"months\": 12, \"coverage\": 1.0, \"spread\": -0.009662878581878538, \"days\": 236}, \"validation\": {\"rank_ic\": -0.08139504226735754, \"positive_months\": 0.0, \"months\": 12, \"coverage\": 1.0, \"spread\": -0.005460844767701998, \"days\": 237}}}, {\"key\": \"breakout20\", \"family\": \"trend\", \"accepted\": false, \"reasons\": [\"搜索段IC不为正\", \"搜索段正IC月份不足半数\", \"选择验证段IC不为正\"], \"metrics\": {\"search\": {\"rank_ic\": -0.011722421158669692, \"positive_months\": 0.25, \"months\": 12, \"coverage\": 1.0, \"spread\": -0.004546108282718131, \"days\": 236}, \"validation\": {\"rank_ic\": -0.013994141781657853, \"positive_months\": 0.5, \"months\": 12, \"coverage\": 1.0, \"spread\": -0.0037005602350678028, \"days\": 237}}}, {\"key\": \"amount20\", \"family\": \"activity\", \"accepted\": false, \"reasons\": [\"搜索段IC不为正\", \"搜索段正IC月份不足半数\", \"选择验证段IC不为正\", \"选择验证段正IC月份不足半数\"], \"metrics\": {\"search\": {\"rank_ic\": -0.04738196782542876, \"positive_months\": 0.16666666666666666, \"months\": 12, \"coverage\": 1.0, \"spread\": -0.0051111204292491495, \"days\": 236}, \"validation\": {\"rank_ic\": -0.04911381095710389, \"positive_months\": 0.08333333333333333, \"months\": 12, \"coverage\": 0.9999982878192896, \"spread\": -0.003054021860656657, \"days\": 237}}}, {\"key\": \"lowvol20\", \"family\": \"risk\", \"accepted\": true, \"reasons\": [\"通过质量与组合增量门槛\"], \"metrics\": {\"search\": {\"rank_ic\": 0.07278793687662212, \"positive_months\": 0.75, \"months\": 12, \"coverage\": 1.0, \"spread\": 0.004149707612612656, \"days\": 236}, \"validation\": {\"rank_ic\": 0.06297720551348132, \"positive_months\": 0.75, \"months\": 12, \"coverage\": 1.0, \"spread\": 0.00012725653006201068, \"days\": 237}}}], \"instruction\": \"依据失败原因提出最多3个不同机制候选；至少考虑一个池外家族；预先说明机制与方向。不得使用2026回顾结果，不得修改股票池、期限或接受规则。\"}",
+      "harness": "H1-diversity",
+      "specs": [
+        {
+          "key": "amount_reversal5",
+          "kind": "amount_reversal",
+          "window": 5,
+          "parent": "reversal5",
+          "hypothesis": "按成交额异常调整反转，探索价量交互提供的信息",
+          "family": "price_volume",
+          "formula": "-ret(5) * clip(amount / mean(previous_amount, 20), .25, 4)",
+          "fingerprint": "978c0e61f361e66a750174a742e828eb1f7cf42bd75dad4539b0f69213e8c841"
+        },
+        {
+          "key": "range_position20",
+          "kind": "range_position",
+          "window": 20,
+          "parent": null,
+          "hypothesis": "以价格区间位置衡量回撤，探索不同于单一收益窗口的信号",
+          "family": "price_location",
+          "formula": "-(C - rolling_low(20)) / (rolling_high(20) - rolling_low(20))",
+          "fingerprint": "e94a1d9abf3919bc9122351ef33083d2311fd8b6438e1202e27e36739117784c"
+        },
+        {
+          "key": "reversal_lowvol_half",
+          "kind": "rank_mix",
+          "window": 5,
+          "alpha": 0.5,
+          "parent": "reversal5",
+          "hypothesis": "反转和低风险等权秩组合，避免量纲差异",
+          "family": "hybrid",
+          "formula": "0.5 * eligible_rank(-ret(5)) + 0.5 * eligible_rank(-std(return,20))",
+          "fingerprint": "a3de27e37cdb15ee785d833112922a0e020f4798580e4347f47fcb679aa987aa"
+        }
+      ],
+      "created_at": "2026-11-05T19:33:32+08:00",
+      "finished_at": "2026-11-05T19:33:43+08:00",
+      "pool": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "pool_metrics": {
+        "search": {
+          "rank_ic": 0.07727286342102911,
+          "positive_months": 0.9166666666666666,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.006160622076955443,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07377673085612331,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0021417951277129484,
+          "days": 237
+        }
+      }
+    },
+    {
+      "round": 2,
+      "source": "agent-import",
+      "feedback": "第1轮三个候选均未增加组合验证IC：价量加权相关0.954，20日位置稀释组合，等权混合重复已有信息。本轮覆盖反转、风险、价格位置三个家族，只比较时间尺度，不修改接受规则。",
+      "harness": "H1-diversity",
+      "specs": [
+        {
+          "key": "reversal10",
+          "kind": "reversal",
+          "window": 10,
+          "parent": "reversal5",
+          "hypothesis": "第一轮价量加权与五日反转高度相关，且组合增量为负；改用十日反转检查时间尺度能否提供不同信息。",
+          "family": "reversal",
+          "formula": "-ret(10)",
+          "fingerprint": "9310fe1a863e748fc2b90223d20f0cb757ad1cee075204fd0690f265ef6b1135"
+        },
+        {
+          "key": "lowvol10",
+          "kind": "lowvol",
+          "window": 10,
+          "parent": "lowvol20",
+          "hypothesis": "既有低波动有效，缩短估计窗口检验风险状态反应速度能否提升组合验证IC。",
+          "family": "risk",
+          "formula": "-std(daily_return, 10)",
+          "fingerprint": "e7e87b371ee388e7fd8257a931ed4696254683b5ca9cb236178793e309be7576"
+        },
+        {
+          "key": "range_position5",
+          "kind": "range_position",
+          "window": 5,
+          "parent": "range_position20",
+          "hypothesis": "20日价格位置验证IC偏弱；缩短到5日检查区间位置的信息是否集中在近期，保留价格位置这一不同家族。",
+          "family": "price_location",
+          "formula": "-(C - rolling_low(5)) / (rolling_high(5) - rolling_low(5))",
+          "fingerprint": "c9d7c6cccd9b51391078fac57101629e977acc3d14e110c3766f6475bfd2544b"
+        }
+      ],
+      "created_at": "2026-11-05T19:36:53+08:00",
+      "finished_at": "2026-11-05T19:37:03+08:00",
+      "pool": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_metrics": {
+        "search": {
+          "rank_ic": 0.07740289822783504,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0059116668928948036,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07894552826017259,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0023544886907730504,
+          "days": 237
+        }
+      }
+    },
+    {
+      "round": 3,
+      "source": "agent-import",
+      "feedback": "第2轮十日反转通过组合增量门槛，10日低波动虽单独IC提高但组合增量为负，短价格位置仍拖累组合。最后一轮覆盖反转平滑、较慢风险估计、十日价量交互；用完预设3轮预算后冻结，不依据2026结果追加搜索。",
+      "harness": "H1-diversity",
+      "specs": [
+        {
+          "key": "reversal10_smooth3",
+          "kind": "smooth_reversal",
+          "window": 10,
+          "smooth": 3,
+          "parent": "reversal10",
+          "hypothesis": "十日反转已改善组合验证IC；平滑信号检查能否减少偶然单日变动并保持增量。",
+          "family": "reversal",
+          "formula": "mean(-ret(10), 3)",
+          "fingerprint": "8b2e713d2c6116cfa1c7645ed28ca76c0cccac8be6dae47d2461fad0985ad02d"
+        },
+        {
+          "key": "lowvol40",
+          "kind": "lowvol",
+          "window": 40,
+          "parent": "lowvol20",
+          "hypothesis": "10日低波动单独IC更高却未改善组合；向较慢风险估计探索，检验与十日反转的互补性。",
+          "family": "risk",
+          "formula": "-std(daily_return, 40)",
+          "fingerprint": "63839ba7b1546ddbc00ce6546fdb133c394df6a778b3b2c1cb769270fe9c9c9e"
+        },
+        {
+          "key": "amount_reversal10",
+          "kind": "amount_reversal",
+          "window": 10,
+          "parent": "amount_reversal5",
+          "hypothesis": "五日成交额加权没有组合贡献；在已接受的十日反转时间尺度下再检验价量交互，仍要求真实组合增量。",
+          "family": "price_volume",
+          "formula": "-ret(10) * clip(amount / mean(previous_amount, 20), .25, 4)",
+          "fingerprint": "0d726799444eae5c6019b52314f97d4f2205263af1a657003d107b502eaf1522"
+        }
+      ],
+      "created_at": "2026-11-05T19:38:30+08:00",
+      "finished_at": "2026-11-05T19:38:40+08:00",
+      "pool": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "pool_metrics": {
+        "search": {
+          "rank_ic": 0.07740289822783504,
+          "positive_months": 0.8333333333333334,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0059116668928948036,
+          "days": 236
+        },
+        "validation": {
+          "rank_ic": 0.07894552826017259,
+          "positive_months": 0.75,
+          "months": 12,
+          "coverage": 1.0,
+          "spread": 0.0023544886907730504,
+          "days": 237
+        }
+      }
+    }
+  ],
+  "pending": null,
+  "pool_metrics": {
+    "search": {
+      "rank_ic": 0.07740289822783504,
+      "positive_months": 0.8333333333333334,
+      "months": 12,
+      "coverage": 1.0,
+      "spread": 0.0059116668928948036,
+      "days": 236
+    },
+    "validation": {
+      "rank_ic": 0.07894552826017259,
+      "positive_months": 0.75,
+      "months": 12,
+      "coverage": 1.0,
+      "spread": 0.0023544886907730504,
+      "days": 237
+    }
+  },
+  "baseline": {
+    "pool": [
+      "reversal5",
+      "lowvol20"
+    ],
+    "metrics": {
+      "search": {
+        "rank_ic": 0.07727286342102911,
+        "positive_months": 0.9166666666666666,
+        "months": 12,
+        "coverage": 1.0,
+        "spread": 0.006160622076955443,
+        "days": 236
+      },
+      "validation": {
+        "rank_ic": 0.07377673085612331,
+        "positive_months": 0.8333333333333334,
+        "months": 12,
+        "coverage": 1.0,
+        "spread": 0.0021417951277129484,
+        "days": 237
+      }
+    }
+  },
+  "frozen": {
+    "at": "2026-11-05T19:39:28+08:00",
+    "members": [
+      "lowvol20",
+      "reversal10"
+    ],
+    "config_hash": "e8c3713bfc0d54f76ab13f2e4d4fc3d2b040ba7601077a750ba6f1af45936171",
+    "selection_metrics": {
+      "search": {
+        "rank_ic": 0.07740289822783504,
+        "positive_months": 0.8333333333333334,
+        "months": 12,
+        "coverage": 1.0,
+        "spread": 0.0059116668928948036,
+        "days": 236
+      },
+      "validation": {
+        "rank_ic": 0.07894552826017259,
+        "positive_months": 0.75,
+        "months": 12,
+        "coverage": 1.0,
+        "spread": 0.0023544886907730504,
+        "days": 237
+      }
+    },
+    "no_reselection": true
+  },
+  "review": {
+    "seed_pool": {
+      "members": [
+        "reversal5",
+        "lowvol20"
+      ],
+      "metrics": {
+        "rank_ic": 0.04038691782133164,
+        "positive_months": 0.4444444444444444,
+        "months": 9,
+        "coverage": 1.0,
+        "spread": -0.0010804871941754082,
+        "days": 175
+      }
+    },
+    "selected_pool": {
+      "members": [
+        "lowvol20",
+        "reversal10"
+      ],
+      "metrics": {
+        "rank_ic": 0.05199546909064775,
+        "positive_months": 0.6666666666666666,
+        "months": 9,
+        "coverage": 1.0,
+        "spread": -0.0007507201542367602,
+        "days": 175
+      }
+    },
+    "reversal5": {
+      "members": [
+        "reversal5"
+      ],
+      "metrics": {
+        "rank_ic": -0.0009012356389664041,
+        "positive_months": 0.5555555555555556,
+        "months": 9,
+        "coverage": 1.0,
+        "spread": -0.0029238245340333043,
+        "days": 175
+      }
+    }
+  },
+  "generation": "规则基线自动提案；也可导入Agent候选。没有后台模型调用。",
+  "error": null,
+  "provenance": {
+    "data_sha256": "622071df448f4f3da784d79e606ced972faf0b0e004670276535e562a262edbf",
+    "code_sha256": {
+      "factorlab/evolution.py": "18e391f053e6c956009a735f43f2232afc330a65bde676d006ae3c6096fae3c1",
+      "factorlab/core.py": "adab2a474bd0de34e8dcb5195991e94ea87641325e543ec49a33de4ab854bc43",
+      "backtest/precision.py": "aaea86c2fa2ac42f9a5100dbd210142fa56e7313724cdf138975651cf7e9291d"
+    },
+    "securities": 5451,
+    "first_date": "2023-09-01",
+    "last_date": "2026-09-30"
+  }
+}

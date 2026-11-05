@@ -1,0 +1,6 @@
+{
+  "key": "lowvol20",
+  "cost": "double_cost",
+  "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+  "error": "Unverified held corporate actions: [('000538.SZ', 2026), ('600572.SH', 2026), ('600897.SH', 2026), ('600900.SH', 2026)]"
+}

@@ -6,6 +6,8 @@
 
 因子观测台的独立交互快照为`report_site/factors.html`，可离线阅读；推送后须手动部署Pages，才会更新线上站点。
 
+因子改进快照为`report_site/evolution.html`，由`results/evolution_runs/`中保存的实验生成，可筛选轮次、展开候选和导出状态；`evolution-20261030.html`保存早期探索记录。两者均只读，本机运行入口为`/factors/improve`。第六讲此次只推送仓库，新增快照尚未部署到Pages。
+
 ## 两种网页各做什么
 
 | 入口 | 功能 | 是否需要课程行情或Python |

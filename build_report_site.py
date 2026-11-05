@@ -23,7 +23,7 @@ INPUTS = {
 }
 LABELS = {
     "index": "报告首页", "5dr": "5DR 报告", "breakout": "突破报告",
-    "full": "完整报告", "analysis": "机制与股票子集", "factors": "因子观测台",
+    "full": "完整报告", "analysis": "机制与股票子集", "factors": "因子观测台", "evolution": "因子改进",
 }
 
 CSS = """
@@ -41,7 +41,7 @@ def nav(current: str) -> str:
     links = "".join(
         f'<a href="{key}.html"' + (' aria-current="page"' if key == current else '')
         + f'>{LABELS[key]}</a>'
-        for key in ("index", "5dr", "breakout", "full", "factors")
+        for key in ("index", "5dr", "breakout", "full", "factors", "evolution")
     )
     return (f'<nav class="site-nav" aria-label="报告导航"><a class="brand" href="index.html">'
             f'穿石 <span>STONEFLOW</span></a><div class="nav-links">{links}'
@@ -171,6 +171,12 @@ def build() -> dict[str, bytes]:
         name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in INPUTS.values()}}
     if factor_report.exists():
         manifest['sources']['results/factors/report.html'] = hashlib.sha256(factor_report.read_bytes()).hexdigest()
+    from tools.export_evolution import export_files
+    files.update(export_files())
+    for source in sorted((ROOT/'results/evolution_runs').glob('*/study.json')):
+        manifest['sources'][str(source.relative_to(ROOT))] = hashlib.sha256(source.read_bytes()).hexdigest()
+    for source in ('web/dist/evolution.html','web/dist/evolution.css','web/dist/evolution.js','tools/export_evolution.py'):
+        manifest['sources'][source] = hashlib.sha256((ROOT/source).read_bytes()).hexdigest()
     files['manifest.json'] = json.dumps(manifest, ensure_ascii=False, indent=2) + '\n'
     files['.nojekyll'] = ''
     return {name: value.encode('utf-8') for name, value in files.items()}

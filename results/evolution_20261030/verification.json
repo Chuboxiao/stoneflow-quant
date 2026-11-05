@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "factor_module_tests": 23,
+  "prefix_checks": 11,
+  "independent_seed_dates": 15,
+  "statistics_recomputed_files": [
+    "search/breakout20.json",
+    "search/amount20.json",
+    "search/reversal5_vol20.json",
+    "search/reversal_lowvol_half.json",
+    "search/reversal5.json",
+    "search/lowvol20.json",
+    "search/reversal5_smooth3.json",
+    "search/reversal10.json",
+    "search/lowvol60.json",
+    "search/momentum20.json",
+    "search/momentum60.json",
+    "review/evolved_ensemble.json",
+    "review/reversal5.json",
+    "review/lowvol20.json",
+    "review/seed_ensemble.json"
+  ],
+  "complete_accounts": 2,
+  "blocked_accounts": 6,
+  "full_independent_ledger_replay": false,
+  "source_sha256": {
+    "research_evolution.py": "c9a1bdba4d6541a5956e4ceb70176538e9231b688b14ed0ea3d934dfcbe8fee6",
+    "build_evolution_report.py": "8a15d5403c8e4d568f8c319cabf56f3502516b512c512da7cfac84e580c088e3",
+    "factorlab/core.py": "adab2a474bd0de34e8dcb5195991e94ea87641325e543ec49a33de4ab854bc43",
+    "factorlab/portfolio.py": "f5d8ec81ec8a92f58f7c92c7656ece75d58902a1c8d771bf276482b050529d8d",
+    "backtest/precision.py": "aaea86c2fa2ac42f9a5100dbd210142fa56e7313724cdf138975651cf7e9291d"
+  }
+}

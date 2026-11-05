@@ -1,0 +1,15 @@
+﻿round,key,family,formula,parent,source,hypothesis,search_ic,validation_ic,validation_positive_months,pool_gain,accepted,reasons
+0,reversal5,reversal,-ret(5),,seed,预设方向的已有因子，作为同条件研究起点,0.048815925612239575,0.0507876007767339,0.9166666666666666,,True,通过质量与组合增量门槛
+0,momentum20,trend,ret(20),,seed,预设方向的已有因子，作为同条件研究起点,-0.07315347749668163,-0.08139504226735754,0.0,,False,搜索段IC不为正；搜索段正IC月份不足半数；选择验证段IC不为正；选择验证段正IC月份不足半数
+0,breakout20,trend,"C / max(previous_high, 20) - 1",,seed,预设方向的已有因子，作为同条件研究起点,-0.011722421158669692,-0.013994141781657853,0.5,,False,搜索段IC不为正；搜索段正IC月份不足半数；选择验证段IC不为正
+0,amount20,activity,"amount / mean(previous_amount, 20) - 1",,seed,预设方向的已有因子，作为同条件研究起点,-0.04738196782542876,-0.04911381095710389,0.08333333333333333,,False,搜索段IC不为正；搜索段正IC月份不足半数；选择验证段IC不为正；选择验证段正IC月份不足半数
+0,lowvol20,risk,"-std(daily_return, 20)",,seed,预设方向的已有因子，作为同条件研究起点,0.07278793687662212,0.06297720551348132,0.75,0.022989130079389408,True,通过质量与组合增量门槛
+1,amount_reversal5,price_volume,"-ret(5) * clip(amount / mean(previous_amount, 20), .25, 4)",reversal5,rule-baseline,按成交额异常调整反转，探索价量交互提供的信息,0.050667295516194324,0.0496924018149519,1.0,-0.00024290585974355572,False,等权组合选择验证IC增量不足0.0001
+1,range_position20,price_location,-(C - rolling_low(20)) / (rolling_high(20) - rolling_low(20)),,rule-baseline,以价格区间位置衡量回撤，探索不同于单一收益窗口的信号,0.043782673096347126,0.03564433867763227,0.8333333333333334,-0.009299364244503366,False,等权组合选择验证IC增量不足0.0001；组合搜索IC下降超过0.005
+1,reversal_lowvol_half,hybrid,"0.5 * eligible_rank(-ret(5)) + 0.5 * eligible_rank(-std(return,20))",reversal5,rule-baseline,反转和低风险等权秩组合，避免量纲差异,0.07727286342102911,0.07377673085612331,0.8333333333333334,8.343848156844302e-08,False,等权组合选择验证IC增量不足0.0001
+2,reversal10,reversal,-ret(10),reversal5,agent-import,第一轮价量加权与五日反转高度相关，且组合增量为负；改用十日反转检查时间尺度能否提供不同信息。,0.048316841293613765,0.061505775622783046,0.9166666666666666,0.005168797404049283,True,通过质量与组合增量门槛
+2,lowvol10,risk,"-std(daily_return, 10)",lowvol20,agent-import,既有低波动有效，缩短估计窗口检验风险状态反应速度能否提升组合验证IC。,0.08122717482416994,0.07173978250977565,0.75,-8.625328785535902e-05,False,等权组合选择验证IC增量不足0.0001
+2,range_position5,price_location,-(C - rolling_low(5)) / (rolling_high(5) - rolling_low(5)),range_position20,agent-import,20日价格位置验证IC偏弱；缩短到5日检查区间位置的信息是否集中在近期，保留价格位置这一不同家族。,0.021232196602423866,0.02668425970333085,0.8333333333333334,-0.007885396018282906,False,等权组合选择验证IC增量不足0.0001；组合搜索IC下降超过0.005
+3,reversal10_smooth3,reversal,"mean(-ret(10), 3)",reversal10,agent-import,十日反转已改善组合验证IC；平滑信号检查能否减少偶然单日变动并保持增量。,0.043616865316672956,0.058858352078748226,0.9166666666666666,-0.0026663920588734236,False,等权组合选择验证IC增量不足0.0001
+3,lowvol40,risk,"-std(daily_return, 40)",lowvol20,agent-import,10日低波动单独IC更高却未改善组合；向较慢风险估计探索，检验与十日反转的互补性。,0.06968555935675781,0.049010758516573064,0.6666666666666666,-0.006423908122975469,False,等权组合选择验证IC增量不足0.0001
+3,amount_reversal10,price_volume,"-ret(10) * clip(amount / mean(previous_amount, 20), .25, 4)",amount_reversal5,agent-import,五日成交额加权没有组合贡献；在已接受的十日反转时间尺度下再检验价量交互，仍要求真实组合增量。,0.05416715317840467,0.059343529136630456,1.0,-0.0008472341609552098,False,等权组合选择验证IC增量不足0.0001

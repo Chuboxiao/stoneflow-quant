@@ -8,4 +8,6 @@ local_config.json
 data/
 results/web/
 results/factor_runs/
+results/evolution_runs/*/study.lock
+results/evolution_runs/*/*.tmp
 work/

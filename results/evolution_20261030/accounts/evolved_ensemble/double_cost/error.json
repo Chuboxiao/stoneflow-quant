@@ -1,0 +1,6 @@
+{
+  "key": "evolved_ensemble",
+  "cost": "double_cost",
+  "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+  "error": "Unverified held corporate actions: [('601966.SH', 2026)]"
+}

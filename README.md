@@ -11,6 +11,7 @@
 | 启动实验室 | 在Finder打开项目文件夹，双击与本README同级的 [Start.command](Start.command)；[详细启动步骤](docs/START.md) |
 | 运行策略回测 | [本机回测工作台](http://127.0.0.1:8765/) |
 | 评价因子 | [本机因子观测台](http://127.0.0.1:8765/factors) |
+| 改进因子 / 第六讲作业 | [模块与实验说明](README_EVOLUTION.md) · [本机因子改进](http://127.0.0.1:8765/factors/improve) |
 | 阅读保存的研究 | [已发布报告](https://chuboxiao.github.io/stoneflow-quant/) · [离线报告首页](report_site/index.html) |
 
 本机网址需要服务运行；保存的报告可以独立阅读。macOS也可双击 [OpenReports.command](OpenReports.command) 打开离线报告。
@@ -58,4 +59,4 @@
 
 课程数据为7个Feather矩阵；原始行情、辅助缓存、本机配置与运行环境按Git忽略规则单独管理，仓库保存源码、派生结果和复现说明。数据准备与依赖安装见[启动指南](docs/START.md)。
 
-94项单元测试在pandas 2与3均通过。回测与因子各自保留账户核对和来源记录，验证入口分别见[回测复现](README_BACKTEST.md#复现与验证)与[因子验证](README_FACTORS.md#结果与验证)。
+当前环境104项单元测试通过，包含10项因子改进模块测试；原94项基础测试另已在pandas 2与3验证。回测与因子各自保留账户核对和来源记录，验证入口分别见[回测复现](README_BACKTEST.md#复现与验证)、[因子验证](README_FACTORS.md#结果与验证)与[因子改进](README_EVOLUTION.md)。

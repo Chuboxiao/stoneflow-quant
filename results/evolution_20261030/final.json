@@ -1,0 +1,169 @@
+{
+  "completed_at": "2026-10-30T20:33:35.979583+08:00",
+  "status": "FACTOR_STUDY_COMPLETE_ACCOUNT_DATA_GAPS",
+  "diagnostics": {
+    "reversal5": {
+      "rank_ic": -0.0009044525346169584,
+      "positive_months": 0.5555555555555556,
+      "months": 9,
+      "coverage": 1.0,
+      "spread": -0.003054724494962478,
+      "label_coverage": 0.9986598178685587,
+      "days": 175
+    },
+    "lowvol20": {
+      "rank_ic": 0.05136381864835691,
+      "positive_months": 0.4444444444444444,
+      "months": 9,
+      "coverage": 1.0,
+      "spread": -0.0005340157194967318,
+      "label_coverage": 0.9986598178685587,
+      "days": 175
+    },
+    "seed_ensemble": {
+      "rank_ic": 0.002255205704253252,
+      "positive_months": 0.6666666666666666,
+      "months": 9,
+      "coverage": 0.9999877583636404,
+      "spread": -0.001200957836319404,
+      "label_coverage": 0.9986598024645382,
+      "days": 175
+    },
+    "evolved_ensemble": {
+      "rank_ic": 0.04083792782773338,
+      "positive_months": 0.4444444444444444,
+      "months": 9,
+      "coverage": 1.0,
+      "spread": -0.0010860145291908094,
+      "label_coverage": 0.9986598178685587,
+      "days": 175
+    }
+  },
+  "accounts": [
+    {
+      "key": "reversal5",
+      "cost": "normal",
+      "status": "COMPLETE",
+      "metrics": {
+        "start": "2026-01-05",
+        "end": "2026-09-30",
+        "trading_days": 181,
+        "initial_cash": 1000000,
+        "final_equity": 650726.2299999956,
+        "total_return": -0.3492737700000045,
+        "annualized_return": -0.45020477185439556,
+        "max_drawdown": -0.5631181207408533,
+        "sharpe_zero_risk_free": -1.3172810908514587,
+        "total_fees": 88122.06999999998,
+        "dividend_tax": 750.5600000000001,
+        "filled_orders": 4510,
+        "rejected_orders": 884,
+        "turnover_one_way": 87.27657738729128,
+        "average_exposure": 0.9127548668611752,
+        "stale_valuation_days": 118,
+        "ending_impaired_positions": 4,
+        "missing_actions": [],
+        "event_reference_discrepancies": [],
+        "rejection_reasons": {
+          "UNKNOWN_HISTORICAL_STATE": 348,
+          "SLIPPAGE_OUTSIDE_OBSERVED_RANGE": 254,
+          "CASH_LOT_CAPACITY_OR_DELIVERY_LOCK": 179,
+          "SUSPENDED": 60,
+          "LIMIT_DOWN_CANNOT_SELL": 12,
+          "SLIPPAGE_AT_LIMIT_DOWN": 12,
+          "CORPORATE_ACTION_CANCEL_REPLAN_AT_CLOSE": 11,
+          "LIMIT_UP_CANNOT_BUY": 5,
+          "SLIPPAGE_AT_LIMIT_UP": 3
+        }
+      }
+    },
+    {
+      "key": "reversal5",
+      "cost": "double_cost",
+      "status": "COMPLETE",
+      "metrics": {
+        "start": "2026-01-05",
+        "end": "2026-09-30",
+        "trading_days": 181,
+        "initial_cash": 1000000,
+        "final_equity": 571496.589999995,
+        "total_return": -0.428503410000005,
+        "annualized_return": -0.5411206090471083,
+        "max_drawdown": -0.5938452658812767,
+        "sharpe_zero_risk_free": -1.8026885933405357,
+        "total_fees": 166234.21999999997,
+        "dividend_tax": 707.95,
+        "filled_orders": 4464,
+        "rejected_orders": 930,
+        "turnover_one_way": 86.67118084497925,
+        "average_exposure": 0.9077187045524694,
+        "stale_valuation_days": 118,
+        "ending_impaired_positions": 4,
+        "missing_actions": [],
+        "event_reference_discrepancies": [],
+        "rejection_reasons": {
+          "UNKNOWN_HISTORICAL_STATE": 348,
+          "SLIPPAGE_OUTSIDE_OBSERVED_RANGE": 291,
+          "CASH_LOT_CAPACITY_OR_DELIVERY_LOCK": 188,
+          "SUSPENDED": 60,
+          "LIMIT_DOWN_CANNOT_SELL": 12,
+          "SLIPPAGE_AT_LIMIT_DOWN": 12,
+          "CORPORATE_ACTION_CANCEL_REPLAN_AT_CLOSE": 11,
+          "LIMIT_UP_CANNOT_BUY": 5,
+          "SLIPPAGE_AT_LIMIT_UP": 3
+        }
+      }
+    },
+    {
+      "key": "lowvol20",
+      "cost": "normal",
+      "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+      "error": "Unverified held corporate actions: [('000538.SZ', 2026), ('600572.SH', 2026), ('600897.SH', 2026), ('600900.SH', 2026)]"
+    },
+    {
+      "key": "lowvol20",
+      "cost": "double_cost",
+      "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+      "error": "Unverified held corporate actions: [('000538.SZ', 2026), ('600572.SH', 2026), ('600897.SH', 2026), ('600900.SH', 2026)]"
+    },
+    {
+      "key": "seed_ensemble",
+      "cost": "normal",
+      "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+      "error": "Unverified held corporate actions: [('000538.SZ', 2026)]"
+    },
+    {
+      "key": "seed_ensemble",
+      "cost": "double_cost",
+      "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+      "error": "Unverified held corporate actions: [('000538.SZ', 2026)]"
+    },
+    {
+      "key": "evolved_ensemble",
+      "cost": "normal",
+      "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+      "error": "Unverified held corporate actions: [('601966.SH', 2026)]"
+    },
+    {
+      "key": "evolved_ensemble",
+      "cost": "double_cost",
+      "status": "BLOCKED_MISSING_CORPORATE_ACTIONS",
+      "error": "Unverified held corporate actions: [('601966.SH', 2026)]"
+    }
+  ],
+  "frozen": {
+    "frozen_at": "2026-10-30T20:21:10.364964+08:00",
+    "primary_single": "lowvol20",
+    "members": [
+      "lowvol20",
+      "reversal5"
+    ],
+    "correlations": {
+      "lowvol20": {},
+      "reversal5": {
+        "lowvol20": 0.20459880334933103
+      }
+    },
+    "no_reselection_on_review": true
+  }
+}

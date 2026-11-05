@@ -1,0 +1,389 @@
+{
+  "candidates": {
+    "reversal5": {
+      "spec": {
+        "key": "reversal5",
+        "kind": "reversal",
+        "window": 5,
+        "family": "reversal",
+        "formula": "-(C_t/C_t-5 - 1)"
+      },
+      "round": 0,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:15:56.373980+08:00",
+      "search": {
+        "rank_ic": 0.047071440437539004,
+        "positive_months": 0.9583333333333334,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": 0.004913626652464478,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": true,
+      "reasons": [
+        "初始基线入库"
+      ],
+      "replaced": [],
+      "correlations": {},
+      "prefix_check": true,
+      "seconds": 1.1754347920650616
+    },
+    "momentum20": {
+      "spec": {
+        "key": "momentum20",
+        "kind": "momentum",
+        "window": 20,
+        "family": "trend",
+        "formula": "C_t/C_t-20 - 1"
+      },
+      "round": 0,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:15:57.536392+08:00",
+      "search": {
+        "rank_ic": -0.0738854403204725,
+        "positive_months": 0.041666666666666664,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": -0.007035396832321988,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": true,
+      "reasons": [
+        "初始基线入库"
+      ],
+      "replaced": [],
+      "correlations": {},
+      "prefix_check": true,
+      "seconds": 1.1509103330317885
+    },
+    "breakout20": {
+      "spec": {
+        "key": "breakout20",
+        "kind": "breakout",
+        "window": 20,
+        "family": "trend",
+        "formula": "C_t/max(H_t-20:t-1)-1"
+      },
+      "round": 0,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:15:58.907998+08:00",
+      "search": {
+        "rank_ic": -0.009814962930417118,
+        "positive_months": 0.4166666666666667,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": -0.003815078936301904,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": true,
+      "reasons": [
+        "初始基线入库"
+      ],
+      "replaced": [],
+      "correlations": {},
+      "prefix_check": true,
+      "seconds": 1.3603493340779096
+    },
+    "amount20": {
+      "spec": {
+        "key": "amount20",
+        "kind": "amount",
+        "window": 20,
+        "family": "activity",
+        "formula": "A_t/mean(A_t-20:t-1)-1"
+      },
+      "round": 0,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:16:00.229199+08:00",
+      "search": {
+        "rank_ic": -0.046601569149542034,
+        "positive_months": 0.125,
+        "months": 24,
+        "coverage": 0.9999895834421307,
+        "spread": -0.003890797559908654,
+        "label_coverage": 0.998819206230141,
+        "days": 479
+      },
+      "accepted": true,
+      "reasons": [
+        "初始基线入库"
+      ],
+      "replaced": [],
+      "correlations": {},
+      "prefix_check": true,
+      "seconds": 1.3079982079798356
+    },
+    "lowvol20": {
+      "spec": {
+        "key": "lowvol20",
+        "kind": "lowvol",
+        "window": 20,
+        "family": "risk",
+        "formula": "-std(daily_return,20)"
+      },
+      "round": 0,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:16:01.561620+08:00",
+      "search": {
+        "rank_ic": 0.06930359720161179,
+        "positive_months": 0.75,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": 0.0022421379325872964,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": true,
+      "reasons": [
+        "初始基线入库"
+      ],
+      "replaced": [],
+      "correlations": {},
+      "prefix_check": true,
+      "seconds": 1.32109604193829
+    },
+    "reversal10": {
+      "spec": {
+        "key": "reversal10",
+        "kind": "reversal",
+        "window": 10,
+        "family": "reversal",
+        "parent": "reversal5",
+        "formula": "-(C_t/C_t-10-1)",
+        "hypothesis": "反转可能需要比五日更长的观察窗口"
+      },
+      "round": 1,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:16:39.824023+08:00",
+      "search": {
+        "rank_ic": 0.051877050142266956,
+        "positive_months": 0.875,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": 0.0047022002868278385,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": false,
+      "reasons": [
+        "正IC月份比例下降"
+      ],
+      "replaced": [],
+      "correlations": {
+        "reversal5": 0.6179279768727859,
+        "momentum20": 0.6171919412709653,
+        "breakout20": 0.5885663952792407,
+        "amount20": 0.4956235664135127,
+        "lowvol20": 0.21106783189744366
+      },
+      "prefix_check": true,
+      "seconds": 3.3553730830317363
+    },
+    "reversal5_vol20": {
+      "spec": {
+        "key": "reversal5_vol20",
+        "kind": "risk_reversal",
+        "window": 5,
+        "vol_window": 20,
+        "family": "reversal",
+        "parent": "reversal5",
+        "formula": "-(C_t/C_t-5-1)/std(daily_return,20)",
+        "hypothesis": "按自身波动标准化下跌幅度，减弱高波动股票主导"
+      },
+      "round": 1,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:16:42.899180+08:00",
+      "search": {
+        "rank_ic": 0.04394886595244699,
+        "positive_months": 0.875,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": 0.00487319044781565,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": false,
+      "reasons": [
+        "平均有符号Rank IC未超过父因子",
+        "正IC月份比例下降",
+        "与更强池内因子高度相关:reversal5"
+      ],
+      "replaced": [],
+      "correlations": {
+        "reversal5": 0.9251614383815464,
+        "momentum20": 0.4181332041196406,
+        "breakout20": 0.5158674862766426,
+        "amount20": 0.4384229693221037,
+        "lowvol20": 0.1685429626701109
+      },
+      "prefix_check": true,
+      "seconds": 3.0620809589745477
+    },
+    "momentum60": {
+      "spec": {
+        "key": "momentum60",
+        "kind": "momentum",
+        "window": 60,
+        "family": "trend",
+        "parent": "momentum20",
+        "formula": "C_t/C_t-60-1",
+        "hypothesis": "较长趋势可能较少受到短期反转干扰"
+      },
+      "round": 1,
+      "harness": "H0",
+      "created_at": "2026-10-30T20:16:45.828345+08:00",
+      "search": {
+        "rank_ic": -0.07208964166171468,
+        "positive_months": 0.16666666666666666,
+        "months": 24,
+        "coverage": 0.9999280297166078,
+        "spread": -0.006619607358492946,
+        "label_coverage": 0.998819134571458,
+        "days": 479
+      },
+      "accepted": true,
+      "reasons": [
+        "预测与稳定性门槛通过；高相关者择优替换"
+      ],
+      "replaced": [],
+      "correlations": {
+        "reversal5": 0.24139741782095847,
+        "momentum20": 0.4818019754328191,
+        "breakout20": 0.22118926417962928,
+        "amount20": 0.11088916309526582,
+        "lowvol20": 0.3752770503182431
+      },
+      "prefix_check": true,
+      "seconds": 2.9173859580187127
+    },
+    "lowvol60": {
+      "spec": {
+        "key": "lowvol60",
+        "kind": "lowvol",
+        "window": 60,
+        "family": "risk",
+        "parent": "lowvol20",
+        "formula": "-std(daily_return,60)",
+        "hypothesis": "更长波动估计可能减少噪声并保留稳定低风险暴露"
+      },
+      "round": 2,
+      "harness": "H1",
+      "created_at": "2026-10-30T20:18:48.555972+08:00",
+      "search": {
+        "rank_ic": 0.05547349489966739,
+        "positive_months": 0.625,
+        "months": 24,
+        "coverage": 0.9999280297166078,
+        "spread": 0.00044434981763611384,
+        "label_coverage": 0.998819134571458,
+        "days": 479
+      },
+      "accepted": false,
+      "reasons": [
+        "平均有符号Rank IC未超过父因子",
+        "正IC月份比例下降",
+        "与更强池内因子高度相关:lowvol20"
+      ],
+      "replaced": [],
+      "correlations": {
+        "reversal5": 0.2152111923683256,
+        "momentum20": 0.2321518671200631,
+        "breakout20": 0.4509828148051197,
+        "amount20": 0.1465810900541511,
+        "lowvol20": 0.8071550990948692,
+        "momentum60": 0.3434757007522971
+      },
+      "prefix_check": true,
+      "seconds": 3.616598541964777
+    },
+    "reversal5_smooth3": {
+      "spec": {
+        "key": "reversal5_smooth3",
+        "kind": "smooth_reversal",
+        "window": 5,
+        "smooth": 3,
+        "family": "reversal",
+        "parent": "reversal5",
+        "formula": "mean(-(C_t/C_t-5-1),3)",
+        "hypothesis": "平滑信号以降低偶然单日变化，检查稳定性是否保持"
+      },
+      "round": 2,
+      "harness": "H1",
+      "created_at": "2026-10-30T20:18:51.964379+08:00",
+      "search": {
+        "rank_ic": 0.048491488201526003,
+        "positive_months": 0.875,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": 0.005374399721513538,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": false,
+      "reasons": [
+        "正IC月份比例下降"
+      ],
+      "replaced": [],
+      "correlations": {
+        "reversal5": 0.8436464137478666,
+        "momentum20": 0.4667332355595635,
+        "breakout20": 0.5340408840045697,
+        "amount20": 0.4546960732960338,
+        "lowvol20": 0.20636229045305166,
+        "momentum60": 0.2630219197065047
+      },
+      "prefix_check": true,
+      "seconds": 3.396640499937348
+    },
+    "reversal_lowvol_half": {
+      "spec": {
+        "key": "reversal_lowvol_half",
+        "kind": "rank_mix",
+        "window": 5,
+        "alpha": 0.5,
+        "family": "hybrid",
+        "parent": "reversal5",
+        "formula": "0.5*rank(-ret5)+0.5*rank(-vol20)",
+        "hypothesis": "用秩平均组合反转与低波动，避免波动率除法改变极端值"
+      },
+      "round": 2,
+      "harness": "H1",
+      "created_at": "2026-10-30T20:18:55.887530+08:00",
+      "search": {
+        "rank_ic": 0.07515973752837556,
+        "positive_months": 0.875,
+        "months": 24,
+        "coverage": 1.0,
+        "spread": 0.003999484686699751,
+        "label_coverage": 0.9988192181724093,
+        "days": 479
+      },
+      "accepted": false,
+      "reasons": [
+        "正IC月份比例下降"
+      ],
+      "replaced": [],
+      "correlations": {
+        "reversal5": 0.6722489825493072,
+        "momentum20": 0.43965903338634077,
+        "breakout20": 0.11007166144605647,
+        "amount20": 0.2549271313296945,
+        "lowvol20": 0.7042243850776516,
+        "momentum60": 0.3877935942401053
+      },
+      "prefix_check": true,
+      "seconds": 3.9120012080529705
+    }
+  },
+  "pool": [
+    "reversal5",
+    "momentum20",
+    "breakout20",
+    "amount20",
+    "lowvol20",
+    "momentum60"
+  ]
+}

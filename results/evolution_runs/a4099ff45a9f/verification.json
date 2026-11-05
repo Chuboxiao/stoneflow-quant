@@ -1,0 +1,8 @@
+{
+  "study_id": "a4099ff45a9f",
+  "checks": 13511,
+  "diagnostic_files": 53,
+  "status": "PASS",
+  "study_sha256": "6104cfc76611643cd8e36cf3df92e93e05d29235471640f53ef5e68f7ddd662d",
+  "scope": "独立核对每日IC/期间均值/区间截止/父子与冻结记录；不构成净交易验证。"
+}

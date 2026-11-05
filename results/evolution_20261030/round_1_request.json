@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-10-30T20:16:36.468218+08:00",
+  "harness": "H0",
+  "feedback": "先比较反转时长、波动率标准化与更长趋势三个不同假设，方向均预设。",
+  "candidates": [
+    {
+      "key": "reversal10",
+      "kind": "reversal",
+      "window": 10,
+      "family": "reversal",
+      "parent": "reversal5",
+      "formula": "-(C_t/C_t-10-1)",
+      "hypothesis": "反转可能需要比五日更长的观察窗口"
+    },
+    {
+      "key": "reversal5_vol20",
+      "kind": "risk_reversal",
+      "window": 5,
+      "vol_window": 20,
+      "family": "reversal",
+      "parent": "reversal5",
+      "formula": "-(C_t/C_t-5-1)/std(daily_return,20)",
+      "hypothesis": "按自身波动标准化下跌幅度，减弱高波动股票主导"
+    },
+    {
+      "key": "momentum60",
+      "kind": "momentum",
+      "window": 60,
+      "family": "trend",
+      "parent": "momentum20",
+      "formula": "C_t/C_t-60-1",
+      "hypothesis": "较长趋势可能较少受到短期反转干扰"
+    }
+  ]
+}

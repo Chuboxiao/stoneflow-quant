@@ -6,6 +6,11 @@
     "results/breakout_review/report.html": "f91f66008fbc0570810464f1380943cecce0a846ae5c901762135269e1417fad",
     "results/strategy_analysis/report.html": "a076570ca0b9389ddaefc282b7994ac7691b5eaaad746b5bbc15d137c7e62c22",
     "REVIEW_LECTURE4.md": "a9f3a9c204508975d5fd067e0ec388069529196a30d79c3174e49dc3b7478b17",
-    "results/factors/report.html": "324ad02567348e4eb801872ae6f8813714600ad897237facb98aa52dde616346"
+    "results/factors/report.html": "324ad02567348e4eb801872ae6f8813714600ad897237facb98aa52dde616346",
+    "results/evolution_runs/a4099ff45a9f/study.json": "6104cfc76611643cd8e36cf3df92e93e05d29235471640f53ef5e68f7ddd662d",
+    "web/dist/evolution.html": "786e85d444622f5053b1539a8c917f5940bc5877fd94a66d9788c45c54e00f59",
+    "web/dist/evolution.css": "b2564e89874ddab7996d0a4dfdd6cea4802914b1bcf706de9a63aac96b26b8a9",
+    "web/dist/evolution.js": "3592cf6aad02c5c464d9bd6cbda3236fba6a620e3d082d616c2cac170ae97783",
+    "tools/export_evolution.py": "6038a81aea4438e78182c2c95cfbc959a10ccb724832337a9760d2cf8711fb9d"
   }
 }

@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-10-30T20:14:51.901291+08:00",
+  "search": [
+    "2024-01-02",
+    "2025-12-31"
+  ],
+  "review": [
+    "2026-01-01",
+    "2026-09-30"
+  ],
+  "horizon": 5,
+  "pool": "base",
+  "direction": "预先固定，使用有符号IC，不按结果翻转",
+  "acceptance": "mean Rank IC > parent; positive-month fraction >= parent; coverage >= parent - .005; high mean absolute daily rank correlation > .8 replaces weaker pool member only",
+  "diversity": "最终组合至少两个不同家族；每家族最多一个，按搜索IC排序，再以平均绝对每日秩相关<=.8筛选，最多5个；正IC、正IC月份比例>=.5；不足两个家族则不构造新组合",
+  "ensemble": "对每日合格股票作因子横截面百分位排名，等权平均；必须所有成员都有数值；不拟合权重",
+  "final_selection": "最高搜索IC的合格池内单因子及多样化池等权组合，另保留初始五因子等权组合和5DR；2026不用于选型",
+  "budget": "最多5轮，每轮最多3新候选；本轮优先在10分钟内完成，可减少轮数，不改评分标准",
+  "execution": {
+    "cash": 1000000,
+    "commission": 0.0003,
+    "min_commission": 5,
+    "stamp": 0.0005,
+    "transfer": 1e-05,
+    "slippage_bps": 5,
+    "participation": 0.01,
+    "dividend_tax": 0.2,
+    "impairment_after": 20,
+    "allow_missing_actions": false
+  },
+  "portfolio": {
+    "top_n": 20,
+    "weight": 0.95,
+    "every": 1
+  },
+  "research_type": "Agent在当前聊天中读实测反馈再提出候选；不是独立API自动Agent，也不训练模型；2026是已见历史的回顾性检查",
+  "harness_evidence": "流程版本及其原因属于过程记录，小样本前后比较不证明因果提升"
+}

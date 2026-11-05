@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-10-30T20:15:55.030940+08:00",
+  "securities": 5451,
+  "audit": {
+    "provider": "BaoStock 0.9.4",
+    "fields": [
+      "isST",
+      "tradestatus",
+      "preclose"
+    ],
+    "raw_close_compared": 3834677,
+    "raw_close_mismatched": 0,
+    "missing_files": [],
+    "read_failures": [],
+    "reference_downloaded_at": "2026-10-17T18:35:36+0800",
+    "reference_manifest_sha256": "4fdf0fb76e05ccd8f5088111de991db817ec8ea58bc907fddbaaae922bcec248"
+  },
+  "data_sha256": {
+    "open": "a75e7aa3dac9e101f2c3cfff85728b26a29ea50ccc6ec46c315a36e8476d5f92",
+    "high": "88313810bedab563416c94e90a60cc0cf089fd62923be1bcad0e2680558a5cf7",
+    "low": "e5c7da4b6fcdae3cc50fe2f6d30faf36b83c68c25d6db5faba079716748fa8ea",
+    "close": "621b7b381f96c7d162317ac67c8831aebfc5e78f4b1ecd59159fc93e0ea109e7",
+    "amt": "cd2a2f43e273963f93230163813aafaddb52307d1805ee1a583aeab931e418c2",
+    "num_trades": "37a89a5b9af8a00deafc089be614f7784167ae283277337f31552c809f28a142",
+    "cumadj": "5ebc13623115743c39b2cb56dbe365f10c4c72d6fed6ac4041d9377895439173"
+  },
+  "source_sha256": {
+    "research_evolution.py": "087ad0675ee8e089df20f2543ca02cfba5c9c20db72673b0b8fe7ab146f98519",
+    "factorlab/core.py": "adab2a474bd0de34e8dcb5195991e94ea87641325e543ec49a33de4ab854bc43",
+    "factorlab/portfolio.py": "f5d8ec81ec8a92f58f7c92c7656ece75d58902a1c8d771bf276482b050529d8d",
+    "backtest/precision.py": "aaea86c2fa2ac42f9a5100dbd210142fa56e7313724cdf138975651cf7e9291d"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-10-30T20:15:55.198453+08:00",
+  "harness": "H0",
+  "feedback": "五个已有家族起点；趋势内含动量与突破，组合时每家族最多一个。",
+  "candidates": [
+    {
+      "key": "reversal5",
+      "kind": "reversal",
+      "window": 5,
+      "family": "reversal",
+      "formula": "-(C_t/C_t-5 - 1)"
+    },
+    {
+      "key": "momentum20",
+      "kind": "momentum",
+      "window": 20,
+      "family": "trend",
+      "formula": "C_t/C_t-20 - 1"
+    },
+    {
+      "key": "breakout20",
+      "kind": "breakout",
+      "window": 20,
+      "family": "trend",
+      "formula": "C_t/max(H_t-20:t-1)-1"
+    },
+    {
+      "key": "amount20",
+      "kind": "amount",
+      "window": 20,
+      "family": "activity",
+      "formula": "A_t/mean(A_t-20:t-1)-1"
+    },
+    {
+      "key": "lowvol20",
+      "kind": "lowvol",
+      "window": 20,
+      "family": "risk",
+      "formula": "-std(daily_return,20)"
+    }
+  ]
+}

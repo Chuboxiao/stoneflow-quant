@@ -1,0 +1,15 @@
+{
+  "frozen_at": "2026-10-30T20:21:10.364964+08:00",
+  "primary_single": "lowvol20",
+  "members": [
+    "lowvol20",
+    "reversal5"
+  ],
+  "correlations": {
+    "lowvol20": {},
+    "reversal5": {
+      "lowvol20": 0.20459880334933103
+    }
+  },
+  "no_reselection_on_review": true
+}

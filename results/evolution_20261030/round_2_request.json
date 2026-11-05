@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-10-30T20:18:44.939022+08:00",
+  "harness": "H1",
+  "feedback": "依据第1轮实测：延长反转均IC升但月度稳定性退化；波动率分母同时损害IC与稳定性。H1修改生成提示：每个候选先说明如何保持月度稳定性，不重复波动率除法；优先比较平滑、风险家族窗口和等权秩组合。接受规则不变。",
+  "candidates": [
+    {
+      "key": "lowvol60",
+      "kind": "lowvol",
+      "window": 60,
+      "family": "risk",
+      "parent": "lowvol20",
+      "formula": "-std(daily_return,60)",
+      "hypothesis": "更长波动估计可能减少噪声并保留稳定低风险暴露"
+    },
+    {
+      "key": "reversal5_smooth3",
+      "kind": "smooth_reversal",
+      "window": 5,
+      "smooth": 3,
+      "family": "reversal",
+      "parent": "reversal5",
+      "formula": "mean(-(C_t/C_t-5-1),3)",
+      "hypothesis": "平滑信号以降低偶然单日变化，检查稳定性是否保持"
+    },
+    {
+      "key": "reversal_lowvol_half",
+      "kind": "rank_mix",
+      "window": 5,
+      "alpha": 0.5,
+      "family": "hybrid",
+      "parent": "reversal5",
+      "formula": "0.5*rank(-ret5)+0.5*rank(-vol20)",
+      "hypothesis": "用秩平均组合反转与低波动，避免波动率除法改变极端值"
+    }
+  ]
+}

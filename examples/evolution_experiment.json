@@ -1,0 +1,11 @@
+{
+  "name": "多样性与组合增量",
+  "pool": "liquid",
+  "horizon": 5,
+  "search_start": "2024-01-02",
+  "search_end": "2024-12-31",
+  "validation_start": "2025-01-02",
+  "validation_end": "2025-12-31",
+  "round_budget": 3,
+  "harness": "H1-diversity"
+}

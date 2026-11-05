@@ -49,6 +49,10 @@ class Application:
         self.reference_dir = Path(local.get('reference_dir', ROOT/'data/reference/baostock-20230901-20260930'))
         self.factor_directory = ROOT/'results/factors'
         self.factor_runs_dir = ROOT/'results/factor_runs'
+        from factorlab.evolution import EvolutionLab
+        from backtest.precision import Panel
+        self.evolution = EvolutionLab(panel_loader=lambda: Panel.load(self.data_dir,self.reference_dir))
+        self.evolution.recover()
         try:
             with pa.memory_map(str(self.data_dir/"close.feather"),"r") as source:
                 columns = pa.ipc.open_file(source).schema.names
@@ -170,6 +174,37 @@ class Application:
         path = self.factor_directory/'summary.json'
         return json.loads(path.read_text()) if path.exists() else None
 
+    def submit_evolution(self, study_id, payload):
+        if not isinstance(payload, dict) or set(payload)-{'action','candidates','feedback'}:
+            raise ValueError('未知因子改进参数')
+        action = payload.get('action')
+        if action not in ('run','freeze','review'):
+            raise ValueError('未知研究操作')
+        self.evolution.read(study_id)
+        with self.lock:
+            if any(job['status'] in ('queued','running') for job in self.jobs.values()):
+                raise RuntimeError('已有研究正在运行，请等待完成')
+            if action == 'freeze':
+                return self.evolution.freeze(study_id)
+            job_id = uuid.uuid4().hex[:12]
+            self.jobs[job_id] = {'id':job_id,'status':'queued','stage':'准备因子改进','study_id':study_id}
+        self.pool.submit(self.execute_evolution, job_id, study_id, payload)
+        return {'job_id':job_id,'study_id':study_id}
+
+    def execute_evolution(self, job_id, study_id, payload):
+        try:
+            self.update(job_id,status='running')
+            progress = lambda text: self.update(job_id,stage=text)
+            if payload['action'] == 'review':
+                self.evolution.review(study_id,progress)
+            else:
+                candidates = payload.get('candidates')
+                self.evolution.run_round(study_id,candidates,payload.get('feedback',''),
+                                         'agent-import' if candidates is not None else 'rule-baseline',progress)
+            self.update(job_id,status='completed',stage='研究结果已保存')
+        except Exception as exc:
+            self.update(job_id,status='failed',stage='研究未完成，可查看记录后继续',error=str(exc))
+
     def validate_factor(self, request):
         from factorlab.core import REGISTRY
         if self.data_error:
@@ -284,7 +319,7 @@ def make_handler(application):
             try:
                 if route.startswith('/reports/'):
                     name=route.removeprefix('/reports/')
-                    if name not in {'index.html','5dr.html','breakout.html','full.html','analysis.html','factors.html','manifest.json'}:
+                    if name not in {'index.html','5dr.html','breakout.html','full.html','analysis.html','factors.html','evolution.html','evolution-20261030.html','manifest.json'}:
                         raise FileNotFoundError('报告不存在')
                     return self.send_file(ROOT/'report_site'/name)
                 if route == '/factors':
@@ -299,6 +334,15 @@ def make_handler(application):
                     return
                 if route == '/api/factors':
                     return self.json_response(application.factor_summary())
+                if route == '/api/evolution':
+                    return self.json_response(application.evolution.list())
+                if route.startswith('/api/evolution/'):
+                    parts = route.strip('/').split('/')
+                    if len(parts) == 3:
+                        return self.json_response(application.evolution.read(parts[2]))
+                    if len(parts) == 4 and parts[3] == 'proposal':
+                        return self.json_response(application.evolution.propose(parts[2]))
+                    raise FileNotFoundError('研究接口不存在')
                 if route in {"/api/5dr-review","/api/breakout-review"}:
                     directory=ROOT/"results"/("breakout_review" if route=="/api/breakout-review" else "5dr_review")
                     status=json.loads((directory/"run_status.json").read_text())
@@ -338,7 +382,8 @@ def make_handler(application):
                     if not path.is_file(): raise FileNotFoundError("文件不存在")
                     return self.send_file(path,attachment=parts[3]!="report.html")
                 assets = {"/":"index.html","/index.html":"index.html","/style.css":"style.css","/art.css":"art.css","/app.js":"app.js",
-                          "/5dr":"5dr.html","/5dr.css":"5dr.css","/5dr.js":"5dr.js","/breakout":"breakout.html"}
+                          "/5dr":"5dr.html","/5dr.css":"5dr.css","/5dr.js":"5dr.js","/breakout":"breakout.html",
+                          "/factors/improve":"evolution.html","/evolution.css":"evolution.css","/evolution.js":"evolution.js"}
                 if route not in assets: raise FileNotFoundError("页面不存在")
                 return self.send_file(ROOT/"web/dist"/assets[route])
             except FileNotFoundError as exc: self.json_response({"error":str(exc)},404)
@@ -365,13 +410,20 @@ def make_handler(application):
                 origin = self.headers.get("Origin")
                 if origin and origin not in allowed_origins: return self.json_response({"error":"拒绝跨站请求"},403)
                 route=urlparse(self.path).path
-                if route not in ("/api/runs","/api/factor-runs"): raise FileNotFoundError("接口不存在")
+                if route not in ("/api/runs","/api/factor-runs","/api/evolution") and not route.startswith('/api/evolution/'):
+                    raise FileNotFoundError("接口不存在")
                 if self.headers.get("Content-Type","").split(";")[0] != "application/json":
                     return self.json_response({"error":"需要 application/json"},415)
                 length = int(self.headers.get("Content-Length","0"))
                 maximum=15_000_000 if route=='/api/factor-runs' else 2_000_000
                 if not 0 < length <= maximum: raise ValueError("请求为空或过大")
                 payload = json.loads(self.rfile.read(length))
+                if route == '/api/evolution':
+                    return self.json_response(application.evolution.create(payload),201)
+                if route.startswith('/api/evolution/'):
+                    parts = route.strip('/').split('/')
+                    if len(parts) != 3: raise FileNotFoundError('研究接口不存在')
+                    return self.json_response(application.submit_evolution(parts[2],payload),202)
                 if route=='/api/factor-runs':
                     return self.json_response(application.submit_factor(payload),202)
                 return self.json_response(application.submit(payload),202)
