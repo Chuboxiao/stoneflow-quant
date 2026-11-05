@@ -47,7 +47,7 @@ python validate_results.py
 
 上述命令重跑个股突破实验，共同区间2020-07-01至2026-10-16，共1526个交易日；此前行情仅用于指标预热。输出为`results/research/`；六个独立子账户保存在其`subaccounts/`内。`validate_results.py`检查已保存账本，因此运行前保留或重建演示与严格模式结果。全池5DR、突破与股票分组实验见各自复现指南。
 
-全仓库94项单元测试在pandas 2与3均通过；原主研究39组与补充研究17组精度账户保留独立账本重放记录，另有9组个股、演示及严格模式账户完成重放。原验证记录位于`results/final_review/`，新增因子验证见[因子评价README](README_FACTORS.md#结果与验证)。这些检查验证实现与账本一致性，策略表现仍需结合样本、数据和成交假设解读。
+原主研究39组与补充研究17组精度账户保留[独立账本重放记录](results/final_review/ledger_replay.json)，另有9组个股、演示及严格模式账户完成重放。历史[pandas兼容性验证](results/final_review/ci_compatibility.json)与对应测试日志保留在`results/final_review/`；当前测试范围见[项目总览](README.md#数据与验证)，新增因子验证见[因子评价README](README_FACTORS.md#结果与验证)。这些检查验证实现与账本一致性，策略表现仍需结合样本、数据和成交假设解读。
 
 
 

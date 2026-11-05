@@ -6,6 +6,8 @@
 
 [实验报告](results/evolution_runs/a4099ff45a9f/REPORT.md) · [全部实验记录](results/evolution_runs/a4099ff45a9f/study.json) · [逐候选CSV](results/evolution_runs/a4099ff45a9f/candidates.csv)
 
+**实验数据图（非网页截图）**：下方两图根据保存的实验记录重新排版，用于展示候选筛选与结果对比；本机操作页面采用不同布局。
+
 ![三轮因子研究的前后对比：验证IC提高、验证正IC月份减少、回顾收益差仍为负](docs/stoneflow-evolution-results.svg)
 
 ![9个新候选的单因子验证IC、组合增量及保留淘汰决定](docs/stoneflow-evolution-candidates.svg)

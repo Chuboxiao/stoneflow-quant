@@ -11,3 +11,14 @@ results/factor_runs/
 results/evolution_runs/*/study.lock
 results/evolution_runs/*/*.tmp
 work/
+
+# Local credentials and working notes are not part of the research package.
+.env
+.env.*
+!.env.example
+local_notes/
+/SUBMISSION*.md
+/FINAL_REVIEW.md
+/results/final_review/submission_receipt.json
+/results/final_review/delivery_checks.json
+/results/final_review/pages_deployment.json

@@ -6,7 +6,7 @@
 
 因子观测台的独立交互快照为`report_site/factors.html`，可离线阅读；推送后须手动部署Pages，才会更新线上站点。
 
-因子改进快照为`report_site/evolution.html`，由`results/evolution_runs/`中保存的实验生成，可筛选轮次、展开候选和导出状态；`evolution-20261030.html`保存早期探索记录。两者均只读，本机运行入口为`/factors/improve`。第六讲此次只推送仓库，新增快照尚未部署到Pages。
+因子改进快照为`report_site/evolution.html`，由`results/evolution_runs/`中保存的实验生成，可筛选轮次、展开候选和导出状态；`evolution-20261030.html`保存早期探索记录。两者均只读，本机运行入口为`/factors/improve`。新增快照目前包含在仓库中，尚未部署到Pages。
 
 ## 两种网页各做什么
 
@@ -15,7 +15,7 @@
 | `report_site/index.html`及GitHub Pages | 阅读已保存的5DR、20日突破、完整报告和因子评价，含图表、表格、机制与股票子集分析 | 不需要 |
 | `python web_server.py`启动的`127.0.0.1` | 本机研究工作台、参数修改、策略运行、因子评价与CSV导入、查看与导出结果 | 重新回测需要依赖和行情；全池研究另见精度指南 |
 
-老师不能通过自己的电脑打开你电脑上的`127.0.0.1`。GitHub仓库文件页通常展示HTML源文件；使用Pages才能把静态报告按网页提供。Pages托管不运行Python，因此不能代替本机回测服务。
+`127.0.0.1`仅指当前设备，不能用于向其他设备分享本机服务。GitHub仓库文件页通常展示HTML源文件；使用Pages才能把静态报告按网页提供。Pages托管不运行Python，因此不能代替本机回测服务。
 
 现在下载仓库后，双击`report_site/index.html`即可离线阅读并在报告间切换。页面使用相对导航、内嵌CSS与SVG，无需第三方字体、CDN、数据接口或本机文件路径。
 
@@ -44,12 +44,12 @@ python3 -m http.server 8768 --bind 127.0.0.1 --directory report_site
 
 ## 发布流程
 
-代码推送、网页部署与课程评论分别执行。
+代码推送与网页部署分别执行。
 
 1. 在保存待发布版本的分支运行`bash push_to_github.sh --publish-reviewed`，把当前HEAD推送至远程`main`。脚本不切换本地分支、不强制覆盖远程；普通运行只显示说明，不发布。
 2. 在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
 3. 在 **Actions → Publish read-only research reports → Run workflow**，选择`main`并手动运行。工作流只上传`report_site/`，不会发布课程数据、辅助缓存或完整仓库。
-4. 等待部署成功，分别验证下列线上地址和评论内的截图链接。确认成功后，将README的在线访问说明更新为实际状态，再发布课程评论。未部署的地址不能当作已可访问的网页。
+4. 等待部署成功，验证下列线上地址、页面导航和图片链接，再将README的在线访问说明更新为实际状态。未部署的地址不能当作已可访问的网页。
 
 | 报告 | 访问地址 |
 | --- | --- |
